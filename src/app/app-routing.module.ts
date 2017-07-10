@@ -12,7 +12,6 @@ import { HuewiRulesComponent } from './huewi-rules/huewi-rules.component';
 import { HuewiScenesComponent } from './huewi-scenes/huewi-scenes.component';
 import { HuewiSchedulesComponent } from './huewi-schedules/huewi-schedules.component';
 import { HuewiSensorsComponent } from './huewi-sensors/huewi-sensors.component';
-import { HuewiMenuComponent } from './huewi-menu/huewi-menu.component';
 
 export const appRoutes: Routes = [
   { path: 'groups', component: HuewiGroupsComponent },
@@ -23,7 +22,6 @@ export const appRoutes: Routes = [
   { path: 'rules', component: HuewiRulesComponent },
   { path: 'schedules', component: HuewiSchedulesComponent },
   { path: 'sensors', component: HuewiSensorsComponent },
-  { path: 'menu', component: HuewiMenuComponent },
   { path: '', component: HuewiOverviewComponent },
   { path: '**', redirectTo: '/overview'}
 ];

@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { HuewiMenuComponent } from './huewi-menu/huewi-menu.component';
 import { HuewiGroupsComponent } from './huewi-groups/huewi-groups.component';
 import { HuewiLightsComponent } from './huewi-lights/huewi-lights.component';
 import { HuewiOverviewComponent } from './huewi-overview/huewi-overview.component';
@@ -21,7 +20,6 @@ import { HuewiSensorsComponent } from './huewi-sensors/huewi-sensors.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HuewiMenuComponent,
     HuewiGroupsComponent,
     HuewiLightsComponent,
     HuewiOverviewComponent,

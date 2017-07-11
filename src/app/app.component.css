@@ -1,0 +1,13 @@
+.mat-sidenav {
+    min-width: 30%; 
+    max-width: 70%;
+}
+
+.linkactive {
+    color: black;
+    background: lightblue;
+}
+
+.mat-sidenav-container {
+    min-height: 100%;
+}

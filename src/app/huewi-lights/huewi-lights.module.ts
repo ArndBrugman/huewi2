@@ -5,7 +5,6 @@ import { MaterialModule } from '@angular/material';
 
 import { HuewiLightsComponent } from './huewi-lights.component';
 import { HuewiLightComponent } from './huewi-light/huewi-light.component'
-import { HuewiDetailsComponent }  from '../huewi-details/huewi-details.component';
 
 import { HuewiLightsRoutingModule } from './huewi-lights-routing.module'
 
@@ -16,8 +15,12 @@ import { HuewiLightsRoutingModule } from './huewi-lights-routing.module'
     HuewiLightsRoutingModule
   ],
   declarations: [
-    //HuewiLightsComponent,
-    //HuewiLightsComponent
+    HuewiLightsComponent,
+    HuewiLightComponent
+  ],
+  exports: [
+    HuewiLightsComponent,
+    HuewiLightComponent
   ]
 })
 export class HuewiLightsModule { }

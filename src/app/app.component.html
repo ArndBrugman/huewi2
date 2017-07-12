@@ -4,9 +4,9 @@
     <button md-icon-button (click)="sidenav.toggle()">
       <md-icon>more_vert</md-icon>
     </button>
-    <button md-icon-button [md-menu-trigger-for]="menu">
+    <!--button md-icon-button [md-menu-trigger-for]="menu">
       <md-icon>more_vert</md-icon>
-    </button>
+    </button-->
     <span>hue Web Interface</span>
   </md-toolbar>
     
@@ -24,7 +24,7 @@
     </md-nav-list>
   </md-sidenav>
 
-  <md-menu x-position="before" #menu="mdMenu">
+  <!--md-menu x-position="before" #menu="mdMenu">
     <a md-menu-item routerLink="/home" routerLinkActive="linkactive">Home</a>
     <a md-menu-item routerLink="/groups" routerLinkActive="linkactive">Groups</a>
     <a md-menu-item routerLink="/lights" routerLinkActive="linkactive">Lights</a>
@@ -34,7 +34,7 @@
     <a md-menu-item routerLink="/sensors" routerLinkActive="linkactive">Sensors</a>
     <a md-menu-item routerLink="/bridges" routerLinkActive="linkactive">Bridges</a>
     <a md-menu-item routerLink="/about" routerLinkActive="linkactive">About</a>
-  </md-menu>
+  </md-menu-->
 
   <nav md-tab-nav-bar #navbar>
     <a md-tab-link routerLink="/home" routerLinkActive="linkactive">Home</a>

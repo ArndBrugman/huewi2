@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HuewiGroupsComponent } from '../huewi-groups/huewi-groups.component';
 
 @Component({
   selector: 'huewi-home',

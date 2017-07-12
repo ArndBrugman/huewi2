@@ -7,13 +7,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./huewi-details.component.css']
 })
 export class HuewiDetailsComponent implements OnInit {
-  type: string;
-  id: number;
+  type: string; // light or group
+  id: string;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
-        this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+        this.id = this.activatedRoute.snapshot.paramMap.get('id');
         this.activatedRoute.url.subscribe((urlPath) => {
           this.type = urlPath[urlPath.length - 2].path;
         })

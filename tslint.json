@@ -110,13 +110,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "huewi",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "huewi",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'huewi-light',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./huewi-light.component.css']
 })
 export class HuewiLightComponent implements OnInit {
+  @Input() light;
 
   constructor() { }
 

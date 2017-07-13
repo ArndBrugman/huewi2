@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,6 +19,15 @@ import { HuewiBridgesComponent } from './huewi-bridges/huewi-bridges.component';
 import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    NgbModule.forRoot(),
+    HuewiGroupsModule,
+    HuewiLightsModule,
+    AppRoutingModule
+  ],
   declarations: [
     AppComponent,
     HuewiDetailsComponent,
@@ -29,15 +38,6 @@ import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
     HuewiSensorsComponent,
     HuewiBridgesComponent,
     HuewiAboutComponent
-  ],
-  imports: [
-    BrowserModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    NgbModule.forRoot(),
-    HuewiGroupsModule,
-    HuewiLightsModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

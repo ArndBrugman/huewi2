@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HUEWI_LIGHTS_MOCK } from './huewi-lights.mock'
+
+import { trigger, state, animate, transition, style } from '@angular/animations';
 
 @Component({
   selector: 'huewi-lights',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./huewi-lights.component.css']
 })
 export class HuewiLightsComponent implements OnInit {
+  @Input() lights = HUEWI_LIGHTS_MOCK;
 
   constructor() { }
 

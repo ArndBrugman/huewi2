@@ -1,13 +1,18 @@
-import { trigger, state, animate, transition, style } from '@angular/animations';
+import { trigger, state, animate, transition, style, group } from '@angular/animations';
 
-export const flyInOut = trigger('flyInOut', [
-    // route 'enter' transition
+export const fadeInOut = trigger('fadeInOut', [
     transition(':enter', [
-
-        // styles at start of transition
-        style({ opacity: 0 }),
-
-        // animation and styles at end of transition
-        animate('.3s', style({ opacity: 1 }))
+      style({transform: 'translateX(-100%)'}),
+      animate(350)
     ]),
+    transition(':leave', [
+      group([
+        animate('0.2s ease', style({
+          transform: 'translate(150px,25px)'
+        })),
+        animate('0.5s 0.2s ease', style({
+          opacity: 0
+        }))
+      ])
+    ])
 ]);

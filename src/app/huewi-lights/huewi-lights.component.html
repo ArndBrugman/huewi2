@@ -1,7 +1,9 @@
 <md-card>
   <md-card-title>Lights</md-card-title>
-  <md-card-content>
-    <p>Something pretty...</p>
-    <img md-card-image src="https://source.unsplash.com/random/800x600">
-  </md-card-content>
+
+    <huewi-light 
+    *ngFor="let light of lights"
+    [light]="light">
+  </huewi-light>
+
 </md-card>

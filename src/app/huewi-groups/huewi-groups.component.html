@@ -1,6 +1,9 @@
 <md-card>
   <md-card-title>Groups</md-card-title>
-  <md-slider></md-slider>
-  <md-slider disabled></md-slider>
-  <md-slider value="75"></md-slider>
+
+  <huewi-group 
+    *ngFor="let group of groups"
+    [group]="group">
+  </huewi-group>
+
 </md-card>

@@ -5,26 +5,29 @@
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' />
   <meta name='mobile-web-app-capable' content='yes' />
-  <meta name='mobile-web-app-title' content='bonansi' />
+  <meta name='mobile-web-app-title' content='huewi2' />
   <meta name='apple-mobile-web-app-capable' content='yes' />
-  <meta name='apple-mobile-web-app-title' content='bonansi' />
+  <meta name='apple-mobile-web-app-title' content='huewi2' />
   <meta name='apple-mobile-web-app-status-bar-style' content='black' />
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <base href="/">
-  <!--script>
-    document.write('<base href="' + document.location + '" />');
-    console.log('<base href="' + document.location + '" />');
-  </script-->
+  <script>
+    if (document.location.port !== "") {
+      document.write('<base href="/" />');
+      console.log('preview on <base href="/" />');
+    } else {
+      document.write('<base href="' + document.location + '" />');
+      console.log('running on <base href="' + document.location + '" />');
+    }
+  </script>
 
   <title>Hue Web Interface</title>
-
 </head>
+
 <body>
   <huewi-app-root>
-    Loading...
   </huewi-app-root>
 </body>
 </html>

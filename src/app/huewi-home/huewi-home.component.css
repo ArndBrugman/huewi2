@@ -1,0 +1,12 @@
+@media screen and (orientation:landscape) {
+  div {
+    float: left;
+    width: 50%;
+  }
+}
+@media screen and (orientation:portrait) {
+  div {
+    float: left;
+    width: 100%;
+  }
+}

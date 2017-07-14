@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HuewiGroupComponent implements OnInit {
   @Input() group = {};
-  
+
   constructor() { }
 
   ngOnInit() {

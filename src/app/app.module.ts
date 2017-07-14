@@ -7,15 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { HuewiHomeComponent } from './huewi-home/huewi-home.component';
 import { HuewiGroupsModule } from './huewi-groups/huewi-groups.module';
 import { HuewiLightsModule } from './huewi-lights/huewi-lights.module';
-import { HuewiHomeComponent } from './huewi-home/huewi-home.component';
-import { HuewiDetailsComponent } from './huewi-details/huewi-details.component';
-import { HuewiRulesComponent } from './huewi-rules/huewi-rules.component';
-import { HuewiScenesComponent } from './huewi-scenes/huewi-scenes.component';
-import { HuewiSchedulesComponent } from './huewi-schedules/huewi-schedules.component';
-import { HuewiSensorsComponent } from './huewi-sensors/huewi-sensors.component';
-import { HuewiBridgesComponent } from './huewi-bridges/huewi-bridges.component';
+import { HuewiRulesModule } from './huewi-rules/huewi-rules.module';
+import { HuewiScenesModule } from './huewi-scenes/huewi-scenes.module';
+import { HuewiSchedulesModule } from './huewi-schedules/huewi-schedules.module';
+import { HuewiSensorsModule } from './huewi-sensors/huewi-sensors.module';
+import { HuewiBridgesModule } from './huewi-bridges/huewi-bridges.module';
 import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
 
 @NgModule({
@@ -26,17 +25,16 @@ import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
     NgbModule.forRoot(),
     HuewiGroupsModule,
     HuewiLightsModule,
+    HuewiRulesModule,
+    HuewiScenesModule,
+    HuewiSchedulesModule,
+    HuewiSensorsModule,
+    HuewiBridgesModule,
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    HuewiDetailsComponent,
     HuewiHomeComponent,
-    HuewiRulesComponent,
-    HuewiScenesComponent,
-    HuewiSchedulesComponent,
-    HuewiSensorsComponent,
-    HuewiBridgesComponent,
     HuewiAboutComponent
   ],
   providers: [],

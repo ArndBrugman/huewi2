@@ -1,4 +1,4 @@
-export const HUEWI_LIGHTS_MOCK= [
+export const HUEWI_LIGHTS_MOCK = [
     {
         "state": {
             "on": true,

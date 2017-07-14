@@ -1,4 +1,4 @@
-export const HUEWI_GROUPS_MOCK= [
+export const HUEWI_GROUPS_MOCK = [
     {
         "name": "All available lights",
         "type": "LightGroup",

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HuewiLightsComponent } from './huewi-lights.component';
-import { HuewiDetailsComponent } from '../huewi-details/huewi-details.component';
+import { HuewiLightDetailsComponent } from './huewi-light-details/huewi-light-details.component';
 
 const huewiLightsRoutes: Routes = [
   { path: 'lights',  component: HuewiLightsComponent },
-  { path: 'light/:id', component: HuewiDetailsComponent }
+  { path: 'lights/:id', component: HuewiLightDetailsComponent }
 ];
 
 @NgModule({

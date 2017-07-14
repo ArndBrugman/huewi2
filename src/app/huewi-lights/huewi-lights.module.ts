@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 
 import { HuewiLightsComponent } from './huewi-lights.component';
-import { HuewiLightComponent } from './huewi-light/huewi-light.component'
+import { HuewiLightComponent } from './huewi-light/huewi-light.component';
+import { HuewiLightDetailsComponent } from './huewi-light-details/huewi-light-details.component';
 
-import { HuewiLightsRoutingModule } from './huewi-lights-routing.module'
+import { HuewiLightsRoutingModule } from './huewi-lights-routing.module';
 
 @NgModule({
   imports: [
@@ -16,11 +17,13 @@ import { HuewiLightsRoutingModule } from './huewi-lights-routing.module'
   ],
   declarations: [
     HuewiLightsComponent,
-    HuewiLightComponent
+    HuewiLightComponent,
+    HuewiLightDetailsComponent
   ],
   exports: [
     HuewiLightsComponent,
-    HuewiLightComponent
+    HuewiLightComponent,
+    HuewiLightDetailsComponent
   ]
 })
 export class HuewiLightsModule { }

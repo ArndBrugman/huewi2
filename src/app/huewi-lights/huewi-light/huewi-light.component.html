@@ -1,17 +1,17 @@
-<div class="row">
-  <span class="col-xs-4 col-sm-5 col-md-4 col-lg-3">
+<span class="row">
+  <span class="col-4">
     {{light.name}}
   </span>
-  <span class="col-xs-6 col-sm-5 col-md-7 col-lg-8">
+  <span class="col-6">
     <md-slider class="col-12"
       disabled="{{!light.state.on}}"
       [min]="0" [max]="255" [step]="1" [value]="light.state.bri">
     </md-slider>
   </span>
-  <span class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+  <span class="col-2 col-xs">
     <md-slide-toggle
       disabled="{{!light.state.reachable}}"
       [checked]="light.state.on">
     </md-slide-toggle>
   </span>
-</div>
+</span>

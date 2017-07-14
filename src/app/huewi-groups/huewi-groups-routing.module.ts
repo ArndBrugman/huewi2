@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HuewiGroupsComponent } from './huewi-groups.component';
-import { HuewiDetailsComponent } from '../huewi-details/huewi-details.component';
+import { HuewiGroupDetailsComponent } from './huewi-group-details/huewi-group-details.component';
 
 const huewiGroupsRoutes: Routes = [
   { path: 'groups',  component: HuewiGroupsComponent },
-  { path: 'group/:id', component: HuewiDetailsComponent }
+  { path: 'groups/:id', component: HuewiGroupDetailsComponent }
 ];
 
 @NgModule({

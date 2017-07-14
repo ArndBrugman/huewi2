@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HuewiDetailsComponent } from './huewi-details.component';
+import { HuewiLightDetailsComponent } from './huewi-light-details.component';
 
-describe('HuewiDetailsComponent', () => {
-  let component: HuewiDetailsComponent;
-  let fixture: ComponentFixture<HuewiDetailsComponent>;
+describe('HuewiLightDetailsComponent', () => {
+  let component: HuewiLightDetailsComponent;
+  let fixture: ComponentFixture<HuewiLightDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HuewiDetailsComponent ]
+      declarations: [ HuewiLightDetailsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HuewiDetailsComponent);
+    fixture = TestBed.createComponent(HuewiLightDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

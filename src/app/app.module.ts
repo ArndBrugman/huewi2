@@ -1,3 +1,6 @@
+import { enableProdMode } from '@angular/core';
+//enableProdMode();
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
@@ -5,6 +8,8 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
+
+import { HuepiService } from './huepi.service';
 
 import { AppComponent } from './app.component';
 import { HuewiHomeComponent } from './huewi-home/huewi-home.component';
@@ -37,7 +42,9 @@ import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
     HuewiHomeComponent,
     HuewiAboutComponent
   ],
-  providers: [],
+  providers: [
+    HuepiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

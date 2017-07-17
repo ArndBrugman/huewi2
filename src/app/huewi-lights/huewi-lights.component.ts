@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HUEWI_LIGHTS_MOCK } from './huewi-lights.mock'
 
+import { HuepiService } from '../huepi.service';
+
 import { trigger, state, animate, transition, style } from '@angular/animations';
 
 @Component({
@@ -11,9 +13,10 @@ import { trigger, state, animate, transition, style } from '@angular/animations'
 export class HuewiLightsComponent implements OnInit {
   @Input() lights = HUEWI_LIGHTS_MOCK;
 
-  constructor() { }
+  constructor(public huepiService: HuepiService) {
+    this.lights = this.huepiService.lights;
+  }
 
   ngOnInit() {
   }
-
 }

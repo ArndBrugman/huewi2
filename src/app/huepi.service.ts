@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import 'assets/axios.js';
+import * as axios from 'axios'
 import { huepi } from 'assets/huepi.js';
-import 'assets/axios.js';
 
 @Injectable()
 export class HuepiService {

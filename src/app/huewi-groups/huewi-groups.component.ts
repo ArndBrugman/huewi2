@@ -14,7 +14,7 @@ import { fadeInOut } from '../app-routing.animations';
 export class HuewiGroupsComponent implements OnInit {
   @Input() groups = HUEWI_GROUPS_MOCK;
 
-  constructor(public huepiService: HuepiService) {
+  constructor(private huepiService: HuepiService) {
     this.groups = this.huepiService.groups;
   }
 

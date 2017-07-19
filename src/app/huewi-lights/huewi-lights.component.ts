@@ -13,7 +13,7 @@ import { trigger, state, animate, transition, style } from '@angular/animations'
 export class HuewiLightsComponent implements OnInit {
   @Input() lights = HUEWI_LIGHTS_MOCK;
 
-  constructor(public huepiService: HuepiService) {
+  constructor(private huepiService: HuepiService) {
     this.lights = this.huepiService.lights;
   }
 

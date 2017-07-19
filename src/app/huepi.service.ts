@@ -3,19 +3,21 @@ import axios from 'axios';
 import { huepi } from '../assets/huepi.js';
 huepi.http = axios.create();
 import { HUEPI_MOCK } from './huepi.mock'
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 @Injectable()
 export class HuepiService {
-  private MyHue;
+  public MyHue;
 
-  private groups: Array<any>;
-  private lights: Array<any>;
-  private rules: Array<any>;
-  private scenes: Array<any>;
-  private schedules: Array<any>;
-  private sensors: Array<any>;
+  private groups: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
+  private lights: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
+  private rules: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
+  private scenes: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
+  private schedules: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
+  private sensors: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
 
   constructor() {
     this.MyHue = new huepi();
@@ -33,57 +35,55 @@ export class HuepiService {
       });
     });
 
-    setInterval( () =>  {
-      this.MyHue['Groups'] = HUEPI_MOCK['groups'];
-      this.update();
-    }, 666);
+    setInterval(() => {
+      this.MyHue.BridgeGetData().then(() => {
+        console.log('New Data Received');
+        this.update();
+      });
+    }, 2500);
   }
 
   update () {
-
-    const groups = [];
+    let groups = [];
     if (this.MyHue.Groups) {
       Object.keys(this.MyHue.Groups).forEach((key) => {
-        this.MyHue.Groups[key].name = Date.now();
         this.MyHue.Groups[key].__key = key;
         groups.push(this.MyHue.Groups[key]);
       })
     }
-    this.groups = groups;
-
-    const lights = [];
+    this.groups.next(groups);
+ 
+    let lights = [];
     if (this.MyHue.Lights) {
       Object.keys(this.MyHue.Lights).forEach((key) => {
         this.MyHue.Lights[key].__key = key;
         lights.push(this.MyHue.Lights[key]);
       })
     }
-    this.lights = lights;
-
-    console.log('Update', JSON.stringify(this.groups));
+    this.lights.next(lights);
   }
 
   getGroups(): Observable<Array<any>> {
-    return Observable.of(this.groups);
+    return this.groups;
   }
 
   getLights(): Observable<Array<any>> {
-    return Observable.of(this.lights);
+    return this.lights;
   }
 
   getRules(): Observable<Array<any>> {
-    return Observable.of(this.rules);
+    return this.rules;
   }
 
   getScenes(): Observable<Array<any>> {
-    return Observable.of(this.scenes);
+    return this.scenes;
   }
 
   getSchedules(): Observable<Array<any>> {
-    return Observable.of(this.schedules);
+    return this.schedules;
   }
 
   getSensors(): Observable<Array<any>> {
-    return Observable.of(this.sensors);
+    return this.sensors;
   }
 }

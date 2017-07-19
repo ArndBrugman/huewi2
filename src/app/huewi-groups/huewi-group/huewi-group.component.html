@@ -10,7 +10,8 @@
   </span>
   <span class="col-2">
     <md-slide-toggle
-      [checked]="group.action.on">
+      [checked]="group.action.on"
+      (click)="toggle(group)">
     </md-slide-toggle>
   </span>
 </span>

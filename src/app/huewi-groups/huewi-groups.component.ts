@@ -14,12 +14,14 @@ import { fadeInOut } from '../app-routing.animations';
   animations: [fadeInOut]
 })
 export class HuewiGroupsComponent implements OnInit {
+  private type:string = 'Rooms';
   @Input() groups = HUEWI_GROUPS_MOCK;
   private groupObserver: Observable<Array<any>> = Observable.of(this.groups);
 
   constructor(private huepiService: HuepiService) {
     this.groupObserver = this.huepiService.getGroups();
-    this.groupObserver.subscribe((data) => this.groups = data);
+    this.groupObserver.subscribe(value => this.groups = value);
+    console.log('new groups')
   }
 
   ngOnInit() {

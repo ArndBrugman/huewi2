@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { HuepiService } from '../../huepi.service';
+
 @Component({
   selector: 'huewi-light',
   templateUrl: './huewi-light.component.html',
@@ -8,9 +10,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HuewiLightComponent implements OnInit {
   @Input() light;
 
-  constructor() { }
+  constructor(private huepiService: HuepiService) { }
 
   ngOnInit() {
   }
 
+  toggle(light) {
+    if (light.state.on === true) {
+      this.huepiService.MyHue.LightOff(light.__key);
+    } else {
+      this.huepiService.MyHue.LightOn(light.__key);
+    } 
+  }
 }

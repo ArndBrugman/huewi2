@@ -11,7 +11,8 @@
   <span class="col-2 col-xs">
     <md-slide-toggle
       disabled="{{!light.state.reachable}}"
-      [checked]="light.state.on">
+      [checked]="light.state.on"
+      (click)="toggle(light)">
     </md-slide-toggle>
   </span>
 </span>

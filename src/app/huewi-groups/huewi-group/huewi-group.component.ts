@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { HuepiService } from '../../huepi.service';
+
 @Component({
   selector: 'huewi-group',
   templateUrl: './huewi-group.component.html',
@@ -8,9 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HuewiGroupComponent implements OnInit {
   @Input() group = {};
 
-  constructor() { }
+  constructor(private huepiService: HuepiService) { 
+  }
 
   ngOnInit() {
   }
 
+  toggle(group) {
+    if (group.action.on === true) {
+      this.huepiService.MyHue.GroupOff(group.__key);
+    } else {
+      this.huepiService.MyHue.GroupOn(group.__key);
+    } 
+  }
 }

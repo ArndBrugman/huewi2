@@ -100,19 +100,19 @@ export const HUEPI_MOCK = {
 		"linkbutton": false,
 		"portalservices": false
 	},
-        "swupdate2": {
-            "checkforupdate": false,
-            "lastchange": "2017-06-21T19:44:36",
-            "bridge": {
-                "state": "noupdates",
-                "lastinstall": "2017-06-21T19:44:18"
-            },
-            "state": "noupdates",
-            "autoinstall": {
-                "updatetime": "T14:00:00",
-                "on": false
-            }
-        },
+	"swupdate2": {
+		"checkforupdate": false,
+		"lastchange": "2017-06-21T19:44:36",
+		"bridge": {
+			"state": "noupdates",
+			"lastinstall": "2017-06-21T19:44:18"
+		},
+		"state": "noupdates",
+		"autoinstall": {
+			"updatetime": "T14:00:00",
+			"on": false
+		}
+	},
 	"schedules": {
 		"1": {
 			"name": "schedule",

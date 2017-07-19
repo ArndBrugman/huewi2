@@ -11,7 +11,7 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./huewi-sensors.component.css']
 })
 export class HuewiSensorsComponent implements OnInit {
-  @Input() sensors;// = HUEWI_SENSORS_MOCK;
+  @Input() sensors; // = HUEWI_SENSORS_MOCK;
   private sensorsObserver: Observable<Array<any>> = Observable.of(this.sensors);
 
   constructor(private huepiService: HuepiService) {

@@ -11,7 +11,7 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./huewi-schedules.component.css']
 })
 export class HuewiSchedulesComponent implements OnInit {
-  @Input() schedules;// = HUEWI_SCHEDULES_MOCK;
+  @Input() schedules; // = HUEWI_SCHEDULES_MOCK;
   private schedulesObserver: Observable<Array<any>> = Observable.of(this.schedules);
 
   constructor(private huepiService: HuepiService) {

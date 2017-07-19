@@ -11,7 +11,7 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./huewi-scenes.component.css']
 })
 export class HuewiScenesComponent implements OnInit {
-  @Input() scenes;// = HUEWI_SCENES_MOCK;
+  @Input() scenes; // = HUEWI_SCENES_MOCK;
   private scenesObserver: Observable<Array<any>> = Observable.of(this.scenes);
 
   constructor(private huepiService: HuepiService) {

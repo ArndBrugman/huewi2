@@ -1,9 +1,9 @@
 <md-card>
   <md-card-title>Scenes</md-card-title>
 
-  <huewi-scene>
+  <huewi-scene 
+    *ngFor="let scene of scenes"
+    [scene]="scene">
   </huewi-scene>
-  <huewi-scene-details>
-  </huewi-scene-details>
-  
+
 </md-card>

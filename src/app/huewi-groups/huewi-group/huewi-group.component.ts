@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HuepiService } from '../../huepi.service';
 
@@ -8,12 +9,16 @@ import { HuepiService } from '../../huepi.service';
   styleUrls: ['./huewi-group.component.css']
 })
 export class HuewiGroupComponent implements OnInit {
-  @Input() group = {};
+  @Input() group = { };
 
-  constructor(private huepiService: HuepiService) { 
+  constructor(private huepiService: HuepiService, private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+  select(group) {
+    this.router.navigate(['/groups', group.__key]);
   }
 
   toggle(group) {
@@ -21,6 +26,6 @@ export class HuewiGroupComponent implements OnInit {
       this.huepiService.MyHue.GroupOff(group.__key);
     } else {
       this.huepiService.MyHue.GroupOn(group.__key);
-    } 
+    }
   }
 }

@@ -1,9 +1,9 @@
 <md-card>
   <md-card-title>Sensors</md-card-title>
 
-  <huewi-sensor>
+  <huewi-sensor 
+    *ngFor="let sensor of sensors"
+    [sensor]="sensor">
   </huewi-sensor>
-  <huewi-sensor-details>
-  </huewi-sensor-details>
   
 </md-card>

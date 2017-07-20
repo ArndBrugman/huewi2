@@ -1,6 +1,7 @@
 <span class="row">
-  <span class="col-4">
-    {{group.name}}
+  <span class="col-4"
+    (click)="select(group)">
+      {{group.name}}
   </span>
   <span class="col-6">
     <md-slider class="col-12"

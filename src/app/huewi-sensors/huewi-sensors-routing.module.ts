@@ -6,7 +6,7 @@ import { HuewiSensorDetailsComponent } from './huewi-sensor-details/huewi-sensor
 
 const huewiSensorsRoutes: Routes = [
   { path: 'sensors',  component: HuewiSensorsComponent },
-  { path: 'sensors/:id', component: HuewiSensorDetailsComponent }
+  { path: 'sensors/:id', component: HuewiSensorsComponent }
 ];
 
 @NgModule({

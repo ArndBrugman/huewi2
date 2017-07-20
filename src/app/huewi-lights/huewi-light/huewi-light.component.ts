@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HuepiService } from '../../huepi.service';
 
@@ -10,9 +11,14 @@ import { HuepiService } from '../../huepi.service';
 export class HuewiLightComponent implements OnInit {
   @Input() light;
 
-  constructor(private huepiService: HuepiService) { }
+  constructor(private huepiService: HuepiService, private router: Router) {
+  }
 
   ngOnInit() {
+  }
+
+  select(light) {
+    this.router.navigate(['/lights', light.__key]);
   }
 
   toggle(light) {
@@ -20,6 +26,6 @@ export class HuewiLightComponent implements OnInit {
       this.huepiService.MyHue.LightOff(light.__key);
     } else {
       this.huepiService.MyHue.LightOn(light.__key);
-    } 
+    }
   }
 }

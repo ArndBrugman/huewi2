@@ -1,9 +1,18 @@
 <md-card>
-  <md-card-title>Groups</md-card-title>
 
-  <huewi-group 
-    *ngFor="let group of groups"
-    [group]="group">
-  </huewi-group>
+  <div *ngIf="!selectedGroup">
+    <md-card-title>Groups</md-card-title>
+    <huewi-group 
+      *ngFor="let group of groups"
+      [group]="group">
+    </huewi-group>
+  </div>
+
+  <div *ngIf="selectedGroup">
+    <md-card-title>Group Details</md-card-title>
+    <huewi-group-details
+      [group]="selectedGroup">
+    </huewi-group-details>
+  </div>
 
 </md-card>

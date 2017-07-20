@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { HuepiService } from '../../huepi.service';
 
 @Component({
   selector: 'huewi-scene',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./huewi-scene.component.css']
 })
 export class HuewiSceneComponent implements OnInit {
+  @Input() scene = { };
 
-  constructor() { }
+  constructor(private huepiService: HuepiService) {
+
+  }
 
   ngOnInit() {
   }

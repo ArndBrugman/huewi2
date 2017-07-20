@@ -1,9 +1,18 @@
 <md-card>
-  <md-card-title>Lights</md-card-title>
 
+  <div *ngIf="!selectedLight">
+    <md-card-title>Lights</md-card-title>
     <huewi-light 
-    *ngFor="let light of lights"
-    [light]="light">
-  </huewi-light>
+      *ngFor="let light of lights"
+      [light]="light">
+    </huewi-light>
+  </div>
+
+  <div *ngIf="selectedLight">
+    <md-card-title>Light Details</md-card-title>
+    <huewi-light-details
+      [light]="selectedLight">
+    </huewi-light-details>
+  </div>
 
 </md-card>

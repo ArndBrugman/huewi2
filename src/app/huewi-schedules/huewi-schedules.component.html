@@ -1,9 +1,9 @@
 <md-card>
   <md-card-title>Schedules</md-card-title>
 
-  <huewi-schedule>
+  <huewi-schedule 
+    *ngFor="let schedule of schedules"
+    [schedule]="schedule">
   </huewi-schedule>
-  <huewi-schedule-details>
-  </huewi-schedule-details>
   
 </md-card>

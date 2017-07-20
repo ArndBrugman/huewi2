@@ -6,7 +6,7 @@ import { HuewiScheduleDetailsComponent } from './huewi-schedule-details/huewi-sc
 
 const huewiSchedulesRoutes: Routes = [
   { path: 'schedules',  component: HuewiSchedulesComponent },
-  { path: 'schedules/:id', component: HuewiScheduleDetailsComponent }
+  { path: 'schedules/:id', component: HuewiSchedulesComponent }
 ];
 
 @NgModule({

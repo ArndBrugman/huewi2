@@ -6,7 +6,7 @@ import { HuewiSceneDetailsComponent } from './huewi-scene-details/huewi-scene-de
 
 const huewiScenesRoutes: Routes = [
   { path: 'scenes',  component: HuewiScenesComponent },
-  { path: 'scenes/:id', component: HuewiSceneDetailsComponent }
+  { path: 'scenes/:id', component: HuewiScenesComponent }
 ];
 
 @NgModule({

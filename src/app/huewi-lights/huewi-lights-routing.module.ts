@@ -6,7 +6,7 @@ import { HuewiLightDetailsComponent } from './huewi-light-details/huewi-light-de
 
 const huewiLightsRoutes: Routes = [
   { path: 'lights',  component: HuewiLightsComponent },
-  { path: 'lights/:id', component: HuewiLightDetailsComponent }
+  { path: 'lights/:id', component: HuewiLightsComponent }
 ];
 
 @NgModule({

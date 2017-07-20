@@ -1,17 +1,20 @@
 <span class="row">
-  <span class="col-4">
+  <span class="col-4"
+    (click)="select(light)">
     {{light.name}}
   </span>
   <span class="col-6">
     <md-slider class="col-12"
+      (change)="brightness(light, $event.value)"
       disabled="{{!light.state.on}}"
-      [min]="0" [max]="255" [step]="16" [value]="light.state.bri">
+      [min]="0" [max]="255" [step]="1" [value]="light.state.bri">
     </md-slider>
   </span>
   <span class="col-2 col-xs">
     <md-slide-toggle
       disabled="{{!light.state.reachable}}"
-      [checked]="light.state.on">
+      [checked]="light.state.on"
+      (click)="toggle(light)">
     </md-slide-toggle>
   </span>
 </span>

@@ -6,7 +6,7 @@ import { HuewiRuleDetailsComponent } from './huewi-rule-details/huewi-rule-detai
 
 const huewiRulesRoutes: Routes = [
   { path: 'rules',  component: HuewiRulesComponent },
-  { path: 'rules/:id', component: HuewiRuleDetailsComponent }
+  { path: 'rules/:id', component: HuewiRulesComponent }
 ];
 
 @NgModule({

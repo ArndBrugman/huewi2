@@ -6,7 +6,7 @@ import { HuewiGroupDetailsComponent } from './huewi-group-details/huewi-group-de
 
 const huewiGroupsRoutes: Routes = [
   { path: 'groups',  component: HuewiGroupsComponent },
-  { path: 'groups/:id', component: HuewiGroupDetailsComponent }
+  { path: 'groups/:id', component: HuewiGroupsComponent }
 ];
 
 @NgModule({

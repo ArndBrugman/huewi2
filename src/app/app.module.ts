@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 
 import { HuepiService } from './huepi.service';
@@ -27,7 +27,7 @@ import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgbModule.forRoot(),
+    // NgbModule.forRoot(),
     HuewiGroupsModule,
     HuewiLightsModule,
     HuewiRulesModule,

@@ -18,7 +18,7 @@ import { fadeInOut } from '../app-routing.animations';
   animations: [fadeInOut]
 })
 export class HuewiGroupsComponent implements OnInit, OnDestroy {
-  private type = 'Rooms';
+  private groupsType = 'Rooms';
   @Input() groups = HUEWI_GROUPS_MOCK;
   private groupsSubscription;
   private groupObserver: Observable<Array<any>> = Observable.of(this.groups);
@@ -41,8 +41,17 @@ export class HuewiGroupsComponent implements OnInit, OnDestroy {
 
   updateSelected() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log('group selected id', id);
-    this.selectedGroup = this.huepiService.MyHue.Groups[this.huepiService.MyHue.GroupGetNr(id)];
+    this.selectedGroup = this.huepiService.MyHue.Groups[id];
   }
 
+  changeGroupsType() {
+    console.log('click');
+    if (this.groupsType === 'Rooms') {
+      this.groupsType = 'Groups';
+    } else if (this.groupsType === 'Groups') {
+      this.groupsType = 'All Groups';
+    } else {
+      this.groupsType = 'Rooms';
+    }
+  }
 }

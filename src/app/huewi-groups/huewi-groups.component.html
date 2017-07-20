@@ -1,12 +1,15 @@
 <md-card>
 
   <div *ngIf="!selectedGroup">
-    <md-card-title>Groups</md-card-title>
+    <md-card-title
+      (click)="changeGroupsType()">
+      {{groupsType}}
+    </md-card-title>
     <huewi-group 
-      *ngFor="let group of groups"
+      *ngFor="let group of groups | HuewiGroupsFilter:groupsType"
       [group]="group">
     </huewi-group>
-  </div>
+  </div> 
 
   <div *ngIf="selectedGroup">
     <md-card-title>Group Details</md-card-title>

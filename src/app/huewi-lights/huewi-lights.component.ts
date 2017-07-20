@@ -39,8 +39,7 @@ export class HuewiLightsComponent implements OnInit, OnDestroy {
 
   updateSelected() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log('light selected id', id);
-    this.selectedLight = this.huepiService.MyHue.Lights[this.huepiService.MyHue.LightGetNr(id)];
+    this.selectedLight = this.huepiService.MyHue.Lights[id];
   }
 
 }

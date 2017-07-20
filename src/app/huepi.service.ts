@@ -20,16 +20,17 @@ export class HuepiService {
   private sensors: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
 
   constructor() {
+window["MyHue"] = // DEBUGCODE
     this.MyHue = new huepi();
 
-    // this.MyHue['Groups'] = HUEPI_MOCK['groups'];
-    // this.MyHue['Lights'] = HUEPI_MOCK['lights'];
+    this.MyHue['Groups'] = HUEPI_MOCK['groups'];
+    this.MyHue['Lights'] = HUEPI_MOCK['lights'];
     this.update();
 
     this.MyHue.PortalDiscoverLocalBridges().then(() => {
       this.MyHue.BridgeGetConfig().then(() => {
         this.MyHue.BridgeGetData().then(() => {
-          console.log('Data Received');
+          console.log('Bridge Found, Data Received');
           this.update();
         });
       });
@@ -37,10 +38,9 @@ export class HuepiService {
 
     setInterval(() => {
       this.MyHue.BridgeGetData().then(() => {
-        console.log('New Data Received');
         this.update();
       });
-    }, 2500);
+    }, 1500);
   }
 
   private asArray(input): Array<any> {

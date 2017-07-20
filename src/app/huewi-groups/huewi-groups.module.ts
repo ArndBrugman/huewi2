@@ -7,6 +7,8 @@ import { HuewiGroupsComponent } from './huewi-groups.component';
 import { HuewiGroupComponent } from './huewi-group/huewi-group.component';
 import { HuewiGroupDetailsComponent } from './huewi-group-details/huewi-group-details.component';
 
+import { HuewiGroupsFilter } from './huewi-groups.filter';
+
 import { HuewiGroupsRoutingModule } from './huewi-groups-routing.module';
 
 @NgModule({
@@ -18,7 +20,8 @@ import { HuewiGroupsRoutingModule } from './huewi-groups-routing.module';
   declarations: [
     HuewiGroupsComponent,
     HuewiGroupComponent,
-    HuewiGroupDetailsComponent
+    HuewiGroupDetailsComponent,
+    HuewiGroupsFilter
   ],
   exports: [
     HuewiGroupsComponent,

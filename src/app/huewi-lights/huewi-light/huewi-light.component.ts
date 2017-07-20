@@ -21,6 +21,10 @@ export class HuewiLightComponent implements OnInit {
     this.router.navigate(['/lights', light.__key]);
   }
 
+  brightness(light, value) {
+    this.huepiService.MyHue.LightSetBrightness(light.__key, value);
+  }
+
   toggle(light) {
     if (light.state.on === true) {
       this.huepiService.MyHue.LightOff(light.__key);

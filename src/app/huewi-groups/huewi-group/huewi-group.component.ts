@@ -21,6 +21,10 @@ export class HuewiGroupComponent implements OnInit {
     this.router.navigate(['/groups', group.__key]);
   }
 
+  brightness(group, value) {
+    this.huepiService.MyHue.GroupSetBrightness(group.__key, value);
+  }
+
   toggle(group) {
     if (group.action.on === true) {
       this.huepiService.MyHue.GroupOff(group.__key);

@@ -18,6 +18,7 @@ export class HuewiGroupComponent implements OnInit {
   }
 
   select(group) {
+    this.huepiService.MyHue.GroupAlertSelect(group.__key);
     this.router.navigate(['/groups', group.__key]);
   }
 

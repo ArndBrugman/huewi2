@@ -23,7 +23,7 @@ export class HuewiGroupDetailsComponent implements OnInit {
   }
 
   relax(group) {
-    this.setCTBrightness(group, 346, 254);
+    this.setCTBrightness(group, 447, 144);
   }
 
   reading(group) {

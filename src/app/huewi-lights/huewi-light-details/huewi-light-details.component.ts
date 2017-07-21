@@ -23,7 +23,7 @@ export class HuewiLightDetailsComponent implements OnInit {
   }
 
   relax(light) {
-    this.setCTBrightness(light, 346, 254);
+    this.setCTBrightness(light, 447, 144);
   }
 
   reading(light) {

@@ -1,10 +1,10 @@
 <span class="row"
   (click)="select(bridge)">
   <span class="col-4">
-    <span *ngIf="bridge.id === huepiService.MyHue.BridgeConfig.bridgeid.toLowerCase()">
-      <md-icon>settings_brightness</md-icon>
-    </span>
     {{bridge.id}}
+    <span *ngIf="bridge.id === huepiService.MyHue.BridgeConfig.bridgeid">
+      <md-icon>stars</md-icon>
+    </span>
   </span>
   <span class="col-6">
     {{bridge.internalipaddress}}

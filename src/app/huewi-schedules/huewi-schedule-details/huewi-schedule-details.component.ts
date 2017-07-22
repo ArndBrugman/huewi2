@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { HuepiService } from '../../huepi.service';
 
 @Component({
   selector: 'huewi-schedule-details',
@@ -7,13 +8,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./huewi-schedule-details.component.css']
 })
 export class HuewiScheduleDetailsComponent implements OnInit {
-  id: string;
+  @Input() schedule = { name: 'None' };
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private huepiService: HuepiService) {
+  }
 
-    ngOnInit() {
-      this.id = this.activatedRoute.snapshot.paramMap.get('id');
-      // this.activatedRoute.url.subscribe((urlPath) => { this.type = urlPath[urlPath.length - 2].path; })
-    }
+  ngOnInit() {
+  }
 
 }

@@ -1,9 +1,18 @@
 <md-card>
-  <md-card-title>Schedules</md-card-title>
 
-  <huewi-schedule 
-    *ngFor="let schedule of schedules"
-    [schedule]="schedule">
-  </huewi-schedule>
-  
+  <div *ngIf="!selectedSchedule">
+    <md-card-title>Schedules</md-card-title>
+    <huewi-schedule 
+      *ngFor="let schedule of schedules"
+      [schedule]="schedule">
+    </huewi-schedule>
+  </div>
+
+  <div *ngIf="selectedSchedule">
+    <md-card-title>Schedule Details</md-card-title>
+    <huewi-schedule-details
+      [schedule]="selectedSchedule">
+    </huewi-schedule-details>
+  </div>
+
 </md-card>

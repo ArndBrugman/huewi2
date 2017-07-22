@@ -1,9 +1,19 @@
 <md-card>
-  <md-card-title>Bridges</md-card-title>
 
-  <huewi-bridge>
-  </huewi-bridge>
-  <huewi-bridge-details>
-  </huewi-bridge-details>
-  
+  <div> <!-- Always Show List of Bridges -->
+    <md-card-title>Bridges</md-card-title>
+
+    <huewi-bridge 
+      *ngFor="let bridge of bridges"
+      [bridge]="bridge">
+    </huewi-bridge>
+  </div>
+
+    <md-card *ngIf="selectedBridge">
+      <md-card-subtitle>Selected Bridge</md-card-subtitle>
+      <huewi-bridge-details
+        [bridge]="selectedBridge">
+      </huewi-bridge-details>
+    </md-card>
+
 </md-card>

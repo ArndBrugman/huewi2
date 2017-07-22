@@ -1,3 +1,14 @@
-<p>
-  huewi-bridge works!
-</p>
+<span class="row"
+  (click)="select(bridge)">
+  <span class="col-4">
+    {{bridge.id}}
+    <span *ngIf="bridge.id === huepiService.MyHue.BridgeConfig.bridgeid">
+      <md-icon>stars</md-icon>
+    </span>
+  </span>
+  <span class="col-6">
+    {{bridge.internalipaddress}}
+  </span>
+  <span class="col-2">
+  </span>
+</span>

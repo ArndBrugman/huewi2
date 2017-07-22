@@ -9,7 +9,7 @@
     </button-->
     <span>hue Web Interface</span>
   </md-toolbar>
-    
+
   <md-sidenav #sidenav>
     <md-nav-list>
       <a md-list-item routerLink="/home" routerLinkActive="linkactive" (click)="sidenav.toggle()">Home</a>
@@ -47,7 +47,17 @@
     <a md-tab-link routerLink="/bridges" routerLinkActive="linkactive">Bridges</a>
     <a md-tab-link routerLink="/about" routerLinkActive="linkactive">About</a>
   </nav>
-  
+
+  <div *ngIf="huepiService.status !== 'Connected'">
+    <md-toolbar [color]="warn" >
+      <span>{{huepiService.status}}</span>
+    </md-toolbar>
+    <md-toolbar [color]="accent" *ngIf="huepiService.message !== ''">
+      <span>{{huepiService.message}}</span>
+    </md-toolbar>
+    <huewi-bridges></huewi-bridges>
+  </div>
+
   <router-outlet></router-outlet>
 
 </md-sidenav-container>

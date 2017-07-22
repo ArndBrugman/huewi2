@@ -12,6 +12,7 @@ import 'rxjs/add/observable/of';
 export class HuepiService {
   public MyHue;
 
+  private bridges: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private groups: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private lights: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private rules: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
@@ -55,12 +56,17 @@ window["MyHue"] = // DEBUGCODE
   }
 
   update () {
+    this.bridges.next(this.asArray(this.MyHue.LocalBridges));
     this.groups.next(this.asArray(this.MyHue.Groups));
     this.lights.next(this.asArray(this.MyHue.Lights));
     this.rules.next(this.asArray(this.MyHue.Rules));
     this.scenes.next(this.asArray(this.MyHue.Scenes));
     this.schedules.next(this.asArray(this.MyHue.Schedules));
     this.sensors.next(this.asArray(this.MyHue.Sensors));
+  }
+
+  getBridges(): Observable<Array<any>> {
+    return this.bridges;
   }
 
   getGroups(): Observable<Array<any>> {

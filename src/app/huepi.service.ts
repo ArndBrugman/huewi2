@@ -174,9 +174,6 @@ window["MyHue"] = // DEBUGCODE
   }
 
   dataReceived() {
-    if (this.MyHue.BridgeConfig.bridgeid) {
-      this.MyHue.BridgeConfig.bridgeid = this.MyHue.BridgeConfig.bridgeid.toLowerCase();
-    }
     this.bridges.next(this.asArray(this.MyHue.LocalBridges));
     this.groups.next(this.asArray(this.MyHue.Groups));
     this.lights.next(this.asArray(this.MyHue.Lights));

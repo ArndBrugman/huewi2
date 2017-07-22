@@ -58,6 +58,6 @@
     <huewi-bridges></huewi-bridges>
   </div>
 
-  <router-outlet></router-outlet>
+  <router-outlet *ngIf="huepiService.status === 'Connected'"></router-outlet>
 
 </md-sidenav-container>

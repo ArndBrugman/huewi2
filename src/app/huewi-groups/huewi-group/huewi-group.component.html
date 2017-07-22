@@ -1,9 +1,9 @@
 <span class="row">
-  <span class="col-4"
+  <span class="col-3"
     (click)="select(group)">
       {{group.name}}
   </span>
-  <span class="col-6">
+  <span class="col-7">
     <md-slider class="col-12"
       (change)="brightness(group, $event.value)"
       disabled="{{!group.action.on}}"

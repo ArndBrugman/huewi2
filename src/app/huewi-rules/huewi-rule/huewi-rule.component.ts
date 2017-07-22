@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HuepiService } from '../../huepi.service';
 
@@ -8,13 +9,16 @@ import { HuepiService } from '../../huepi.service';
   styleUrls: ['./huewi-rule.component.css']
 })
 export class HuewiRuleComponent implements OnInit {
-  @Input() rule = { };
+  @Input() rule;
 
-  constructor(private huepiService: HuepiService) {
-
+  constructor(private huepiService: HuepiService, private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+  select(rule) {
+    this.router.navigate(['/rules', rule.__key]);
   }
 
 }

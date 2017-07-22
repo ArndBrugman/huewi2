@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { HuepiService } from '../../huepi.service';
 
 @Component({
   selector: 'huewi-schedule',
@@ -6,11 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./huewi-schedule.component.css']
 })
 export class HuewiScheduleComponent implements OnInit {
-  @Input() schedule = { };
+  @Input() schedule;
 
-  constructor() { }
+  constructor(private huepiService: HuepiService, private router: Router) {
+  }
 
   ngOnInit() {
+  }
+
+  select(schedule) {
+    this.router.navigate(['/schedules', schedule.__key]);
   }
 
 }

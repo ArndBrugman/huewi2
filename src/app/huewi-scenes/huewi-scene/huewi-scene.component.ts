@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HuepiService } from '../../huepi.service';
 
@@ -8,13 +9,16 @@ import { HuepiService } from '../../huepi.service';
   styleUrls: ['./huewi-scene.component.css']
 })
 export class HuewiSceneComponent implements OnInit {
-  @Input() scene = { };
+  @Input() scene;
 
-  constructor(private huepiService: HuepiService) {
-
+  constructor(private huepiService: HuepiService, private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+  select(scene) {
+    this.router.navigate(['/scenes', scene.__key]);
   }
 
 }

@@ -1,9 +1,18 @@
 <md-card>
-  <md-card-title>Sensors</md-card-title>
 
-  <huewi-sensor 
-    *ngFor="let sensor of sensors"
-    [sensor]="sensor">
-  </huewi-sensor>
-  
+  <div *ngIf="!selectedSensor">
+    <md-card-title>Sensors</md-card-title>
+    <huewi-sensor 
+      *ngFor="let sensor of sensors"
+      [sensor]="sensor">
+    </huewi-sensor>
+  </div>
+
+  <div *ngIf="selectedSensor">
+    <md-card-title>Sensor Details</md-card-title>
+    <huewi-sensor-details
+      [sensor]="selectedSensor">
+    </huewi-sensor-details>
+  </div>
+
 </md-card>

@@ -1,9 +1,18 @@
 <md-card>
-  <md-card-title>Scenes</md-card-title>
 
-  <huewi-scene 
-    *ngFor="let scene of scenes"
-    [scene]="scene">
-  </huewi-scene>
+  <div *ngIf="!selectedScene">
+    <md-card-title>Scenes</md-card-title>
+    <huewi-scene 
+      *ngFor="let scene of scenes"
+      [scene]="scene">
+    </huewi-scene>
+  </div>
+
+  <div *ngIf="selectedScene">
+    <md-card-title>Scene Details</md-card-title>
+    <huewi-scene-details
+      [scene]="selectedScene">
+    </huewi-scene-details>
+  </div>
 
 </md-card>

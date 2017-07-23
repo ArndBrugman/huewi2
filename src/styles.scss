@@ -20,3 +20,13 @@ button:focus {
 md-card {
     margin: 8px;
 }
+
+.status {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    z-index: 999;
+}

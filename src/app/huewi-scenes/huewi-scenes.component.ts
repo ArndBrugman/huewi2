@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, HostBinding, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { RoutingAnimations } from './../app-routing.animations';
 
 import { HUEWI_SCENES_MOCK } from './huewi-scenes.mock'
 
@@ -9,14 +10,14 @@ import { HuepiService } from '../huepi.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { trigger, state, animate, transition, style } from '@angular/animations';
-
 @Component({
   selector: 'huewi-scenes',
   templateUrl: './huewi-scenes.component.html',
-  styleUrls: ['./huewi-scenes.component.css']
+  styleUrls: ['./huewi-scenes.component.css'],
+  animations: [RoutingAnimations()]
 })
 export class HuewiScenesComponent implements OnInit, OnDestroy {
+  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() scenes = HUEWI_SCENES_MOCK;
   private scenesSubscription;
   private sceneObserver: Observable<Array<any>> = Observable.of(this.scenes);

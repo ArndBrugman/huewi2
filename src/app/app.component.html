@@ -12,43 +12,43 @@
 
   <md-sidenav #sidenav>
     <md-nav-list>
-      <a md-list-item routerLink="/home" routerLinkActive="linkactive" (click)="sidenav.toggle()">Home</a>
-      <a md-list-item routerLink="/groups" routerLinkActive="linkactive" (click)="sidenav.toggle()">Groups</a>
-      <a md-list-item routerLink="/lights" routerLinkActive="linkactive" (click)="sidenav.toggle()">Lights</a>
-      <a md-list-item routerLink="/rules" routerLinkActive="linkactive" (click)="sidenav.toggle()">Rules</a>
-      <a md-list-item routerLink="/scenes" routerLinkActive="linkactive" (click)="sidenav.toggle()">Scenes</a>
-      <a md-list-item routerLink="/schedules" routerLinkActive="linkactive" (click)="sidenav.toggle()">Schedules</a>
-      <a md-list-item routerLink="/sensors" routerLinkActive="linkactive" (click)="sidenav.toggle()">Sensors</a>
-      <a md-list-item routerLink="/bridges" routerLinkActive="linkactive" (click)="sidenav.toggle()">Bridges</a>
-      <a md-list-item routerLink="/about" routerLinkActive="linkactive" (click)="sidenav.toggle()">About</a>
+      <a md-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.toggle()">Home</a>
+      <a md-list-item routerLink="/groups" routerLinkActive="active" (click)="sidenav.toggle()">Groups</a>
+      <a md-list-item routerLink="/lights" routerLinkActive="active" (click)="sidenav.toggle()">Lights</a>
+      <a md-list-item routerLink="/rules" routerLinkActive="active" (click)="sidenav.toggle()">Rules</a>
+      <a md-list-item routerLink="/scenes" routerLinkActive="active" (click)="sidenav.toggle()">Scenes</a>
+      <a md-list-item routerLink="/schedules" routerLinkActive="active" (click)="sidenav.toggle()">Schedules</a>
+      <a md-list-item routerLink="/sensors" routerLinkActive="active" (click)="sidenav.toggle()">Sensors</a>
+      <a md-list-item routerLink="/bridges" routerLinkActive="active" (click)="sidenav.toggle()">Bridges</a>
+      <a md-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.toggle()">About</a>
     </md-nav-list>
   </md-sidenav>
 
   <!--md-menu x-position="before" #menu="mdMenu">
-    <a md-menu-item routerLink="/home" routerLinkActive="linkactive">Home</a>
-    <a md-menu-item routerLink="/groups" routerLinkActive="linkactive">Groups</a>
-    <a md-menu-item routerLink="/lights" routerLinkActive="linkactive">Lights</a>
-    <a md-menu-item routerLink="/rules" routerLinkActive="linkactive">Rules</a>
-    <a md-menu-item routerLink="/scenes" routerLinkActive="linkactive">Scenes</a>
-    <a md-menu-item routerLink="/schedules" routerLinkActive="linkactive">Schedules</a>
-    <a md-menu-item routerLink="/sensors" routerLinkActive="linkactive">Sensors</a>
-    <a md-menu-item routerLink="/bridges" routerLinkActive="linkactive">Bridges</a>
-    <a md-menu-item routerLink="/about" routerLinkActive="linkactive">About</a>
+    <a md-menu-item routerLink="/home" routerLinkActive="active">Home</a>
+    <a md-menu-item routerLink="/groups" routerLinkActive="active">Groups</a>
+    <a md-menu-item routerLink="/lights" routerLinkActive="active">Lights</a>
+    <a md-menu-item routerLink="/rules" routerLinkActive="active">Rules</a>
+    <a md-menu-item routerLink="/scenes" routerLinkActive="active">Scenes</a>
+    <a md-menu-item routerLink="/schedules" routerLinkActive="active">Schedules</a>
+    <a md-menu-item routerLink="/sensors" routerLinkActive="active">Sensors</a>
+    <a md-menu-item routerLink="/bridges" routerLinkActive="active">Bridges</a>
+    <a md-menu-item routerLink="/about" routerLinkActive="active">About</a>
   </md-menu-->
 
   <nav md-tab-nav-bar #navbar>
-    <a md-tab-link routerLink="/home" routerLinkActive="linkactive">Home</a>
-    <a md-tab-link routerLink="/groups" routerLinkActive="linkactive">Groups</a>
-    <a md-tab-link routerLink="/lights" routerLinkActive="linkactive">Lights</a>
-    <!--a md-tab-link routerLink="/rules" routerLinkActive="linkactive">Rules</a>
-    <a md-tab-link routerLink="/scenes" routerLinkActive="linkactive">Scenes</a>
-    <a md-tab-link routerLink="/schedules" routerLinkActive="linkactive">Schedules</a>
-    <a md-tab-link routerLink="/sensors" routerLinkActive="linkactive">Sensors</a-->
-    <a md-tab-link routerLink="/bridges" routerLinkActive="linkactive">Bridges</a>
-    <a md-tab-link routerLink="/about" routerLinkActive="linkactive">About</a>
+    <a md-tab-link routerLink="/home" routerLinkActive="active">Home</a>
+    <a md-tab-link routerLink="/groups" routerLinkActive="active">Groups</a>
+    <a md-tab-link routerLink="/lights" routerLinkActive="active">Lights</a>
+    <!--a md-tab-link routerLink="/rules" routerLinkActive="active">Rules</a>
+    <a md-tab-link routerLink="/scenes" routerLinkActive="active">Scenes</a>
+    <a md-tab-link routerLink="/schedules" routerLinkActive="active">Schedules</a>
+    <a md-tab-link routerLink="/sensors" routerLinkActive="active">Sensors</a-->
+    <a md-tab-link routerLink="/bridges" routerLinkActive="active">Bridges</a>
+    <a md-tab-link routerLink="/about" routerLinkActive="active">About</a>
   </nav>
 
-  <div *ngIf="huepiService.status !== 'Connected'">
+  <div class="status" *ngIf="huepiService.status !== 'Connected'">
     <md-toolbar [color]="warn" >
       <span>{{huepiService.status}}</span>
     </md-toolbar>
@@ -58,6 +58,7 @@
     <huewi-bridges></huewi-bridges>
   </div>
 
-  <router-outlet *ngIf="huepiService.status === 'Connected'"></router-outlet>
+  <router-outlet>
+  </router-outlet>
 
 </md-sidenav-container>

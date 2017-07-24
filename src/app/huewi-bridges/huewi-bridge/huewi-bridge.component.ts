@@ -10,8 +10,10 @@ import { HuepiService } from '../../huepi.service';
 })
 export class HuewiBridgeComponent implements OnInit {
   @Input() bridge;
+  config;
 
   constructor(private huepiService: HuepiService, private router: Router) {
+    this.config = huepiService.MyHue.BridgeConfig;
   }
 
   ngOnInit() {

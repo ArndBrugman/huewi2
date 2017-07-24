@@ -9,7 +9,7 @@ import { HuepiService } from '../../huepi.service';
   styleUrls: ['./huewi-group.component.css']
 })
 export class HuewiGroupComponent implements OnInit {
-  @Input() group = { };
+  @Input() group;
 
   constructor(private huepiService: HuepiService, private router: Router) {
   }

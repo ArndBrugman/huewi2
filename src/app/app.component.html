@@ -48,12 +48,12 @@
     <a md-tab-link routerLink="/about" routerLinkActive="active">About</a>
   </nav>
 
-  <div class="status" *ngIf="huepiService.status !== 'Connected'">
+  <div class="status" *ngIf="getStatus() !== 'Connected'">
     <md-toolbar [color]="warn" >
-      <span>{{huepiService.status}}</span>
+      <span>{{getStatus()}}</span>
     </md-toolbar>
-    <md-toolbar [color]="accent" *ngIf="huepiService.message !== ''">
-      <span>{{huepiService.message}}</span>
+    <md-toolbar [color]="accent" *ngIf="getMessage() !== ''">
+      <span>{{getMessage()}}</span>
     </md-toolbar>
     <huewi-bridges></huewi-bridges>
   </div>

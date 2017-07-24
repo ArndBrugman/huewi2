@@ -14,4 +14,12 @@ export class AppComponent {
   constructor(private huepiService: HuepiService, private router: Router) {
   }
 
+  getStatus() {
+    return this.huepiService.getStatus();
+  }
+  
+  getMessage() {
+    return this.huepiService.getMessage();
+  }
+
 }

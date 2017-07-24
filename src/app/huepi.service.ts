@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { TimerObservable } from "rxjs/observable/TimerObservable";
 
@@ -12,11 +12,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 @Injectable()
-export class HuepiService {
+export class HuepiService implements OnInit, OnDestroy {
   private heartbeat;
   public MyHue;
-  public status = 'Connecting';
-  public message = '';
+  private status: BehaviorSubject<String> = new BehaviorSubject('Connecting');
+  private statusSubscription;
+  private message: BehaviorSubject<String> = new BehaviorSubject('');
 
   private bridges: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private groups: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
@@ -35,39 +36,16 @@ window["MyHue"] = // DEBUGCODE
     this.dataReceived();
 
     this.startup();
-
-    /*
-    this.MyHue.PortalDiscoverLocalBridges().then(() => {
-      this.MyHue.BridgeGetConfig().then(() => {
-        console.log('Bridge Found');
-        this.MyHue.BridgeGetData().then(() => {
-          console.log('Data Received');
-          this.MyHue.GroupsGetZero().then(() => {
-            console.log('Got Group Zero');
-            this.dataReceived();
-          });
-        });
-      });
-    });
-
-    setInterval(() => {
-      this.MyHue.BridgeGetData().then(() => {
-        this.MyHue.GroupsGetZero().then(() => {
-          this.dataReceived();
-        });
-      });
-    }, 1500); */
   }
 
-  private asArray(input): Array<any> {
-    const output = [];
-    if (input) {
-      Object.keys(input).forEach((key) => {
-        input[key].__key = key;
-        output.push(input[key]);
-      })
-    }
-    return output;
+  ngOnInit() {
+    this.statusSubscription = Observable.of(this.status).subscribe(value => {
+      console.log('Satus Changed: ', value);
+    });
+  }
+
+  ngOnDestroy() {
+    this.statusSubscription.unsubscribe();
   }
 
   startup() {
@@ -75,8 +53,7 @@ window["MyHue"] = // DEBUGCODE
   }
 
   pause() {
-    clearInterval(this.heartbeat);
-    this.heartbeat = -1;
+    this.stopHeartbeat();
   }
 
   resume() {
@@ -86,8 +63,7 @@ window["MyHue"] = // DEBUGCODE
 
   // Entry Point for Starting a Connection
   connect(NewBridgeAddress?) {
-    clearInterval(this.heartbeat);
-    this.heartbeat = -1;
+    this.stopHeartbeat();
     this.MyHue.BridgeIP = NewBridgeAddress || this.MyHue.BridgeIP || localStorage.MyHueBridgeIP || '';
     this.MyHue.BridgeID = '';
     this.MyHue.BridgeName = '';
@@ -101,14 +77,13 @@ window["MyHue"] = // DEBUGCODE
 
   // IP is known and stored in this.MyHue.BridgeIP
   reConnect() {
-    clearInterval(this.heartbeat);
-    this.heartbeat = -1;
-    this.status = 'Getting Bridge Config';
+    this.stopHeartbeat();
+    this.status.next('Getting Bridge Config');
     this.MyHue.BridgeGetConfig().then(() => {
-      this.status = 'Bridge Config Received, Getting Data';
+      this.status.next('Bridge Config Received, Getting Data');
       this.resumeConnection();
     }, () => {
-      this.status = 'Unable to Retreive Bridge Configuration';
+      this.status.next('Unable to Retreive Bridge Configuration');
       delete localStorage.MyHueBridgeIP; // un-Cache BridgeIP
     } );
   }
@@ -122,41 +97,50 @@ window["MyHue"] = // DEBUGCODE
       }, () => { // else
         this.dataReceived();
       });
-      this.status = 'Connected';
-      this.heartbeat = setInterval(() => { this.onHeartbeat() }, 2500);
+      this.status.next('Connected');
+      this.startHeartbeat();
     }, () => {
-      this.status = 'Please press connect button on the hue Bridge';
+      this.message.next('Please press Connectbutton on the hue Bridge');
       this.MyHue.BridgeCreateUser(/*AppComponent.name*/'huewi2').then(() => {
         localStorage.MyHueBridgeIP = this.MyHue.BridgeIP; // Cache BridgeIP
-        this.heartbeat = setInterval(() => { this.onHeartbeat() }, 2500);
+        this.startHeartbeat();
       }, () => {
-        this.status = 'Unable to Whitelist, Please press connect button on the hue Bridge';
+        this.status.next('Unable to Whitelist, Please press Connectbutton on the hue Bridge');
       });
     });
   }
 
   discover() {
-    clearInterval(this.heartbeat);
-    this.heartbeat = -1;
-    this.status = 'Discovering Bridge via Portal';
+    this.stopHeartbeat();
+    this.status.next('Discovering Bridge via Portal');
     this.MyHue.PortalDiscoverLocalBridges().then(() => {
-      this.status = 'Bridge Discovered';
+      this.status.next('Bridge Discovered');
       this.reConnect();
     }, () => { // else
-      this.status = 'Unable to discover Bridge via Portal';
+      this.status.next('Unable to Discover Bridge via Portal');
     } );
   }
 
   scan() {
-    clearInterval(this.heartbeat);
-    this.heartbeat = -1;
-    this.status = 'Scanning Network for Bridge';
+    this.stopHeartbeat();
+    this.status.next('Scanning Network for Bridge');
     this.MyHue.NetworkDiscoverLocalBridges().then(() => {
-      this.status = 'Bridge Found';
+      this.status.next('Bridge Found');
       this.reConnect();
     }, () => { // else
-      this.status = 'Unable to locate Bridge with Network Scan';
+      this.status.next('Unable to Locate Bridge with Network Scan');
     });
+  }
+
+  startHeartbeat() {
+    this.heartbeat = setInterval(() => {
+      this.onHeartbeat()
+    }, 2500);
+  }
+
+  stopHeartbeat() {
+    clearInterval(this.heartbeat);
+    this.heartbeat = -1;
   }
 
   onHeartbeat() {
@@ -167,10 +151,20 @@ window["MyHue"] = // DEBUGCODE
         this.dataReceived();
       });
     }, () => {
-      clearInterval(this.heartbeat);
-      this.heartbeat = -1;
-      this.status = 'Unable to receive Bridge Data';
+      this.stopHeartbeat();
+      this.status.next('Unable to Receive Bridge Data');
     } );
+  }
+
+  private asArray(input): Array<any> {
+    const output = [];
+    if (input) {
+      Object.keys(input).forEach((key) => {
+        input[key].__key = key;
+        output.push(input[key]);
+      })
+    }
+    return output;
   }
 
   dataReceived() {
@@ -181,6 +175,14 @@ window["MyHue"] = // DEBUGCODE
     this.scenes.next(this.asArray(this.MyHue.Scenes));
     this.schedules.next(this.asArray(this.MyHue.Schedules));
     this.sensors.next(this.asArray(this.MyHue.Sensors));
+  }
+
+  getStatus() {
+    return this.status.getValue();
+  }
+
+  getMessage() {
+    return this.message.getValue();
   }
 
   getBridges(): Observable<Array<any>> {

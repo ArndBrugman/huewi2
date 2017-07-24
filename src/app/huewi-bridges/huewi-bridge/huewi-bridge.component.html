@@ -2,7 +2,7 @@
   (click)="select(bridge)">
   <span class="col-4">
     {{bridge.internalipaddress}}
-    <span *ngIf="bridge.id.toUpperCase() === huepiService.MyHue.BridgeConfig.bridgeid">
+    <span *ngIf="bridge.id.toUpperCase() === config.bridgeid">
       <md-icon>stars</md-icon>
     </span>
   </span>

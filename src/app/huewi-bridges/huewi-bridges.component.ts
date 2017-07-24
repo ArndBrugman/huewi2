@@ -41,6 +41,14 @@ export class HuewiBridgesComponent implements OnInit, OnDestroy {
   updateSelected() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.selectedBridge = this.huepiService.MyHue.LocalBridges[id];
+    if (!this.selectedBridge) {
+      for (let i=0; i<this.huepiService.MyHue.LocalBridges.length; i++) {
+        if (this.huepiService.MyHue.BridgeID.toUpperCase() == this.huepiService.MyHue.LocalBridges[i].id.toUpperCase()) {
+          this.selectedBridge = this.huepiService.MyHue.LocalBridges[i];
+          break;
+        }
+      }
+    }
   }
 
 }

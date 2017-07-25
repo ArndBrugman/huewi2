@@ -2,9 +2,7 @@ import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { TimerObservable } from "rxjs/observable/TimerObservable";
 
-import axios from 'axios';
-import { huepi } from '../assets/huepi.js';
-huepi.http = axios.create();
+import Huepi from './../../../huepi/src/huepi.js';
 import { HUEPI_MOCK } from './huepi.mock'
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -29,7 +27,7 @@ export class HuepiService implements OnInit, OnDestroy {
 
   constructor() {
 window["MyHue"] = // DEBUGCODE
-    this.MyHue = new huepi();
+    this.MyHue = new Huepi();
 
     this.MyHue['Groups'] = HUEPI_MOCK['groups'];
     this.MyHue['Lights'] = HUEPI_MOCK['lights'];

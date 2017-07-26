@@ -1,6 +1,7 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { TimerObservable } from "rxjs/observable/TimerObservable";
+import { Router } from '@angular/router';
 
 import Huepi from './../../../huepi/src/huepi.js';
 import { HUEPI_MOCK } from './huepi.mock'
@@ -25,7 +26,7 @@ export class HuepiService implements OnInit, OnDestroy {
   private schedules: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private sensors: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
 
-  constructor() {
+  constructor(private router: Router) {
 window["MyHue"] = // DEBUGCODE
     this.MyHue = new Huepi();
 
@@ -34,12 +35,13 @@ window["MyHue"] = // DEBUGCODE
     this.dataReceived();
 
     this.startup();
+
+    this.statusSubscription = this.status.subscribe(value => {
+      this.statusChanged();
+    });
   }
 
   ngOnInit() {
-    this.statusSubscription = Observable.of(this.status).subscribe(value => {
-      console.log('Satus Changed: ', value);
-    });
   }
 
   ngOnDestroy() {
@@ -57,6 +59,15 @@ window["MyHue"] = // DEBUGCODE
   resume() {
     this.MyHue.PortalDiscoverLocalBridges(); // Parallel PortalDiscoverLocalBridges
     this.connect();
+  }
+
+  statusChanged() {
+    if (this.status.value.search('Unable')>=0) {
+      this.router.navigate(['/bridges']);
+      setTimeout(() => {
+        this.connect()
+      }, 1250)
+    }
   }
 
   // Entry Point for Starting a Connection

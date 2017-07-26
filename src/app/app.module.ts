@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 
+import { OrderByModule } from './../assets/orderby.module';
+
 import { HuepiService } from './huepi.service';
 
 import { AppComponent } from './app.component';
@@ -29,6 +31,7 @@ import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-c
     BrowserAnimationsModule,
     MaterialModule,
     // NgbModule.forRoot(),
+    OrderByModule,
     HuewiGroupsModule,
     HuewiLightsModule,
     HuewiRulesModule,

@@ -13,7 +13,7 @@ export class HuewiBridgeComponent implements OnInit {
   config;
 
   constructor(private huepiService: HuepiService, private router: Router) {
-    this.config = huepiService.MyHue.BridgeConfig;
+    this.config = this.huepiService.MyHue.BridgeConfig;
   }
 
   ngOnInit() {
@@ -21,6 +21,8 @@ export class HuewiBridgeComponent implements OnInit {
 
   select(bridge) {
     this.huepiService.MyHue.BridgeGetConfig(bridge.internalipaddress).then((data) => {
+      this.huepiService.connect(bridge.internalipaddress);
+      this.config = this.huepiService.MyHue.BridgeConfig;
       this.huepiService.MyHue.BridgeIP = bridge.internalipaddress;
       this.router.navigate(['/bridges', bridge.__key]);
     });

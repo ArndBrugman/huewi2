@@ -43,7 +43,7 @@ export class HuewiBridgesComponent implements OnInit, OnDestroy {
     this.selectedBridge = this.huepiService.MyHue.LocalBridges[id];
     if (!this.selectedBridge) {
       for (let i=0; i<this.huepiService.MyHue.LocalBridges.length; i++) {
-        if (this.huepiService.MyHue.BridgeID.toUpperCase() == this.huepiService.MyHue.LocalBridges[i].id.toUpperCase()) {
+        if (this.huepiService.MyHue.BridgeID.toLowerCase() == this.huepiService.MyHue.LocalBridges[i].id.toLowerCase()) {
           this.selectedBridge = this.huepiService.MyHue.LocalBridges[i];
           break;
         }

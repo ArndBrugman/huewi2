@@ -21,6 +21,7 @@ import { HuewiSchedulesModule } from './huewi-schedules/huewi-schedules.module';
 import { HuewiSensorsModule } from './huewi-sensors/huewi-sensors.module';
 import { HuewiBridgesModule } from './huewi-bridges/huewi-bridges.module';
 import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
+import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-connectionstatus.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
   declarations: [
     AppComponent,
     HuewiHomeComponent,
-    HuewiAboutComponent
+    HuewiAboutComponent,
+    HuewiConnectionstatusComponent
   ],
   providers: [
     HuepiService

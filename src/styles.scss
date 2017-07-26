@@ -5,7 +5,6 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 html,body {
-    height: 100%;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -19,14 +18,4 @@ button:focus {
 
 md-card {
     margin: 8px;
-}
-
-.status {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    z-index: 999;
 }

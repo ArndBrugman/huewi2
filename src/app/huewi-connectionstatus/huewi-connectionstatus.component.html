@@ -1,0 +1,13 @@
+<md-card div class="status">
+
+  <div *ngIf="getStatus() !== 'Connected'">
+    <md-toolbar [color]="warn" >
+      <span>{{getStatus()}}</span>
+    </md-toolbar>
+    <md-toolbar [color]="accent" *ngIf="getMessage() !== ''">
+      <span>{{getMessage()}}</span>
+    </md-toolbar>
+    <!--huewi-bridges></huewi-bridges-->
+  </div>
+
+</md-card>

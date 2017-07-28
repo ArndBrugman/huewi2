@@ -19,6 +19,7 @@ import 'rxjs/add/observable/of';
 export class HuewiBridgesComponent implements OnInit, OnDestroy {
   @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() bridges = HUEWI_BRIDGES_MOCK;
+  manualIP = '192.168.0.2';
   private bridgesSubscription;
   private bridgeObserver: Observable<Array<any>> = Observable.of(this.bridges);
   selectedBridge = undefined;
@@ -49,6 +50,31 @@ export class HuewiBridgesComponent implements OnInit, OnDestroy {
         }
       }
     }
+  }
+
+  discover() {
+    this.huepiService.discover();
+  }
+
+  scan() {
+    this.huepiService.scan();
+  }
+
+  isScanning() {
+    return this.huepiService.isScanning();
+  }
+
+  cancelScan() {
+    this.huepiService.cancelScan();
+  }
+
+  reload() {
+    delete localStorage.MyHueBridgeIP;
+    window.location.reload(true);
+  }
+
+  connect() {
+    this.huepiService.connect(this.manualIP);
   }
 
 }

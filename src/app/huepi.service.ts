@@ -105,12 +105,14 @@ window["MyHue"] = // DEBUGCODE
         this.dataReceived();
       });
       this.status.next('Bridge Connected');
-      setTimeout(() => this.status.next('Connected'), 500);
+      setTimeout(() => this.status.next('Connected'), 1000);
       this.startHeartbeat();
     }).catch(() => {
       this.message.next('Please press Connectbutton on the hue Bridge');
-      this.MyHue.BridgeCreateUser(/*AppComponent.name*/'huewi2').then(() => {
+      this.MyHue.BridgeCreateUser('huewi2').then(() => {
         localStorage.MyHueBridgeIP = this.MyHue.BridgeIP; // Cache BridgeIP
+        this.status.next('Whitelisting Succeded');
+        setTimeout(() => this.status.next('Connected'), 1000);
         this.startHeartbeat();
       }).catch(() => {
         this.status.next('Unable to Whitelist');
@@ -138,6 +140,14 @@ window["MyHue"] = // DEBUGCODE
     }).catch(() => {
       this.status.next('Unable to Locate Bridge with Network Scan');
     });
+  }
+
+  isScanning() {
+    return this.MyHue.ScanningNetwork;
+  }
+
+  cancelScan() {
+    this.MyHue.ScanningNetwork = false;
   }
 
   startHeartbeat() {

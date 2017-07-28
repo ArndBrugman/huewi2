@@ -2,17 +2,18 @@
 
   <div *ngIf="!selectedRule">
     <md-card-title>Rules</md-card-title>
-    <huewi-rule 
-      *ngFor="let rule of rules"
-      [rule]="rule">
+    <huewi-rule *ngFor="let rule of rules" [rule]="rule">
     </huewi-rule>
   </div>
 
   <div *ngIf="selectedRule">
     <md-card-title>Rule Details</md-card-title>
-    <huewi-rule-details
-      [rule]="selectedRule">
-    </huewi-rule-details>
+    <md-list>
+      <md-list-item>
+        <huewi-rule-details [rule]="selectedRule">
+        </huewi-rule-details>
+      </md-list-item>
+    </md-list>
   </div>
 
 </md-card>

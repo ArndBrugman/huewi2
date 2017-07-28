@@ -10,7 +10,7 @@ import { HuepiService } from '../huepi.service';
   styleUrls: ['./huewi-connectionstatus.component.css'],
   animations: [
     trigger('StatusAnimations', [
-    state('void', style({ opacity: 0, transform: 'translate3d(0, 100%, 0)'}) ),
+    state('void', style({ opacity: 0, transform: 'translate3d(0, 32px, 0)'}) ),
     state('*', style({ opacity: 1, transform: 'translate3d(0, 0, 0)'}) ),
     transition(':enter', [
       animate('0.5s ease-in-out')

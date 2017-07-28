@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule }   from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 
@@ -30,6 +31,7 @@ import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-c
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
     // NgbModule.forRoot(),
     OrderByModule,
     HuewiGroupsModule,

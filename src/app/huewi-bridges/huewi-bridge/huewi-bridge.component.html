@@ -1,14 +1,13 @@
-<span class="row"
-  (click)="select(bridge)">
+<span class="row" (click)="select(bridge)">
   <span class="col-4">
     {{bridge.internalipaddress}}
     <span *ngIf="bridge.id.toUpperCase() === config.bridgeid">
-      <md-icon>stars</md-icon>
+      <md-icon>link</md-icon>
     </span>
-  </span>
-  <span class="col-6">
+</span>
+<span class="col-6">
     {{bridge.id.toLowerCase()}}
   </span>
-  <span class="col-2">
+<span class="col-2">
   </span>
 </span>

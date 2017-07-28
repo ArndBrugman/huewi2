@@ -1,9 +1,9 @@
-<md-card class="status" *ngIf="getStatus() !== 'Connected'">
+<md-card class="status" *ngIf="getStatus() !== 'Connected'" [@StatusAnimations]>
 
   <md-toolbar [color]="warn" >
     <span>{{getStatus()}}</span>
   </md-toolbar>
-  <md-toolbar [color]="accent" *ngIf="getMessage() !== ''">
+  <md-toolbar [color]="accent" *ngIf="getMessage() !== ''" [@StatusAnimations]>
     <span>{{getMessage()}}</span>
   </md-toolbar>
   <md-progress-bar mode="indeterminate"></md-progress-bar>

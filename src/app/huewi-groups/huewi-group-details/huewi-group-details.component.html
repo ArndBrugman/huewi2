@@ -15,7 +15,7 @@
 <br>
 
 <div class="row">
-  <md-checkbox *ngFor="let light of lights" class="col-sm-6 col-md-3 col-lg-2" 
+  <md-checkbox *ngFor="let light of lights | orderBy : '+name'" class="col-sm-6 col-md-3 col-lg-2" 
   [checked]="hasLight(light.__key)" (click)="toggleLight(light.__key)">
     {{light.name}}
   </md-checkbox>

@@ -64,23 +64,12 @@ export class HuewiGroupDetailsComponent implements OnInit {
   }
 
   hasLight(lightId) {
-    if (this.group.__key != '0') {
-      if (this.huepiService.MyHue.Groups[this.group.__key].lights.indexOf(lightId)>=0) {
-        return true;
-      }
-    }
-    return false;
+    return this.huepiService.MyHue.GroupHasLight(this.group.__key, lightId);
   }
 
   toggleLight(lightId) {
     this.huepiService.MyHue.LightAlertSelect(lightId);
-    if (this.hasLight(lightId)) {
-      this.huepiService.MyHue.Groups[this.group.__key].lights.splice(
-        this.huepiService.MyHue.Groups[this.group.__key].lights.indexOf(lightId), 1);
-    } else {
-      this.huepiService.MyHue.Groups[this.group.__key].lights.push(lightId);
-    }
-    this.huepiService.MyHue.GroupSetLights(this.group.__key, this.huepiService.MyHue.Groups[this.group.__key].lights);
+    this.huepiService.MyHue.GroupToggleLight(this.group.__key, lightId);
   }
 
 }

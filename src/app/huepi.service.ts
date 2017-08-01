@@ -3,7 +3,7 @@ import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Router } from '@angular/router';
 
-import Huepi from './../../../huepi/src/huepi.js';
+import { Huepi, HuepiLightstate } from './../../../huepi/huepi.js';
 import { HUEPI_MOCK } from './huepi.mock'
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -30,6 +30,8 @@ export class HuepiService implements OnInit, OnDestroy {
 window["MyHue"] = // DEBUGCODE
     this.MyHue = new Huepi();
 
+    let a = new HuepiLightstate();
+    
     this.MyHue['Groups'] = HUEPI_MOCK['groups'];
     this.MyHue['Lights'] = HUEPI_MOCK['lights'];
     this.MyHue['Schedules'] = HUEPI_MOCK['schedules'];

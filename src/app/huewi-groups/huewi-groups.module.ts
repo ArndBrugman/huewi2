@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@angular/material';
+import { FormsModule }   from '@angular/forms';
 
 import { OrderByModule } from '../../assets/orderby.module';
 
@@ -16,8 +17,9 @@ import { HuewiGroupsRoutingModule } from './huewi-groups-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    OrderByModule,
     MaterialModule,
+    FormsModule,
+    OrderByModule,
     HuewiGroupsRoutingModule
   ],
   declarations: [

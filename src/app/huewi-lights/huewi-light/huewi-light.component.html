@@ -1,9 +1,9 @@
 <span class="row">
-  <span class="col-3"
+  <span class="col-5 col-sm-3 col-xl-2"
     (click)="select(light)">
     {{light.name}}
   </span>
-  <span class="col-7">
+  <span class="col-5 col-sm-7 col-xl-8">
     <md-slider class="col-12"
       (change)="brightness(light, $event.value)"
       disabled="{{!light.state.on}}"

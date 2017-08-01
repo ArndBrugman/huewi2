@@ -1,5 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
 import { HuepiService } from '../../huepi.service';
 
@@ -10,11 +14,15 @@ import { HuepiService } from '../../huepi.service';
 })
 export class HuewiGroupComponent implements OnInit {
   @Input() group;
+  @Input() editable = false;
 
   constructor(private huepiService: HuepiService, private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
   }
 
   select(group) {

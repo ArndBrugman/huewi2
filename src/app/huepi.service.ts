@@ -3,7 +3,9 @@ import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Router } from '@angular/router';
 
+import axios from 'axios';
 import { Huepi, HuepiLightstate } from './../../../huepi/huepi.js';
+
 import { HUEPI_MOCK } from './huepi.mock'
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -27,10 +29,9 @@ export class HuepiService implements OnInit, OnDestroy {
   private sensors: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
 
   constructor(private router: Router) {
+    Huepi.http = axios.create();
 window["MyHue"] = // DEBUGCODE
     this.MyHue = new Huepi();
-
-    let a = new HuepiLightstate();
     
     this.MyHue['Groups'] = HUEPI_MOCK['groups'];
     this.MyHue['Lights'] = HUEPI_MOCK['lights'];
@@ -74,6 +75,7 @@ window["MyHue"] = // DEBUGCODE
 
   // Entry Point for Starting a Connection
   connect(NewBridgeAddress?) {
+    this.cancelScan();
     this.stopHeartbeat();
     this.MyHue.BridgeIP = NewBridgeAddress || this.MyHue.BridgeIP || localStorage.MyHueBridgeIP || '';
     this.MyHue.BridgeID = '';
@@ -107,14 +109,14 @@ window["MyHue"] = // DEBUGCODE
         this.dataReceived();
       });
       this.status.next('Bridge Connected');
-      setTimeout(() => this.status.next('Connected'), 1000);
+      setTimeout(() => this.status.next('Connected'), 500);
       this.startHeartbeat();
     }).catch(() => {
       this.message.next('Please press Connectbutton on the hue Bridge');
       this.MyHue.BridgeCreateUser('huewi2').then(() => {
         localStorage.MyHueBridgeIP = this.MyHue.BridgeIP; // Cache BridgeIP
         this.status.next('Whitelisting Succeded');
-        setTimeout(() => this.status.next('Connected'), 1000);
+        setTimeout(() => this.status.next('Connected'), 500);
         this.startHeartbeat();
       }).catch(() => {
         this.status.next('Unable to Whitelist');
@@ -123,6 +125,7 @@ window["MyHue"] = // DEBUGCODE
   }
 
   discover() {
+    this.cancelScan();
     this.stopHeartbeat();
     this.status.next('Discovering Bridge via Portal');
     this.MyHue.PortalDiscoverLocalBridges().then(() => {

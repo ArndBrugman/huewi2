@@ -1,13 +1,12 @@
 <span class="row" (click)="select(bridge)">
-  <span class="col-4">
-    {{bridge.internalipaddress}}
-    <span *ngIf="bridge.id.toUpperCase() === config.bridgeid">
-      <md-icon>link</md-icon>
-    </span>
-</span>
-<span class="col-6">
-    {{bridge.id.toLowerCase()}}
+  <span class="col-sm-4 col-md-3">
+    Id: {{bridge.id.toLowerCase()}}
+    <md-icon *ngIf="bridge.id.toLowerCase() === config.bridgeid.toLowerCase()">link</md-icon>
   </span>
-<span class="col-2">
+  <span class="col-sm-4 col-md-3" *ngIf="bridge.name">
+    Name: {{bridge.name}}
+  </span>
+  <span class="col-sm-4 col-md-3">
+    IP: {{bridge.internalipaddress}}
   </span>
 </span>

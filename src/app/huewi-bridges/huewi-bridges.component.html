@@ -17,12 +17,8 @@
 
   <md-card>
     <md-card-subtitle>Found</md-card-subtitle>
-    <md-list>
-      <md-list-item>
-        <huewi-bridge *ngFor="let bridge of bridges" [bridge]="bridge">
-        </huewi-bridge>
-      </md-list-item>
-    </md-list>
+    <huewi-bridge *ngFor="let bridge of bridges" [bridge]="bridge">
+    </huewi-bridge>
   </md-card>
 
   <md-card *ngIf="selectedBridge">

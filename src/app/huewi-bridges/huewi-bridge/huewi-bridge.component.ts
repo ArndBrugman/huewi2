@@ -10,8 +10,10 @@ import { HuepiService } from '../../huepi.service';
 })
 export class HuewiBridgeComponent implements OnInit {
   @Input() bridge;
+  config;
 
   constructor(private huepiService: HuepiService, private router: Router) {
+    this.config = this.huepiService.MyHue.BridgeConfig;
   }
 
   ngOnInit() {
@@ -19,6 +21,8 @@ export class HuewiBridgeComponent implements OnInit {
 
   select(bridge) {
     this.huepiService.MyHue.BridgeGetConfig(bridge.internalipaddress).then((data) => {
+      this.huepiService.connect(bridge.internalipaddress);
+      this.config = this.huepiService.MyHue.BridgeConfig;
       this.huepiService.MyHue.BridgeIP = bridge.internalipaddress;
       this.router.navigate(['/bridges', bridge.__key]);
     });

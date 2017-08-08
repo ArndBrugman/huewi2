@@ -1,23 +1,26 @@
 <span class="row">
-  <span class="col-3">
-    {{huepiService.MyHue.BridgeConfig.name}}
+  <span class="col-sm-6 col-md-3">
+    Id: {{config.bridgeid.toLowerCase()}}
   </span>
-  <span class="col-3">
-    {{huepiService.MyHue.BridgeConfig.bridgeid}}
+  <span class="col-sm-6 col-md-3">
+    Name: {{config.name}}
   </span>
-  <span class="col-3">
-    {{huepiService.MyHue.BridgeConfig.mac}}
+  <span class="col-sm-6 col-md-3">
+    Model: {{config.modelid}}
   </span>
-  <span class="col-3">
-    {{huepiService.MyHue.BridgeConfig.apiversion}}
+  <span class="col-sm-6 col-md-3">
+    Timezone: {{config.timezone}}
   </span>
-  <span class="col-3">
-    {{huepiService.MyHue.BridgeConfig.swversion}}
+  <span class="col-sm-6 col-md-3">
+    Mac: {{config.mac}}
   </span>
-  <span class="col-3">
-    {{huepiService.MyHue.BridgeConfig.modelid}}
+  <span class="col-sm-6 col-md-3">
+    Software: {{config.swversion}}
   </span>
-  <span class="col-3">
-    {{huepiService.MyHue.BridgeConfig.timezone}}
+  <span class="col-sm-6 col-md-3">
+    API: {{config.apiversion}}
+  </span>
+  <span class="col-sm-6 col-md-3">
+    Datastore: {{config.datastoreversion}}
   </span>
 </span>

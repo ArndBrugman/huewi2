@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { HuepiService } from '../../huepi.service';
 
@@ -8,12 +8,21 @@ import { HuepiService } from '../../huepi.service';
   styleUrls: ['./huewi-group-details.component.css']
 })
 export class HuewiGroupDetailsComponent implements OnInit {
-  @Input() group = { name: 'None' };
+  @Input() group = { __key : '0' };
+  private lightsSubscription;
+  lights;
 
   constructor(private huepiService: HuepiService) {
   }
 
   ngOnInit() {
+    this.lightsSubscription = this.huepiService.getLights().subscribe(value => {
+      this.lights = value;
+    });
+  }
+
+  ngOnDestroy() {
+    this.lightsSubscription.unsubscribe();
   }
 
   setCTBrightness(group, CT, Brightness) {
@@ -52,6 +61,15 @@ export class HuewiGroupDetailsComponent implements OnInit {
 
   goldenHour(group) {
     this.setCTBrightness(group, 400, 125);
+  }
+
+  hasLight(lightId) {
+    return this.huepiService.MyHue.GroupHasLight(this.group.__key, lightId);
+  }
+
+  toggleLight(lightId) {
+    this.huepiService.MyHue.LightAlertSelect(lightId);
+    this.huepiService.MyHue.GroupToggleLight(this.group.__key, lightId);
   }
 
 }

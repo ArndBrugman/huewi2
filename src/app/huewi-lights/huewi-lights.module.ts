@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@angular/material';
+import { FormsModule }   from '@angular/forms';
+
+import { OrderByModule } from '../../assets/orderby.module';
 
 import { HuewiLightsComponent } from './huewi-lights.component';
 import { HuewiLightComponent } from './huewi-light/huewi-light.component';
@@ -13,6 +16,8 @@ import { HuewiLightsRoutingModule } from './huewi-lights-routing.module';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    OrderByModule,
     HuewiLightsRoutingModule
   ],
   declarations: [

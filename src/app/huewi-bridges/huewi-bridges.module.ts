@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@angular/material';
+import { FormsModule }   from '@angular/forms';
 
 import { HuewiBridgesComponent } from './huewi-bridges.component';
 import { HuewiBridgeComponent } from './huewi-bridge/huewi-bridge.component';
@@ -13,6 +14,7 @@ import { HuewiBridgesRoutingModule } from './huewi-bridges-routing.module';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     HuewiBridgesRoutingModule
   ],
   declarations: [

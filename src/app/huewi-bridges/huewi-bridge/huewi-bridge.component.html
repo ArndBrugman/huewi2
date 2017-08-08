@@ -1,14 +1,12 @@
-<span class="row"
-  (click)="select(bridge)">
-  <span class="col-4">
-    {{bridge.id}}
-    <span *ngIf="bridge.id === huepiService.MyHue.BridgeConfig.bridgeid">
-      <md-icon>stars</md-icon>
-    </span>
+<span class="row" (click)="select(bridge)">
+  <span class="col-sm-4 col-md-3">
+    Id: {{bridge.id.toLowerCase()}}
+    <md-icon *ngIf="bridge.id.toLowerCase() === config.bridgeid.toLowerCase()">link</md-icon>
   </span>
-  <span class="col-6">
-    {{bridge.internalipaddress}}
+  <span class="col-sm-4 col-md-3" *ngIf="bridge.name">
+    Name: {{bridge.name}}
   </span>
-  <span class="col-2">
+  <span class="col-sm-4 col-md-3">
+    IP: {{bridge.internalipaddress}}
   </span>
 </span>

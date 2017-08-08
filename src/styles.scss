@@ -4,7 +4,7 @@
 
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-html,body {
+html {
     height: 100%;
     user-select: none;
     -webkit-user-select: none;
@@ -13,8 +13,24 @@ html,body {
     -o-user-select: none;
 }
 
-button:focus {
+body {
+    min-height: 100%;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+button:focus, input:focus {
     outline: none;
+}
+
+input {
+    border-color: whitesmoke;
 }
 
 md-card {

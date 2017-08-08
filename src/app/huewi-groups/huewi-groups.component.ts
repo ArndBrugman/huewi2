@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, HostBinding, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { RoutingAnimations } from './../app-routing.animations';
 
 import { HUEWI_GROUPS_MOCK } from './huewi-groups.mock';
 
@@ -9,15 +10,14 @@ import { HuepiService } from '../huepi.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { fadeInOut } from '../app-routing.animations';
-
 @Component({
   selector: 'huewi-groups',
   templateUrl: './huewi-groups.component.html',
   styleUrls: ['./huewi-groups.component.css'],
-  animations: [fadeInOut]
+  animations: [RoutingAnimations()]
 })
 export class HuewiGroupsComponent implements OnInit, OnDestroy {
+  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   private groupsType = 'Rooms';
   @Input() groups = HUEWI_GROUPS_MOCK;
   private groupsSubscription;
@@ -46,9 +46,9 @@ export class HuewiGroupsComponent implements OnInit, OnDestroy {
 
   changeGroupsType() {
     if (this.groupsType === 'Rooms') {
-      this.groupsType = 'Groups';
-    } else if (this.groupsType === 'Groups') {
-      this.groupsType = 'Rooms & Groups';
+      this.groupsType = 'LightGroups';
+    } else if (this.groupsType === 'LightGroups') {
+      this.groupsType = 'Rooms & LightGroups';
     } else {
       this.groupsType = 'Rooms';
     }

@@ -1,4 +1,4 @@
-<md-card>
+<md-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedGroup">
     <md-card-title
@@ -6,13 +6,13 @@
       {{groupsType}}
     </md-card-title>
     <huewi-group 
-      *ngFor="let group of groups | HuewiGroupsFilter:groupsType"
+      *ngFor="let group of groups | HuewiGroupsFilter:groupsType | orderBy : '+name'"
       [group]="group">
     </huewi-group>
   </div> 
 
   <div *ngIf="selectedGroup">
-    <md-card-title>Group Details</md-card-title>
+    <md-card-title>{{selectedGroup.type}} Details</md-card-title>
     <huewi-group-details
       [group]="selectedGroup">
     </huewi-group-details>

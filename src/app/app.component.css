@@ -3,11 +3,7 @@
     max-width: 70%;
 }
 
-.linkactive {
+.active {
     color: black;
     background: lightblue;
-}
-
-.mat-sidenav-container {
-    min-height: 100%;
 }

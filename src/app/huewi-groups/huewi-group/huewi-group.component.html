@@ -1,9 +1,11 @@
 <span class="row">
-  <span class="col-4"
+  <input *ngIf="editable" class="col-5 col-sm-3 col-xl-2"
+    [(ngModel)]="group.name">
+  <span *ngIf="!editable" class="col-5 col-sm-3 col-xl-2"
     (click)="select(group)">
       {{group.name}}
   </span>
-  <span class="col-6">
+  <span class="col-5 col-sm-7 col-xl-8">
     <md-slider class="col-12"
       (change)="brightness(group, $event.value)"
       disabled="{{!group.action.on}}"

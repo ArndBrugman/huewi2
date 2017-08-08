@@ -6,8 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule }   from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
+
+import { OrderByModule } from './../assets/orderby.module';
 
 import { HuepiService } from './huepi.service';
 
@@ -21,13 +24,16 @@ import { HuewiSchedulesModule } from './huewi-schedules/huewi-schedules.module';
 import { HuewiSensorsModule } from './huewi-sensors/huewi-sensors.module';
 import { HuewiBridgesModule } from './huewi-bridges/huewi-bridges.module';
 import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
+import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-connectionstatus.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
     // NgbModule.forRoot(),
+    OrderByModule,
     HuewiGroupsModule,
     HuewiLightsModule,
     HuewiRulesModule,
@@ -40,7 +46,8 @@ import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
   declarations: [
     AppComponent,
     HuewiHomeComponent,
-    HuewiAboutComponent
+    HuewiAboutComponent,
+    HuewiConnectionstatusComponent
   ],
   providers: [
     HuepiService

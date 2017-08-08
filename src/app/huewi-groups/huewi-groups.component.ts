@@ -46,9 +46,9 @@ export class HuewiGroupsComponent implements OnInit, OnDestroy {
 
   changeGroupsType() {
     if (this.groupsType === 'Rooms') {
-      this.groupsType = 'Groups';
-    } else if (this.groupsType === 'Groups') {
-      this.groupsType = 'Rooms & Groups';
+      this.groupsType = 'LightGroups';
+    } else if (this.groupsType === 'LightGroups') {
+      this.groupsType = 'Rooms & LightGroups';
     } else {
       this.groupsType = 'Rooms';
     }

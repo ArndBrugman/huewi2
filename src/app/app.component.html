@@ -4,9 +4,6 @@
     <button md-icon-button (click)="sidenav.toggle()">
       <md-icon>more_vert</md-icon>
     </button>
-    <!--button md-icon-button [md-menu-trigger-for]="menu">
-      <md-icon>more_vert</md-icon>
-    </button-->
     <span>hue Web Interface</span>
   </md-toolbar>
 
@@ -15,26 +12,16 @@
       <a md-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.toggle()">Home</a>
       <a md-list-item routerLink="/groups" routerLinkActive="active" (click)="sidenav.toggle()">Groups</a>
       <a md-list-item routerLink="/lights" routerLinkActive="active" (click)="sidenav.toggle()">Lights</a>
+      <md-divider></md-divider>
       <a md-list-item routerLink="/rules" routerLinkActive="active" (click)="sidenav.toggle()">Rules</a>
       <a md-list-item routerLink="/scenes" routerLinkActive="active" (click)="sidenav.toggle()">Scenes</a>
       <a md-list-item routerLink="/schedules" routerLinkActive="active" (click)="sidenav.toggle()">Schedules</a>
       <a md-list-item routerLink="/sensors" routerLinkActive="active" (click)="sidenav.toggle()">Sensors</a>
+      <md-divider></md-divider>
       <a md-list-item routerLink="/bridges" routerLinkActive="active" (click)="sidenav.toggle()">Bridges</a>
       <a md-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.toggle()">About</a>
     </md-nav-list>
   </md-sidenav>
-
-  <!--md-menu x-position="before" #menu="mdMenu">
-    <a md-menu-item routerLink="/home" routerLinkActive="active">Home</a>
-    <a md-menu-item routerLink="/groups" routerLinkActive="active">Groups</a>
-    <a md-menu-item routerLink="/lights" routerLinkActive="active">Lights</a>
-    <a md-menu-item routerLink="/rules" routerLinkActive="active">Rules</a>
-    <a md-menu-item routerLink="/scenes" routerLinkActive="active">Scenes</a>
-    <a md-menu-item routerLink="/schedules" routerLinkActive="active">Schedules</a>
-    <a md-menu-item routerLink="/sensors" routerLinkActive="active">Sensors</a>
-    <a md-menu-item routerLink="/bridges" routerLinkActive="active">Bridges</a>
-    <a md-menu-item routerLink="/about" routerLinkActive="active">About</a>
-  </md-menu-->
 
   <nav md-tab-nav-bar #navbar>
     <a md-tab-link routerLink="/home" routerLinkActive="active">Home</a>
@@ -51,7 +38,7 @@
   <router-outlet>
   </router-outlet>
 
-</md-sidenav-container>
+  <huewi-connectionstatus>
+  </huewi-connectionstatus>
 
-<huewi-connectionstatus>
-</huewi-connectionstatus>
+</md-sidenav-container>

@@ -7,7 +7,7 @@ export class HuewiGroupsFilter implements PipeTransform {
     transform(groups: Array<any>, type: string) {
         if (type === 'Rooms') {
           return groups.filter(group => group.type === 'Room');
-        } else if (type === 'Groups') {
+        } else if (type === 'LightGroups') {
           return groups.filter(group => group.type === 'LightGroup');
         } else {
           return groups;

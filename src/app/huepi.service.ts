@@ -187,6 +187,8 @@ window["MyHue"] = // DEBUGCODE
   }
 
   dataReceived() {
+    if (this.MyHue.Groups[0])
+      this.MyHue.Groups[0].name = 'All available Lights';
     this.bridges.next(this.asArray(this.MyHue.LocalBridges));
     this.groups.next(this.asArray(this.MyHue.Groups));
     this.lights.next(this.asArray(this.MyHue.Lights));

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { OrderByPipe } from './../assets/orderby';
+import { OrderByPipe } from './orderby';
 
 @NgModule({
   imports: [ CommonModule ],

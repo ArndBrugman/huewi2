@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
 
-import { OrderByModule } from '../../assets/orderby.module';
+import { OrderByModule } from '../orderby.module';
 
 import { HuewiGroupsComponent } from './huewi-groups.component';
 import { HuewiGroupComponent } from './huewi-group/huewi-group.component';

@@ -1,10 +1,20 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$huewi-app-primary: mat-palette($mat-blue, 500, 900, A100);
-$huewi-app-accent:  mat-palette($mat-light-blue, 500, 900, A100);
-$huewi-app-warn:    mat-palette($mat-red);
+$huewi-light-primary: mat-palette($mat-blue, 500, 900, A100);
+$huewi-light-accent:  mat-palette($mat-light-blue, 500, 900, A100);
+$huewi-light-warn:    mat-palette($mat-red);
 
-$huewi-app-theme: mat-light-theme($huewi-app-primary, $huewi-app-accent, $huewi-app-warn);
+$huewi-light-theme: mat-light-theme($huewi-light-primary, $huewi-light-accent, $huewi-light-warn);
 
-@include angular-material-theme($huewi-app-theme);
+@include angular-material-theme($huewi-light-theme);
+
+.dark-theme {
+$huewi-dark-primary: mat-palette($mat-blue-grey, 500, 900, A100);
+$huewi-dark-accent:  mat-palette($mat-grey, 500, 900, A100);
+$huewi-dark-warn:    mat-palette($mat-deep-orange);
+
+$huewi-dark-theme: mat-light-theme($huewi-dark-primary, $huewi-dark-accent, $huewi-dark-warn);
+
+@include angular-material-theme($huewi-dark-theme);
+}

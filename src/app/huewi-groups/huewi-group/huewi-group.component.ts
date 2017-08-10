@@ -30,6 +30,10 @@ export class HuewiGroupComponent implements OnInit {
     this.router.navigate(['/groups', group.__key]);
   }
 
+  rename(group, name) {
+    this.huepiService.MyHue.GroupSetName(group.__key, name);
+  }
+
   brightness(group, value) {
     this.huepiService.MyHue.GroupSetBrightness(group.__key, value);
   }

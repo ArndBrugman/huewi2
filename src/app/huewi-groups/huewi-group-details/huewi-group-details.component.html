@@ -1,6 +1,8 @@
 <huewi-group [group]="group" [editable]="group.__key !== '0'">
 </huewi-group>
 
+<br>
+
 <div class="row">
   <button md-raised-button class="col-sm-6 col-md-3" (click)="relax(group)">Relax</button>
   <button md-raised-button class="col-sm-6 col-md-3" (click)="reading(group)">Reading</button>
@@ -23,5 +25,8 @@
 
 <div class="right" *ngIf="group.__key !== '0'">
   <br>
-  Note that Lights can be part of multple LightGroups but only one Room.
+  <small>
+  <md-icon>info_outline</md-icon>
+  <i>Lights can be part of multple LightGroups but only one Room.</i>
+  </small>
 </div>

@@ -3,6 +3,12 @@
   <md-card-title>Bridges</md-card-title>
 
   <md-card>
+    <md-card-subtitle>Found</md-card-subtitle>
+    <huewi-bridge *ngFor="let bridge of bridges" [bridge]="bridge">
+    </huewi-bridge>
+  </md-card>
+
+  <md-card>
     <md-card-subtitle>Actions</md-card-subtitle>
     <div class="row">
       <button md-raised-button class="col-sm-6 col-md-2" (click)="discover()">Discover</button>
@@ -13,12 +19,6 @@
       <button md-raised-button class="col-sm-6 col-md-2" (click)="connect()">Connect</button>
       <button md-raised-button class="col-sm-6 col-md-2" (click)="reload()">Reload</button>
     </div>
-  </md-card>
-
-  <md-card>
-    <md-card-subtitle>Found</md-card-subtitle>
-    <huewi-bridge *ngFor="let bridge of bridges" [bridge]="bridge">
-    </huewi-bridge>
   </md-card>
 
   <md-card *ngIf="selectedBridge">

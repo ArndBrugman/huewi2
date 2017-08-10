@@ -10,7 +10,7 @@ import { FormsModule }   from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 
-import { OrderByModule } from './orderby.module';
+import { OrderByModule } from './pipes/orderby.module';
 
 import { HuepiService } from './huepi.service';
 

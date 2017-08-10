@@ -2,8 +2,12 @@
 
   <div *ngIf="!selectedSensor">
     <md-card-title>Sensors</md-card-title>
+    <div>
+      Filter: <input [(ngModel)]="searchText">
+      <br><br>
+    </div>
     <huewi-sensor 
-      *ngFor="let sensor of sensors"
+      *ngFor="let sensor of sensors | filter:searchText:'name'"
       [sensor]="sensor">
     </huewi-sensor>
   </div>

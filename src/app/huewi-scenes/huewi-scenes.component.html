@@ -2,8 +2,12 @@
 
   <div *ngIf="!selectedScene">
     <md-card-title>Scenes</md-card-title>
+    <div>
+      Filter: <input [(ngModel)]="searchText">
+      <br><br>
+    </div>
     <huewi-scene 
-      *ngFor="let scene of scenes"
+      *ngFor="let scene of scenes | filter:searchText:'name'"
       [scene]="scene">
     </huewi-scene>
   </div>

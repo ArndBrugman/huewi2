@@ -2,7 +2,13 @@
 
   <div *ngIf="!selectedRule">
     <md-card-title>Rules</md-card-title>
-    <huewi-rule *ngFor="let rule of rules" [rule]="rule">
+    <div>
+      Filter: <input [(ngModel)]="searchText">
+      <br><br>
+    </div>
+    <huewi-rule 
+      *ngFor="let rule of rules | filter:searchText:'name'"
+      [rule]="rule" >
     </huewi-rule>
   </div>
 

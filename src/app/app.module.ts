@@ -11,6 +11,7 @@ import { FormsModule }   from '@angular/forms';
 import 'hammerjs';
 
 import { OrderByModule } from './pipes/orderby.module';
+import { FilterModule } from './pipes/filter.module';
 
 import { HuepiService } from './huepi.service';
 
@@ -34,6 +35,7 @@ import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-c
     FormsModule,
     // NgbModule.forRoot(),
     OrderByModule,
+    FilterModule,
     HuewiGroupsModule,
     HuewiLightsModule,
     HuewiRulesModule,

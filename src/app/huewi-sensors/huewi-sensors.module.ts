@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@angular/material';
+import { FormsModule }   from '@angular/forms';
+
+import { FilterModule } from '../pipes/filter.module';
 
 import { HuewiSensorsComponent } from './huewi-sensors.component';
 import { HuewiSensorComponent } from './huewi-sensor/huewi-sensor.component';
@@ -13,6 +16,8 @@ import { HuewiSensorsRoutingModule } from './huewi-sensors-routing.module';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    FilterModule,
     HuewiSensorsRoutingModule
   ],
   declarations: [

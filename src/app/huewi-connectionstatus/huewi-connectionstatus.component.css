@@ -4,4 +4,5 @@
     width: 100%;
     left: -8px;
     bottom: -8px;
+    z-index: 999;
 }

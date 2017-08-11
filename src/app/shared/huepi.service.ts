@@ -139,12 +139,25 @@ window["MyHue"] = // DEBUGCODE
   scan() {
     this.stopHeartbeat();
     this.status.next('Scanning Network for Bridge');
+    this.MyHue.ScanningNetwork = true;
     this.MyHue.NetworkDiscoverLocalBridges().then(() => {
       this.status.next('Bridge Found');
       this.reConnect();
     }).catch(() => {
       this.status.next('Unable to Locate Bridge with Network Scan');
     });
+    this.updateScanProgress();
+  }
+
+  private updateScanProgress() {
+    this.message.next(this.MyHue.ScanProgress+'% Progress');
+    setTimeout(() => {
+      if (this.isScanning()) {
+        this.updateScanProgress();
+      } else {
+        this.message.next('');
+      }
+    }, 450);
   }
 
   isScanning() {

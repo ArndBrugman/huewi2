@@ -4,17 +4,30 @@
 $huewi-light-primary: mat-palette($mat-blue, 500, 900, A100);
 $huewi-light-accent:  mat-palette($mat-light-blue, 500, 900, A100);
 $huewi-light-warn:    mat-palette($mat-red);
-
 $huewi-light-theme: mat-light-theme($huewi-light-primary, $huewi-light-accent, $huewi-light-warn);
-
 @include angular-material-theme($huewi-light-theme);
 
+.active-link {
+    background: lightblue;
+}
+
 .dark-theme {
-$huewi-dark-primary: mat-palette($mat-blue-grey, 500, 900, A100);
-$huewi-dark-accent:  mat-palette($mat-grey, 500, 900, A100);
-$huewi-dark-warn:    mat-palette($mat-deep-orange);
+    $huewi-dark-primary: mat-palette($mat-amber, 800, 900, A500);
+    $huewi-dark-accent:  mat-palette($mat-yellow, 500, 900, A500);
+    $huewi-dark-warn:    mat-palette($mat-deep-orange);
+    $huewi-dark-theme: mat-dark-theme($huewi-dark-primary, $huewi-dark-accent, $huewi-dark-warn);
+    @include angular-material-theme($huewi-dark-theme);
 
-$huewi-dark-theme: mat-light-theme($huewi-dark-primary, $huewi-dark-accent, $huewi-dark-warn);
-
-@include angular-material-theme($huewi-dark-theme);
+    div.fillpage {
+        background-color: black;
+        height: 100%;
+        widows: 100%;
+    }
+    .mat-sidenav-content {
+        background-color: black;
+    }
+    .active-link {
+        background: #ffa000;
+    }
+    
 }

@@ -2,7 +2,11 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-@import 'theme';
+html, body, md-sidenav-container {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
 
 html {
     user-select: none;
@@ -10,12 +14,6 @@ html {
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-}
-
-html, body, material-app, md-sidenav-container {
-    margin: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .left {
@@ -28,10 +26,6 @@ html, body, material-app, md-sidenav-container {
 
 button:focus, input:focus {
     outline: none;
-}
-
-input {
-    border-color: whitesmoke;
 }
 
 md-card {

@@ -4,7 +4,7 @@ import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Router } from '@angular/router';
 
 import axios from 'axios';
-import { Huepi, HuepiLightstate } from './../../../huepi/huepi.js';
+import { Huepi, HuepiLightstate } from './../../../../huepi/huepi.js';
 
 import { HUEPI_MOCK } from './huepi.mock'
 import { Subject } from 'rxjs/Subject';

@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
-import { HuepiService } from '../../huepi.service';
+import { HuepiService } from '../../shared/huepi.service';
 
 @Component({
   selector: 'huewi-group',

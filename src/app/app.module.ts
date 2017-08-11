@@ -13,7 +13,7 @@ import 'hammerjs';
 import { OrderByModule } from './pipes/orderby.module';
 import { FilterModule } from './pipes/filter.module';
 
-import { HuepiService } from './huepi.service';
+import { HuepiService } from './shared/huepi.service';
 
 import { AppComponent } from './app.component';
 import { HuewiHomeComponent } from './huewi-home/huewi-home.component';

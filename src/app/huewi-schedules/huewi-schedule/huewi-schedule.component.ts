@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { HuepiService } from '../../huepi.service';
+import { HuepiService } from '../../shared/huepi.service';
 
 @Component({
   selector: 'huewi-schedule',

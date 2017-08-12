@@ -1,10 +1,29 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$huewi-app-primary: mat-palette($mat-blue, 500, 900, A100);
-$huewi-app-accent:  mat-palette($mat-light-blue, 500, 900, A100);
-$huewi-app-warn:    mat-palette($mat-red);
+$huewi-light-primary: mat-palette($mat-blue, 500, 900, A100);
+$huewi-light-accent:  mat-palette($mat-light-blue, 500, 900, A100);
+$huewi-light-warn:    mat-palette($mat-red);
+$huewi-light-theme: mat-light-theme($huewi-light-primary, $huewi-light-accent, $huewi-light-warn);
+@include angular-material-theme($huewi-light-theme);
 
-$huewi-app-theme: mat-light-theme($huewi-app-primary, $huewi-app-accent, $huewi-app-warn);
+.active-link {
+    background: mat-color($huewi-light-primary);
+}
 
-@include angular-material-theme($huewi-app-theme);
+.dark-theme {
+    $huewi-dark-primary: mat-palette($mat-amber, 800, 900, A500);
+    $huewi-dark-accent:  mat-palette($mat-yellow, 500, 900, A500);
+    $huewi-dark-warn:    mat-palette($mat-deep-orange);
+    $huewi-dark-theme: mat-dark-theme($huewi-dark-primary, $huewi-dark-accent, $huewi-dark-warn);
+    @include angular-material-theme($huewi-dark-theme);
+
+    .mat-sidenav-content {
+        background-color: black;
+    }
+
+    .active-link {
+        background: mat-color($huewi-dark-primary);
+    }
+    
+}

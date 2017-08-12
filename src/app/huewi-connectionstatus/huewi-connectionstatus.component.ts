@@ -2,7 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
-import { HuepiService } from '../huepi.service';
+import { HuepiService } from '../shared/huepi.service';
 
 @Component({
   selector: 'huewi-connectionstatus',

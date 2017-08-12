@@ -1,9 +1,5 @@
-/*
- * Example use
- *		Basic Array of single type: *ngFor="let todo of todoService.todos | orderBy : '-'"
- *		Multidimensional Array Sort on single column: *ngFor="let todo of todoService.todos | orderBy : ['-status']"
- *		Multidimensional Array Sort on multiple columns: *ngFor="let todo of todoService.todos | orderBy : ['status', '-title']"
- */
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { Pipe, PipeTransform } from '@angular/core';
 
@@ -112,3 +108,12 @@ export class OrderByPipe implements PipeTransform {
         }
     }
 }
+
+
+@NgModule({
+  imports: [ CommonModule ],
+  declarations: [ OrderByPipe ],
+  exports: [ OrderByPipe ],
+})
+
+export class OrderByModule { }

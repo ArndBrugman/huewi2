@@ -1,20 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import 'theme.scss';
-
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-html {
+html, body, md-sidenav-container {
+    margin: 0;
+    width: 100%;
     height: 100%;
+}
+
+html {
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-}
-
-body {
-    min-height: 100%;
 }
 
 .left {
@@ -27,10 +26,6 @@ body {
 
 button:focus, input:focus {
     outline: none;
-}
-
-input {
-    border-color: whitesmoke;
 }
 
 md-card {

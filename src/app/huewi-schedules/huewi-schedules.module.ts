@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@angular/material';
+import { FormsModule }   from '@angular/forms';
+
+import { FilterModule } from '../pipes/filter.module';
 
 import { HuewiSchedulesComponent } from './huewi-schedules.component';
 import { HuewiScheduleComponent } from './huewi-schedule/huewi-schedule.component';
@@ -13,6 +16,8 @@ import { HuewiSchedulesRoutingModule } from './huewi-schedules-routing.module';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    FilterModule,
     HuewiSchedulesRoutingModule
   ],
   declarations: [

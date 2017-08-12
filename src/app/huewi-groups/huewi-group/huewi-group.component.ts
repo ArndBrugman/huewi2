@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
-import { HuepiService } from '../../huepi.service';
+import { HuepiService } from '../../shared/huepi.service';
 
 @Component({
   selector: 'huewi-group',
@@ -28,6 +28,10 @@ export class HuewiGroupComponent implements OnInit {
   select(group) {
     this.huepiService.MyHue.GroupAlertSelect(group.__key);
     this.router.navigate(['/groups', group.__key]);
+  }
+
+  rename(group, name) {
+    this.huepiService.MyHue.GroupSetName(group.__key, name);
   }
 
   brightness(group, value) {

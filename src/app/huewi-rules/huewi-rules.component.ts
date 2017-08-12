@@ -6,7 +6,7 @@ import { RoutingAnimations } from './../app-routing.animations';
 
 import { HUEWI_RULES_MOCK } from './huewi-rules.mock'
 
-import { HuepiService } from '../huepi.service';
+import { HuepiService } from '../shared/huepi.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 

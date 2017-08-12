@@ -10,9 +10,10 @@ import { FormsModule }   from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import 'hammerjs';
 
-import { OrderByModule } from './../assets/orderby.module';
+import { OrderByModule } from './pipes/orderby.module';
+import { FilterModule } from './pipes/filter.module';
 
-import { HuepiService } from './huepi.service';
+import { HuepiService } from './shared/huepi.service';
 
 import { AppComponent } from './app.component';
 import { HuewiHomeComponent } from './huewi-home/huewi-home.component';
@@ -34,6 +35,7 @@ import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-c
     FormsModule,
     // NgbModule.forRoot(),
     OrderByModule,
+    FilterModule,
     HuewiGroupsModule,
     HuewiLightsModule,
     HuewiRulesModule,

@@ -3,7 +3,6 @@
     max-width: 70%;
 }
 
-.active {
-    color: black;
-    background: lightblue;
+md-icon {
+    padding-right: 32px;
 }

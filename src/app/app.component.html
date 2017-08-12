@@ -1,44 +1,42 @@
-<md-sidenav-container fullscreen>
+<md-sidenav-container fullscreen class={{theme}}>
 
   <md-toolbar color="primary">
     <button md-icon-button (click)="sidenav.toggle()">
       <md-icon>more_vert</md-icon>
     </button>
-    <span>hue Web Interface</span>
+    <span>{{title}}</span>
   </md-toolbar>
 
   <md-sidenav #sidenav>
     <md-nav-list>
-      <a md-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.toggle()">Home</a>
-      <a md-list-item routerLink="/groups" routerLinkActive="active" (click)="sidenav.toggle()">Groups</a>
-      <a md-list-item routerLink="/lights" routerLinkActive="active" (click)="sidenav.toggle()">Lights</a>
+      <a md-list-item routerLink="/home" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>home</md-icon>Home</a>
+      <a md-list-item routerLink="/groups" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>group_work</md-icon>Groups</a>
+      <a md-list-item routerLink="/lights" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>lightbulb_outline</md-icon>Lights</a>
       <md-divider></md-divider>
-      <a md-list-item routerLink="/rules" routerLinkActive="active" (click)="sidenav.toggle()">Rules</a>
-      <a md-list-item routerLink="/scenes" routerLinkActive="active" (click)="sidenav.toggle()">Scenes</a>
-      <a md-list-item routerLink="/schedules" routerLinkActive="active" (click)="sidenav.toggle()">Schedules</a>
-      <a md-list-item routerLink="/sensors" routerLinkActive="active" (click)="sidenav.toggle()">Sensors</a>
+      <a md-list-item routerLink="/rules" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>assignment</md-icon>Rules</a>
+      <a md-list-item routerLink="/scenes" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>assignment_ind</md-icon>Scenes</a>
+      <a md-list-item routerLink="/schedules" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>alarm</md-icon>Schedules</a>
+      <a md-list-item routerLink="/sensors" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>all_out</md-icon>Sensors</a>
       <md-divider></md-divider>
-      <a md-list-item routerLink="/bridges" routerLinkActive="active" (click)="sidenav.toggle()">Bridges</a>
-      <a md-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.toggle()">About</a>
+      <a md-list-item routerLink="/bridges" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>device_hub</md-icon>Bridges</a>
+      <a md-list-item routerLink="/about" routerLinkActive="active-link" (click)="sidenav.toggle()"><md-icon>info</md-icon>About</a>
+      <md-divider></md-divider>
+      <a md-list-item (click)="toggleTheme()"><md-icon>invert_colors</md-icon>Theme</a>
     </md-nav-list>
   </md-sidenav>
 
   <nav md-tab-nav-bar #navbar>
-    <a md-tab-link routerLink="/home" routerLinkActive="active">Home</a>
-    <a md-tab-link routerLink="/groups" routerLinkActive="active">Groups</a>
-    <a md-tab-link routerLink="/lights" routerLinkActive="active">Lights</a>
-    <!--a md-tab-link routerLink="/rules" routerLinkActive="active">Rules</a>
-    <a md-tab-link routerLink="/scenes" routerLinkActive="active">Scenes</a>
-    <a md-tab-link routerLink="/schedules" routerLinkActive="active">Schedules</a>
-    <a md-tab-link routerLink="/sensors" routerLinkActive="active">Sensors</a-->
-    <a md-tab-link routerLink="/bridges" routerLinkActive="active">Bridges</a>
-    <a md-tab-link routerLink="/about" routerLinkActive="active">About</a>
+    <a md-tab-link routerLink="/home" routerLinkActive="active-link">Home</a>
+    <a md-tab-link routerLink="/groups" routerLinkActive="active-link">Groups</a>
+    <a md-tab-link routerLink="/lights" routerLinkActive="active-link">Lights</a>
+    <a md-tab-link routerLink="/bridges" routerLinkActive="active-link">Bridges</a>
+    <a md-tab-link routerLink="/about" routerLinkActive="active-link">About</a>
   </nav>
 
   <router-outlet>
   </router-outlet>
 
-  <huewi-connectionstatus>
-  </huewi-connectionstatus>
-
 </md-sidenav-container>
+
+<huewi-connectionstatus class={{theme}}>
+</huewi-connectionstatus>

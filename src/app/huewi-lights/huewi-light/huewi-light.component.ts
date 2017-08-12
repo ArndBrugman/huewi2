@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { HuepiService } from '../../huepi.service';
+import { HuepiService } from '../../shared/huepi.service';
 
 @Component({
   selector: 'huewi-light',
@@ -10,6 +10,7 @@ import { HuepiService } from '../../huepi.service';
 })
 export class HuewiLightComponent implements OnInit {
   @Input() light;
+  @Input() editable = false;
 
   constructor(private huepiService: HuepiService, private router: Router) {
   }
@@ -20,6 +21,10 @@ export class HuewiLightComponent implements OnInit {
   select(light) {
     this.huepiService.MyHue.LightAlertSelect(light.__key);
     this.router.navigate(['/lights', light.__key]);
+  }
+
+  rename(light, name) {
+    this.huepiService.MyHue.LightSetName(light.__key, name);
   }
 
   brightness(light, value) {

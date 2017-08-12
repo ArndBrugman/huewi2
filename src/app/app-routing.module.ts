@@ -9,8 +9,8 @@ import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
 export const appRoutes: Routes = [
   { path: 'home', component: HuewiHomeComponent },
   { path: 'about', component: HuewiAboutComponent },
-  { path: '', component: HuewiHomeComponent },
-//  { path: '', redirectTo: '/home', pathMatch: 'full' },
+//  { path: '', component: HuewiHomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home'}
 ];
 

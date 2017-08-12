@@ -6,7 +6,7 @@ import { RoutingAnimations } from './../app-routing.animations';
 
 import { HUEWI_GROUPS_MOCK } from './huewi-groups.mock';
 
-import { HuepiService } from '../huepi.service';
+import { HuepiService } from '../shared/huepi.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -48,7 +48,7 @@ export class HuewiGroupsComponent implements OnInit, OnDestroy {
     if (this.groupsType === 'Rooms') {
       this.groupsType = 'LightGroups';
     } else if (this.groupsType === 'LightGroups') {
-      this.groupsType = 'Rooms & LightGroups';
+      this.groupsType = 'LightGroups & Rooms';
     } else {
       this.groupsType = 'Rooms';
     }

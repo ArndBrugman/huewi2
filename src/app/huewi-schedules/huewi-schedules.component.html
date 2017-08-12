@@ -2,8 +2,12 @@
 
   <div *ngIf="!selectedSchedule">
     <md-card-title>Schedules</md-card-title>
+    <div>
+      Filter: <input [(ngModel)]="searchText">
+      <br><br>
+    </div>
     <huewi-schedule 
-      *ngFor="let schedule of schedules"
+      *ngFor="let schedule of schedules | filter:searchText:'name'"
       [schedule]="schedule">
     </huewi-schedule>
   </div>

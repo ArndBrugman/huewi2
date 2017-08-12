@@ -4,7 +4,7 @@ import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Router } from '@angular/router';
 
 import axios from 'axios';
-import { Huepi, HuepiLightstate } from './../../../huepi/huepi.js';
+import { Huepi, HuepiLightstate } from './../../../../huepi/huepi.js';
 
 import { HUEPI_MOCK } from './huepi.mock'
 import { Subject } from 'rxjs/Subject';
@@ -139,12 +139,23 @@ window["MyHue"] = // DEBUGCODE
   scan() {
     this.stopHeartbeat();
     this.status.next('Scanning Network for Bridge');
+    this.MyHue.ScanningNetwork = true;
     this.MyHue.NetworkDiscoverLocalBridges().then(() => {
       this.status.next('Bridge Found');
       this.reConnect();
     }).catch(() => {
       this.status.next('Unable to Locate Bridge with Network Scan');
     });
+    this.updateScanProgress();
+  }
+
+  private updateScanProgress() {
+    this.status.next('Scanning Network for Bridge: '+this.MyHue.ScanProgress+'% Progress');
+    setTimeout(() => {
+      if (this.isScanning()) {
+        this.updateScanProgress();
+      }
+    }, 450);
   }
 
   isScanning() {

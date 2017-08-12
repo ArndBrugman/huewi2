@@ -7,7 +7,7 @@
       <br><br>
     </div>
     <huewi-schedule 
-      *ngFor="let schedule of schedules | filter:searchText:'name'"
+      *ngFor="let schedule of schedules | orderBy:['+name'] | filter:searchText:'name'"
       [schedule]="schedule">
     </huewi-schedule>
   </div>

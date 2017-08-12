@@ -1,3 +1,13 @@
 <huewi-sensor 
   [sensor]="sensor">
 </huewi-sensor>
+
+sensor {{sensor.__key}}<br>
+<small>
+  {{sensor.type}} - {{sensor.modelid}}<br>
+  <b>config: </b><br>
+  {{sensor.config | json}}
+  <br>
+  <b>state: </b><br>
+  {{sensor.state | json}}
+</small>

@@ -8,7 +8,7 @@ import { HuepiService } from '../../shared/huepi.service';
   styleUrls: ['./huewi-sensor-details.component.css']
 })
 export class HuewiSensorDetailsComponent implements OnInit {
-  @Input() sensor = { name: 'None' };
+  @Input() sensor;
 
   constructor(private huepiService: HuepiService) {
   }

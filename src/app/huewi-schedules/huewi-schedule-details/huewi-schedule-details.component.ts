@@ -8,7 +8,7 @@ import { HuepiService } from '../../shared/huepi.service';
   styleUrls: ['./huewi-schedule-details.component.css']
 })
 export class HuewiScheduleDetailsComponent implements OnInit {
-  @Input() schedule = { name: 'None' };
+  @Input() schedule;
 
   constructor(private huepiService: HuepiService) {
   }

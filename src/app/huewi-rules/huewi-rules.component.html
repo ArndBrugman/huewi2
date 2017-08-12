@@ -14,12 +14,9 @@
 
   <div *ngIf="selectedRule">
     <md-card-title>Rule Details</md-card-title>
-    <md-list>
-      <md-list-item>
-        <huewi-rule-details [rule]="selectedRule">
-        </huewi-rule-details>
-      </md-list-item>
-    </md-list>
+    <huewi-rule-details
+      [rule]="selectedRule">
+    </huewi-rule-details>
   </div>
 
 </md-card>

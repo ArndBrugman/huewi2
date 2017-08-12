@@ -10,7 +10,7 @@ import { HuepiService } from './shared/huepi.service';
 })
 export class AppComponent {
   title = 'hue Web Interface';
-  theme = 'dark-theme';
+  theme = 'defaults-to-light';
 
   constructor(private huepiService: HuepiService, private router: Router) {
   }

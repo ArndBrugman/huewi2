@@ -8,7 +8,7 @@ $huewi-light-theme: mat-light-theme($huewi-light-primary, $huewi-light-accent, $
 @include angular-material-theme($huewi-light-theme);
 
 .active-link {
-    background: lightblue;
+    background: mat-color($huewi-light-primary);
 }
 
 .dark-theme {
@@ -18,16 +18,12 @@ $huewi-light-theme: mat-light-theme($huewi-light-primary, $huewi-light-accent, $
     $huewi-dark-theme: mat-dark-theme($huewi-dark-primary, $huewi-dark-accent, $huewi-dark-warn);
     @include angular-material-theme($huewi-dark-theme);
 
-    div.fillpage {
-        background-color: black;
-        height: 100%;
-        widows: 100%;
-    }
     .mat-sidenav-content {
         background-color: black;
     }
+
     .active-link {
-        background: #ffa000;
+        background: mat-color($huewi-dark-primary);
     }
     
 }

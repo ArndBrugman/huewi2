@@ -150,12 +150,10 @@ window["MyHue"] = // DEBUGCODE
   }
 
   private updateScanProgress() {
-    this.message.next(this.MyHue.ScanProgress+'% Progress');
+    this.status.next('Scanning Network for Bridge: '+this.MyHue.ScanProgress+'% Progress');
     setTimeout(() => {
       if (this.isScanning()) {
         this.updateScanProgress();
-      } else {
-        this.message.next('');
       }
     }, 450);
   }

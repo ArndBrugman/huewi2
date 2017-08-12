@@ -3,7 +3,7 @@
   <div *ngIf="!selectedLight">
     <md-card-title>Lights</md-card-title>
     <huewi-light 
-      *ngFor="let light of lights | orderBy: '+name'"
+      *ngFor="let light of lights | orderBy:['+name']"
       [light]="light">
     </huewi-light>
   </div>

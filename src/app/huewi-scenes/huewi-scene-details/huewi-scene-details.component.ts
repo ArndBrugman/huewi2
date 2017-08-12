@@ -8,7 +8,7 @@ import { HuepiService } from '../../shared/huepi.service';
   styleUrls: ['./huewi-scene-details.component.css']
 })
 export class HuewiSceneDetailsComponent implements OnInit {
-  @Input() scene = { name: 'None' };
+  @Input() scene;
 
   constructor(private huepiService: HuepiService) {
   }

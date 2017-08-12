@@ -7,7 +7,7 @@
       <br><br>
     </div>
     <huewi-scene 
-      *ngFor="let scene of scenes | filter:searchText:'name'"
+      *ngFor="let scene of scenes | orderBy:['+name'] | filter:searchText:'name'"
       [scene]="scene">
     </huewi-scene>
   </div>

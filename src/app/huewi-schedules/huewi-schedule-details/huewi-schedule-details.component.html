@@ -1,3 +1,9 @@
 <huewi-schedule 
   [schedule]="schedule">
 </huewi-schedule>
+
+schedule {{schedule.__key}}<br>
+<small>
+  Localtime: {{schedule.localtime}} Time: {{schedule.time}} (Created: {{schedule.created}})<br>
+  {{schedule.command.method}} {{schedule.command.address}} {{schedule.command.body | json}}
+</small>

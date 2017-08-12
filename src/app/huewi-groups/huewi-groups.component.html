@@ -6,7 +6,7 @@
       {{groupsType}}
     </md-card-title>
     <huewi-group 
-      *ngFor="let group of groups | HuewiGroupsFilter:groupsType | orderBy : ['+type','+name']"
+      *ngFor="let group of groups | HuewiGroupsFilter:groupsType | orderBy:['+type','+name']"
       [group]="group">
     </huewi-group>
   </div> 

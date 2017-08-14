@@ -20,7 +20,7 @@ export class HuewiLightComponent implements OnInit {
 
   select(light) {
     this.huepiService.MyHue.LightAlertSelect(light.__key);
-    this.router.navigate(['/lights', light.__key]);
+    this.router.navigate(['/lights', light.__key], {replaceUrl:true});
   }
 
   rename(light, name) {

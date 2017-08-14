@@ -5791,7 +5791,7 @@ var FilterPipe = (function () {
                 return items.filter(function (item) { return item[field].toLowerCase().indexOf(filter) >= 0; });
             }
             else {
-                return items.filter(function (item) { return item.indexOf(filter) >= 0; });
+                return items.filter(function (item) { return JSON.stringify(item).indexOf(filter) >= 0; });
             }
         }
         else {

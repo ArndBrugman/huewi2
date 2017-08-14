@@ -68,7 +68,6 @@ window["MyHue"] = // DEBUGCODE
 
   statusChanged() {
     if (this.status.value.search('Unable')>=0) {
-      // this.router.navigate(['/bridges']);
       setTimeout(() => { this.connect() }, 1250)
     }
   }

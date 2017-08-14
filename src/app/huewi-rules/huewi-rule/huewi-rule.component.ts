@@ -18,7 +18,7 @@ export class HuewiRuleComponent implements OnInit {
   }
 
   select(rule) {
-    this.router.navigate(['/rules', rule.__key]);
+    this.router.navigate(['/rules', rule.__key], {replaceUrl:true});
   }
 
 }

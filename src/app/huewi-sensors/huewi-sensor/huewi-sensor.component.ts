@@ -18,7 +18,7 @@ export class HuewiSensorComponent implements OnInit {
   }
 
   select(sensor) {
-    this.router.navigate(['/sensors', sensor.__key]);
+    this.router.navigate(['/sensors', sensor.__key], {replaceUrl:true});
   }
 
 }

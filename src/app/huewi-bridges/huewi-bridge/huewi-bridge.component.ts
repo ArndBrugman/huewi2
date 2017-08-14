@@ -24,7 +24,7 @@ export class HuewiBridgeComponent implements OnInit {
       this.huepiService.connect(bridge.internalipaddress);
       this.config = this.huepiService.MyHue.BridgeConfig;
       this.huepiService.MyHue.BridgeIP = bridge.internalipaddress;
-      this.router.navigate(['/bridges', bridge.__key]);
+      this.router.navigate(['/bridges', bridge.__key], {replaceUrl:true});
     });
   }
 

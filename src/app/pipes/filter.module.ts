@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
             if (field) {
                 return items.filter(item => { return item[field].toLowerCase().indexOf(filter)>=0 } );
             } else {
-                return items.filter(item => { return item.indexOf(filter)>=0 } );
+                return items.filter(item => { return JSON.stringify(item).indexOf(filter)>=0 } );
             }
         } else {
             return items;

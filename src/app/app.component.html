@@ -6,6 +6,14 @@
     </button>
     <span>{{title}}</span>
   </md-toolbar>
+  
+  <nav md-tab-nav-bar #navbar>
+    <a md-tab-link [routerLink]="['/home']" [replaceUrl]="true" routerLinkActive="active-link">Home</a>
+    <a md-tab-link [routerLink]="['/groups']" [replaceUrl]="true" routerLinkActive="active-link">Groups</a>
+    <a md-tab-link [routerLink]="['/lights']" [replaceUrl]="true" routerLinkActive="active-link">Lights</a>
+    <a md-tab-link [routerLink]="['/bridges']" [replaceUrl]="true" routerLinkActive="active-link">Bridges</a>
+    <a md-tab-link [routerLink]="['/about']" [replaceUrl]="true" routerLinkActive="active-link">About</a>
+  </nav>
 
   <md-sidenav #sidenav>
     <md-nav-list>
@@ -24,14 +32,6 @@
       <a md-list-item (click)="toggleTheme()"><md-icon>invert_colors</md-icon>Theme</a>
     </md-nav-list>
   </md-sidenav>
-
-  <nav md-tab-nav-bar #navbar>
-    <a md-tab-link [routerLink]="['/home']" [replaceUrl]="true" routerLinkActive="active-link">Home</a>
-    <a md-tab-link [routerLink]="['/groups']" [replaceUrl]="true" routerLinkActive="active-link">Groups</a>
-    <a md-tab-link [routerLink]="['/lights']" [replaceUrl]="true" routerLinkActive="active-link">Lights</a>
-    <a md-tab-link [routerLink]="['/bridges']" [replaceUrl]="true" routerLinkActive="active-link">Bridges</a>
-    <a md-tab-link [routerLink]="['/about']" [replaceUrl]="true" routerLinkActive="active-link">About</a>
-  </nav>
 
   <router-outlet>
   </router-outlet>

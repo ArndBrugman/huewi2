@@ -7819,7 +7819,7 @@ var HuewiBridgesComponent = (function () {
         this.bridgesSubscription.unsubscribe();
     };
     HuewiBridgesComponent.prototype.updateSelected = function () {
-        var id = this.activatedRoute.snapshot.paramMap.get('id');
+        var id = this.activatedRoute.snapshot.paramMap.get('id') || '';
         if (id.indexOf(':') > 0) {
             var bridgeId = id.substr(0, id.indexOf(':'));
             var whitelistKey = id.substr(id.indexOf(':') + 1);

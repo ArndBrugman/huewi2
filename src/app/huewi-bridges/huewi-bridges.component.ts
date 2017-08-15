@@ -40,7 +40,7 @@ export class HuewiBridgesComponent implements OnInit, OnDestroy {
   }
 
   updateSelected() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    const id = this.activatedRoute.snapshot.paramMap.get('id') || '';
     if (id.indexOf(':')>0) { // Parameters contain bridgeId:whitelistKey
       let bridgeId = id.substr(0, id.indexOf(':'));
       let whitelistKey = id.substr(id.indexOf(':')+1);

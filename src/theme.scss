@@ -1,6 +1,7 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
+// .default-theme is huewi-light
 $huewi-light-primary: mat-palette($mat-blue, 500, 900, A100);
 $huewi-light-accent:  mat-palette($mat-light-blue, 500, 900, A100);
 $huewi-light-warn:    mat-palette($mat-red);
@@ -21,9 +22,7 @@ $huewi-light-theme: mat-light-theme($huewi-light-primary, $huewi-light-accent, $
     .mat-sidenav-content {
         background-color: black;
     }
-
     .active-link {
         background: mat-color($huewi-dark-primary);
     }
-    
 }

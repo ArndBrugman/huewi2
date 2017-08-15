@@ -7820,6 +7820,14 @@ var HuewiBridgesComponent = (function () {
     };
     HuewiBridgesComponent.prototype.updateSelected = function () {
         var id = this.activatedRoute.snapshot.paramMap.get('id');
+        if (id.indexOf(':') > 0) {
+            var bridgeId = id.substr(0, id.indexOf(':'));
+            var whitelistKey = id.substr(id.indexOf(':') + 1);
+            this.huepiService.MyHue.BridgeCache[bridgeId] = whitelistKey;
+            this.huepiService.MyHue._BridgeCacheSave();
+            this.router.navigate(['/bridges', 0], { replaceUrl: true });
+            this.reload();
+        }
         this.selectedBridge = this.huepiService.MyHue.LocalBridges[id];
         if (!this.selectedBridge) {
             for (var i = 0; i < this.huepiService.MyHue.LocalBridges.length; i++) {

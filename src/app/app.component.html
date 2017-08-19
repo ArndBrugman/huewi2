@@ -1,12 +1,14 @@
-<md-sidenav-container fullscreen class={{theme}}>
+<div class={{theme}}>
+
+<md-sidenav-container fullscreen>
 
   <md-toolbar color="primary">
-    <button md-icon-button (click)="sidenav.toggle()">
-      <md-icon>more_vert</md-icon>
-    </button>
-    <span>{{title}}</span>
-  </md-toolbar>
-  
+      <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+      </button>
+      <span>{{title}}</span>
+    </md-toolbar>
+
   <nav md-tab-nav-bar #navbar>
     <a md-tab-link [routerLink]="['/home']" [replaceUrl]="true" routerLinkActive="active-link">Home</a>
     <a md-tab-link [routerLink]="['/groups']" [replaceUrl]="true" routerLinkActive="active-link">Groups</a>
@@ -38,5 +40,7 @@
 
 </md-sidenav-container>
 
-<huewi-connectionstatus class={{theme}}>
+<huewi-connectionstatus>
 </huewi-connectionstatus>
+
+</div> <!--div class={{theme}}-->

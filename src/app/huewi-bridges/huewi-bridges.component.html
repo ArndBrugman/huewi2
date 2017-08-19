@@ -1,15 +1,16 @@
 <md-card [@RoutingAnimations]>
 
-  <md-card-title>Bridges</md-card-title>
+  <md-card-title *ngIf="!selectedBridge">Bridges</md-card-title>
+  <md-card-title *ngIf="selectedBridge">Bridge</md-card-title>
+    
+  <div *ngIf="!selectedBridge">
+    <md-nav-list>
+      <huewi-bridge md-list-item *ngFor="let bridge of bridges" [bridge]="bridge">
+      </huewi-bridge>
+    </md-nav-list>
 
-  <md-card>
-    <md-card-subtitle>Found</md-card-subtitle>
-    <huewi-bridge *ngFor="let bridge of bridges" [bridge]="bridge">
-    </huewi-bridge>
-  </md-card>
+    <br>
 
-  <md-card>
-    <md-card-subtitle>Actions</md-card-subtitle>
     <div class="row">
       <button md-raised-button class="col-sm-6 col-md-2" (click)="discover()">Discover</button>
       <button md-raised-button class="col-sm-6 col-md-2" (click)="scan()" *ngIf="!isScanning()">Scan</button>
@@ -19,14 +20,11 @@
       <button md-raised-button class="col-sm-6 col-md-2" (click)="connect()">Connect</button>
       <button md-raised-button class="col-sm-6 col-md-2" (click)="reload()">Reload</button>
     </div>
-  </md-card>
+  </div>
 
-  <md-card *ngIf="selectedBridge">
-    <md-card-subtitle>Connected
-      <md-icon>link</md-icon>
-    </md-card-subtitle>
+  <div *ngIf="selectedBridge">
     <huewi-bridge-details [bridge]="selectedBridge">
     </huewi-bridge-details>
-  </md-card>
+  </div>
 
 </md-card>

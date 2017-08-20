@@ -4,13 +4,6 @@
   <md-card-title *ngIf="selectedBridge">Bridge</md-card-title>
     
   <div *ngIf="!selectedBridge">
-    <md-nav-list>
-      <huewi-bridge md-list-item *ngFor="let bridge of bridges" [bridge]="bridge">
-      </huewi-bridge>
-    </md-nav-list>
-
-    <br>
-
     <div class="row">
       <button md-raised-button class="col-sm-6 col-md-2" (click)="discover()">Discover</button>
       <button md-raised-button class="col-sm-6 col-md-2" (click)="scan()" *ngIf="!isScanning()">Scan</button>
@@ -20,6 +13,11 @@
       <button md-raised-button class="col-sm-6 col-md-2" (click)="connect()">Connect</button>
       <button md-raised-button class="col-sm-6 col-md-2" (click)="reload()">Reload</button>
     </div>
+    <br>
+    <md-nav-list>
+      <huewi-bridge md-list-item *ngFor="let bridge of bridges" [bridge]="bridge">
+      </huewi-bridge>
+    </md-nav-list>
   </div>
 
   <div *ngIf="selectedBridge">

@@ -33,7 +33,7 @@
 <md-card>
   <md-card-subtitle>Whitelist authorisations</md-card-subtitle>
   <div class="row" *ngFor="let listed of whitelist | orderBy:['-last use date']">
-    <div class="col-xs-8 col-sm-10">
+    <div class="col-xs-8 col-sm-10" (click)="link(listed.__key)">
       {{listed.name}}
       <small>
         {{listed["last use date"]}}
@@ -48,8 +48,8 @@
     </div>
     <button md-raised-button (click)="delete(listed.__key)" class="col-xs-4 col-sm-2">
       <md-icon *ngIf="isCurrent(listed.__key)">warning</md-icon>
-      Delete
       <md-icon *ngIf="isCurrent(listed.__key)">link</md-icon>
+      Delete
     </button>
   </div>
 </md-card>

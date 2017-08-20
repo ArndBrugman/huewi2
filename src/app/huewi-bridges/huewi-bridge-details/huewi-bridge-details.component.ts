@@ -36,6 +36,10 @@ export class HuewiBridgeDetailsComponent implements OnInit, OnDestroy {
     return (key === this.huepiService.MyHue.Username);
   }
 
+  link(key) { // open in new tab
+    window.open(location.origin+"/#/bridges/"+this.huepiService.MyHue.BridgeConfig.bridgeid.toLowerCase()+":"+key);
+  }
+
   delete(key) {
     this.huepiService.MyHue.BridgeDeleteUser(key);
   }

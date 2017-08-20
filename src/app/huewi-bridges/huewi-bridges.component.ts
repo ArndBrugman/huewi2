@@ -40,16 +40,16 @@ export class HuewiBridgesComponent implements OnInit, OnDestroy {
   }
 
   updateSelected() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.selectedBridge = this.huepiService.MyHue.LocalBridges[id];
-    if (!this.selectedBridge) {
-      for (let i=0; i<this.huepiService.MyHue.LocalBridges.length; i++) {
-        if (this.huepiService.MyHue.BridgeID.toLowerCase() == this.huepiService.MyHue.LocalBridges[i].id.toLowerCase()) {
-          this.selectedBridge = this.huepiService.MyHue.LocalBridges[i];
-          break;
-        }
-      }
+    const id = this.activatedRoute.snapshot.paramMap.get('id') || '';
+    if (id.indexOf(':')>0) { // Parameters contain bridgeId:whitelistKey
+      let bridgeId = id.substr(0, id.indexOf(':'));
+      let whitelistKey = id.substr(id.indexOf(':')+1);
+      this.huepiService.MyHue.BridgeCache[bridgeId] = whitelistKey;
+      this.huepiService.MyHue._BridgeCacheSave();
+      this.router.navigate(['/about'], {replaceUrl:true});
+      this.reload();
     }
+    this.selectedBridge = this.huepiService.MyHue.LocalBridges[id];
   }
 
   discover() {

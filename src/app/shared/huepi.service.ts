@@ -21,6 +21,7 @@ export class HuepiService implements OnInit, OnDestroy {
   private message: BehaviorSubject<String> = new BehaviorSubject('');
 
   private bridges: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
+  private whitelist: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private groups: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private lights: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
   private rules: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
@@ -200,6 +201,7 @@ window["MyHue"] = // DEBUGCODE
     if (this.MyHue.Groups[0])
       this.MyHue.Groups[0].name = 'All available Lights';
     this.bridges.next(this.asArray(this.MyHue.LocalBridges));
+    this.whitelist.next(this.asArray(this.MyHue.BridgeConfig.whitelist));
     this.groups.next(this.asArray(this.MyHue.Groups));
     this.lights.next(this.asArray(this.MyHue.Lights));
     this.rules.next(this.asArray(this.MyHue.Rules));
@@ -214,6 +216,10 @@ window["MyHue"] = // DEBUGCODE
 
   getMessage() {
     return this.message.getValue();
+  }
+
+  getWhitelist(): Observable<Array<any>> {
+    return this.whitelist;
   }
 
   getBridges(): Observable<Array<any>> {

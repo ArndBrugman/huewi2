@@ -6,10 +6,12 @@
       Filter: <input [(ngModel)]="searchText">
       <br><br>
     </div>
-    <huewi-rule 
-      *ngFor="let rule of rules | orderBy:['+name'] | filter:searchText:'name'"
-      [rule]="rule" >
-    </huewi-rule>
+    <md-nav-list>
+      <huewi-rule md-list-item 
+        *ngFor="let rule of rules | orderBy:['+name'] | filter:searchText:'name'"
+        [rule]="rule" >
+      </huewi-rule>
+    </md-nav-list>
   </div>
 
   <div *ngIf="selectedRule">

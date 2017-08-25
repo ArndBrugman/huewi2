@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule }   from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import 'hammerjs';
+import 'hammerjs/hammer';
 
 import { OrderByModule } from './pipes/orderby.module';
 import { FilterModule } from './pipes/filter.module';

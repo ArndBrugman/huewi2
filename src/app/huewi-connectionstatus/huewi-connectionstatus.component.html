@@ -5,7 +5,7 @@
     <span>{{getStatus()}}</span>
   </md-toolbar>
   <md-toolbar [color]="accent" *ngIf="getMessage() !== ''" [@StatusAnimations]>
-    <span>{{getMessage()}}</span>
+    <small><span>{{getMessage()}}</span></small>
   </md-toolbar>
 
 </md-card>

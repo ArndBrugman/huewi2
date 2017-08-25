@@ -1,4 +1,9 @@
-<md-card [@RoutingAnimations]>
+<md-card [@RoutingAnimations]
+(swipeleft)="touchEvent('swipeleft')"
+(swiperight)="touchEvent('swiperight')"
+(tap)="touchEvent('tap')"
+(press)="touchEvent('press')">
+
   <md-card-title>About</md-card-title>
 
   <md-card-subtitle>hue Web Interface...</md-card-subtitle>
@@ -8,6 +13,9 @@
   </md-card>
   <md-card>
     Designed as a sample application for <a url='https://github.com/ArndBrugman/huepi'>huepi</a>.
+  </md-card>
+  <md-card *ngIf="showNote">
+    This applications uses HammerJS for touch-events and -sequences.
   </md-card>
 
 </md-card>

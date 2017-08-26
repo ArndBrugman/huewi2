@@ -1,18 +1,18 @@
 <span class="row">
-  <input *ngIf="editable" class="col-5 col-sm-3 col-xl-2"
+  <input *ngIf="editable" class="col-xs-5 col-sm-3 col-xl-2"
     [(ngModel)]="light.name" (keyup)="rename(light, $event.target.value)">
-  <span *ngIf="!editable" class="col-5 col-sm-3 col-xl-2"
+  <span *ngIf="!editable" class="col-xs-5 col-sm-3 col-xl-2"
     (click)="select(light)">
     {{light.name}}
   </span>
-  <span class="col-5 col-sm-7 col-xl-8">
-    <md-slider class="col-12"
+  <span class="col-xs-5 col-sm-7 col-xl-8">
+    <md-slider class="col-xs-12"
       (change)="brightness(light, $event.value)"
       disabled="{{!light.state.on}}"
       [min]="0" [max]="255" [step]="1" [value]="light.state.bri">
     </md-slider>
   </span>
-  <span class="col-2 col-xs">
+  <span class="col-xs-2">
     <md-slide-toggle
       disabled="{{!light.state.reachable}}"
       [checked]="light.state.on"

@@ -46,7 +46,7 @@ export class HuewiBridgesComponent implements OnInit, OnDestroy {
       let whitelistKey = id.substr(id.indexOf(':')+1);
       this.huepiService.MyHue.BridgeCache[bridgeId] = whitelistKey;
       this.huepiService.MyHue._BridgeCacheSave();
-      this.router.navigate(['/about'], {replaceUrl:true});
+      this.router.navigate(['/bridges'], {replaceUrl:true});
       this.reload();
     }
     this.selectedBridge = this.huepiService.MyHue.LocalBridges[id];

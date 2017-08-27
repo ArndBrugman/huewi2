@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
 
 import { OrderByModule } from '../pipes/orderby.module';
+import { FilterModule } from '../pipes/filter.module';
 
 import { HuewiGroupsComponent } from './huewi-groups.component';
 import { HuewiGroupComponent } from './huewi-group/huewi-group.component';
@@ -20,6 +21,7 @@ import { HuewiGroupsRoutingModule } from './huewi-groups-routing.module';
     MaterialModule,
     FormsModule,
     OrderByModule,
+    FilterModule,
     HuewiGroupsRoutingModule
   ],
   declarations: [

@@ -1,11 +1,10 @@
 <md-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedRule">
-    <md-card-title>Rules</md-card-title>
-    <div>
-      Filter: <input [(ngModel)]="searchText">
-      <br><br>
-    </div>
+    <md-card-title>
+      Rules
+      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+    </md-card-title>
     <md-nav-list>
       <huewi-rule md-list-item 
         *ngFor="let rule of rules | orderBy:['+name'] | filter:searchText:'name'"
@@ -16,7 +15,7 @@
 
   <div *ngIf="selectedRule">
     <md-card-title>
-      <a [routerLink]="['/rules']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      <a [routerLink]="['/rules']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
       Rules Details
     </md-card-title>
     <huewi-rule-details

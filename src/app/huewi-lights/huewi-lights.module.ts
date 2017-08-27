@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { FormsModule }   from '@angular/forms';
 
 import { OrderByModule } from '../pipes/orderby.module';
+import { FilterModule } from '../pipes/filter.module';
 
 import { HuewiLightsComponent } from './huewi-lights.component';
 import { HuewiLightComponent } from './huewi-light/huewi-light.component';
@@ -18,6 +19,7 @@ import { HuewiLightsRoutingModule } from './huewi-lights-routing.module';
     MaterialModule,
     FormsModule,
     OrderByModule,
+    FilterModule,
     HuewiLightsRoutingModule
   ],
   declarations: [

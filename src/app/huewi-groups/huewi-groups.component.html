@@ -1,19 +1,19 @@
 <md-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedGroup">
-    <md-card-title
-      (click)="changeGroupsType()">
-      {{groupsType}}
+    <md-card-title>
+      <span (click)="changeGroupsType()">{{groupsType}}</span>
+      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
     </md-card-title>
     <huewi-group 
-      *ngFor="let group of groups | HuewiGroupsFilter:groupsType | orderBy:['+type','+name']"
+      *ngFor="let group of groups | HuewiGroupsFilter:groupsType | orderBy:['+type','+name'] | filter:searchText:'name'"
       [group]="group">
     </huewi-group>
   </div> 
 
   <div *ngIf="selectedGroup">
     <md-card-title>
-      <a [routerLink]="['/groups']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      <a [routerLink]="['/groups']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
       {{selectedGroup.type}} Details
     </md-card-title>
     <huewi-group-details

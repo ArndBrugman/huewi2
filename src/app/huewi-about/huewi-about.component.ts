@@ -12,29 +12,27 @@ import { RoutingAnimations } from './../app-routing.animations';
 export class HuewiAboutComponent implements OnInit {
   @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() touchSequence = ['swiperight', 'swipeleft', 'press'];
-  showNote = false;
   touchPhase = 0;
-
+  touchDiscovered = false;
 
   constructor() { }
 
   ngOnInit() {
-    this.showNote = false;
+    this.touchDiscovered = false;
   }
 
-  touchEvent(action) {
-    if (action === this.touchSequence[this.touchPhase]) {
+  onTouch(event) {
+    if (event === this.touchSequence[this.touchPhase]) {
       this.touchPhase++; // sequence is continueing
     } else {
       this.touchPhase = 0; // sequence is broken
       // however, recheck action to validate if last action matches first touch action in touchSequence
-      if (action === this.touchSequence[this.touchPhase]) {
+      if (event === this.touchSequence[this.touchPhase]) {
         this.touchPhase++; // yes: sequence is broken by first item in sequence
       }
     }
-    console.log(action, this.touchPhase);
     if (this.touchPhase === this.touchSequence.length) {
-      this.showNote = true;
+      this.touchDiscovered = true;
     }
   }
 

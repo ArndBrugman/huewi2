@@ -12,7 +12,10 @@
   </div> 
 
   <div *ngIf="selectedGroup">
-    <md-card-title>{{selectedGroup.type}} Details</md-card-title>
+    <md-card-title>
+      <a [routerLink]="['/groups']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      {{selectedGroup.type}} Details
+    </md-card-title>
     <huewi-group-details
       [group]="selectedGroup">
     </huewi-group-details>

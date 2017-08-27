@@ -1,20 +1,20 @@
 <huewi-sensor 
   [sensor]="sensor">
 </huewi-sensor>
-<div *ngIf="!expand">
-  <md-icon (click)="expand=true">expand_less</md-icon>
-</div>
 
-<div *ngIf="expand">
-  <md-icon (click)="expand=false">expand_more</md-icon>
-  <md-divider></md-divider>
+<div>
   <div>sensor {{sensor.__key}}</div>
-  <small>
-    {{sensor.type}} - {{sensor.modelid}}<br>
-    <b>config: </b><br>
-    {{sensor.config | json}}
-    <br>
-    <b>state: </b><br>
-    {{sensor.state | json}}
-  </small>
+  {{sensor.type}} - {{sensor.modelid}}<br>
+  <md-icon *ngIf="!expand" (click)="expand=true">expand_more</md-icon>
+  <div *ngIf="expand">
+    <small>
+      <md-icon (click)="expand=false">expand_less</md-icon>
+      <md-divider></md-divider>
+      <b>config: </b><br>
+      {{sensor.config | json}}
+      <br>
+      <b>state: </b><br>
+      {{sensor.state | json}}
+    </small>
+  </div>
 </div>

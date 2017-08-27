@@ -1,11 +1,10 @@
 <md-card>
 
   <div *ngIf="!selectedScene">
-    <md-card-title>Scenes</md-card-title>
-    <div>
-      Filter: <input [(ngModel)]="searchText">
-      <br><br>
-    </div>
+    <md-card-title>
+      Scenes
+      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+    </md-card-title>
     <huewi-scene 
       *ngFor="let scene of scenes | orderBy:['+name'] | filter:searchText:'name'"
       [scene]="scene">
@@ -14,7 +13,7 @@
 
   <div *ngIf="selectedScene">
     <md-card-title>
-      <a [routerLink]="['/scenes']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      <a [routerLink]="['/scenes']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
       Scene Details
     </md-card-title>
     <huewi-scene-details

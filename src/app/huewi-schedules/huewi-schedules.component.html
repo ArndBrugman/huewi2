@@ -1,11 +1,10 @@
 <md-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedSchedule">
-    <md-card-title>Schedules</md-card-title>
-    <div>
-      Filter: <input [(ngModel)]="searchText">
-      <br><br>
-    </div>
+    <md-card-title>
+      Schedules
+      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+    </md-card-title>
     <huewi-schedule 
       *ngFor="let schedule of schedules | orderBy:['+name'] | filter:searchText:'name'"
       [schedule]="schedule">
@@ -14,7 +13,7 @@
 
   <div *ngIf="selectedSchedule">
     <md-card-title>
-      <a [routerLink]="['/schedules']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      <a [routerLink]="['/schedules']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
       Schedules Details
     </md-card-title>
     <huewi-schedule-details

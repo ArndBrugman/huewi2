@@ -1,8 +1,8 @@
 <md-card [@RoutingAnimations]
-(swipeleft)="touchEvent('swipeleft')"
-(swiperight)="touchEvent('swiperight')"
-(tap)="touchEvent('tap')"
-(press)="touchEvent('press')">
+(swipeleft)="onTouch($event.type)"
+(swiperight)="onTouch($event.type)"
+(tap)="onTouch($event.type)"
+(press)="onTouch($event.type)">
 
   <md-card-title>About</md-card-title>
 
@@ -14,8 +14,8 @@
   <md-card>
     Designed as a sample application for <a url='https://github.com/ArndBrugman/huepi'>huepi</a>.
   </md-card>
-  <md-card *ngIf="showNote">
-    This applications uses HammerJS for touch-events and -sequences.
+  <md-card *ngIf="touchDiscovered">
+    Using HammerJS for touch-events and -sequences like you just discovered.
   </md-card>
 
 </md-card>

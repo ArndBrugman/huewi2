@@ -9,7 +9,10 @@
   </div>
 
   <div *ngIf="selectedLight">
-    <md-card-title>Light Details</md-card-title>
+    <md-card-title>
+      <a [routerLink]="['/lights']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      Light Details
+    </md-card-title>
     <huewi-light-details
       [light]="selectedLight">
     </huewi-light-details>

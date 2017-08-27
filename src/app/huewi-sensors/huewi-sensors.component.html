@@ -13,7 +13,10 @@
   </div>
 
   <div *ngIf="selectedSensor">
-    <md-card-title>Sensor Details</md-card-title>
+    <md-card-title>
+      <a [routerLink]="['/sensors']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      Sensor Details
+    </md-card-title>
     <huewi-sensor-details
       [sensor]="selectedSensor">
     </huewi-sensor-details>

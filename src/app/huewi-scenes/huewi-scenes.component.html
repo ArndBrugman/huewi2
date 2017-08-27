@@ -13,7 +13,10 @@
   </div>
 
   <div *ngIf="selectedScene">
-    <md-card-title>Scene Details</md-card-title>
+    <md-card-title>
+      <a [routerLink]="['/scenes']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      Scene Details
+    </md-card-title>
     <huewi-scene-details
       [scene]="selectedScene">
     </huewi-scene-details>

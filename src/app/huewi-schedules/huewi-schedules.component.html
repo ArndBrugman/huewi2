@@ -13,7 +13,10 @@
   </div>
 
   <div *ngIf="selectedSchedule">
-    <md-card-title>Schedule Details</md-card-title>
+    <md-card-title>
+      <a [routerLink]="['/schedules']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      Schedules Details
+    </md-card-title>
     <huewi-schedule-details
       [schedule]="selectedSchedule">
     </huewi-schedule-details>

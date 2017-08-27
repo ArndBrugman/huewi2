@@ -4,20 +4,20 @@
 <br>
 
 <div class="row">
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="relax(group)">Relax</button>
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="reading(group)">Reading</button>
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="concentrate(group)">Concentrate</button>
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="energize(group)">Energize</button>
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="bright(group)">Bright</button>
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="dimmed(group)">Dimmed</button>
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="nightLight(group)">Nightlight</button>
-  <button md-raised-button class="col-xs-6 col-md-3" (click)="goldenHour(group)">Golden hour</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="relax(group)">Relax</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="reading(group)">Reading</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="concentrate(group)">Concentrate</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="energize(group)">Energize</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="bright(group)">Bright</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="dimmed(group)">Dimmed</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="nightLight(group)">Nightlight</button>
+  <button md-raised-button class="col-6 col-md-3" (click)="goldenHour(group)">Golden hour</button>
 </div>
 
 <br>
 
 <div class="row" *ngIf="group.__key !== '0'">
-  <md-checkbox *ngFor="let light of lights | orderBy : '+name'" class="col-xs-6 col-md-3 col-lg-2" 
+  <md-checkbox *ngFor="let light of lights | orderBy : '+name'" class="col-6 col-md-3 col-lg-2" 
   [checked]="hasLight(light.__key)" (click)="toggleLight(light.__key)">
     {{light.name}}
   </md-checkbox>

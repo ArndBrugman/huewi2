@@ -15,7 +15,10 @@
   </div>
 
   <div *ngIf="selectedRule">
-    <md-card-title>Rule Details</md-card-title>
+    <md-card-title>
+      <a [routerLink]="['/rules']" [replaceUrl]="true"><md-icon>keyboard_arrow_left</md-icon></a>
+      Rules Details
+    </md-card-title>
     <huewi-rule-details
       [rule]="selectedRule">
     </huewi-rule-details>

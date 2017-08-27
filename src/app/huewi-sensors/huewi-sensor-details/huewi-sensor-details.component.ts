@@ -9,7 +9,7 @@ import { HuepiService } from '../../shared/huepi.service';
 })
 export class HuewiSensorDetailsComponent implements OnInit {
   @Input() sensor;
-  @Input() expand = true;
+  @Input() expand = false;
 
   constructor(private huepiService: HuepiService) {
   }

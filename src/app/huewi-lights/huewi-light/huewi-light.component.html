@@ -6,7 +6,7 @@
     {{light.name}}
   </span>
   <span class="col-5 col-sm-7 col-xl-8">
-    <md-slider class="col-12"
+    <md-slider class="col-12 col-xs-12"
       (change)="brightness(light, $event.value)"
       disabled="{{!light.state.on}}"
       [min]="0" [max]="255" [step]="1" [value]="light.state.bri">

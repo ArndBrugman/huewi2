@@ -1,22 +1,18 @@
-<span class="row">
-  <input *ngIf="editable" class="col-5 col-sm-3 col-xl-2"
-    [(ngModel)]="light.name" (keyup)="rename(light, $event.target.value)">
-  <span *ngIf="!editable" class="col-5 col-sm-3 col-xl-2"
+<div class="flexcontainer">
+  <md-input-container *ngIf="editable" style="flex: 1 1 50px">
+    <input mdInput [(ngModel)]="light.name" (keyup)="rename(light, $event.target.value)">
+  </md-input-container>
+  <div *ngIf="!editable" style="flex: 1 1 50px"
     (click)="select(light)">
     {{light.name}}
-  </span>
-  <span class="col-5 col-sm-7 col-xl-8">
-    <md-slider class="col-12"
-      (change)="brightness(light, $event.value)"
-      disabled="{{!light.state.on}}"
-      [min]="0" [max]="255" [step]="1" [value]="light.state.bri">
-    </md-slider>
-  </span>
-  <span class="col-2">
-    <md-slide-toggle
-      disabled="{{!light.state.reachable}}"
-      [checked]="light.state.on"
-      (click)="toggle(light)">
-    </md-slide-toggle>
-  </span>
-</span>
+  </div>
+  <md-slider style="flex: 5 1 100px"
+    (change)="brightness(light, $event.value)"
+    disabled="{{!light.state.on}}"
+    [min]="0" [max]="255" [step]="1" [value]="light.state.bri">
+  </md-slider>
+  <md-slide-toggle style="flex: 0 1 10px" disabled="{{!light.state.reachable}}"
+    [checked]="light.state.on"
+    (click)="toggle(light)">
+  </md-slide-toggle>
+</div>

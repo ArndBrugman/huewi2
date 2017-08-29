@@ -1,21 +1,21 @@
 <md-card [@RoutingAnimations]>
-    
+
   <div *ngIf="!selectedBridge">
   <md-card-title>Bridges</md-card-title>
-    <div class="row">
-      <button md-raised-button class="col-6 col-md-2" (click)="discover()">Discover</button>
-      <button md-raised-button class="col-6 col-md-2" (click)="scan()" *ngIf="!isScanning()">Scan</button>
-      <button md-raised-button class="col-6 col-md-2" (click)="cancelScan()" color="accent" *ngIf="isScanning()">Cancel Scan</button>
-      <span class="col-6 col-md-2"> Manual IP: </span>
-      <input class="col-6 col-md-2" [(ngModel)]="manualIP">
-      <button md-raised-button class="col-6 col-md-2" (click)="connect()">Connect</button>
-      <button md-raised-button class="col-6 col-md-2" (click)="reload()">Reload</button>
+    <div class="flexcontainer wrap justify-center">
+      <button md-raised-button style="flex: 0 1 128px" (click)="discover()">Discover</button>
+      <button md-raised-button style="flex: 0 1 128px" (click)="scan()" *ngIf="!isScanning()">Scan</button>
+      <button md-raised-button style="flex: 0 1 128px" (click)="cancelScan()" color="accent" *ngIf="isScanning()">Cancel Scan</button>
+      <button md-raised-button style="flex: 0 1 128px" [disabled]="true">Manual IP:</button>
+      <input style="flex: 0 1 128px" [(ngModel)]="manualIP">
+      <button md-raised-button style="flex: 0 1 128px" (click)="connect()">Connect</button>
+      <button md-raised-button style="flex: 0 1 128px" (click)="reload()">Reload</button>
     </div>
     <br>
-    <md-nav-list>
+    <md-list>
       <huewi-bridge md-list-item *ngFor="let bridge of bridges" [bridge]="bridge">
       </huewi-bridge>
-    </md-nav-list>
+    </md-list>
   </div>
 
   <div *ngIf="selectedBridge">

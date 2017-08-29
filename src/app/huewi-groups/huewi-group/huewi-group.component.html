@@ -1,21 +1,18 @@
-<span class="row">
-  <input *ngIf="editable" class="col-5 col-sm-3 col-xl-2"
-    [(ngModel)]="group.name" (keyup)="rename(group, $event.target.value)">
-  <span *ngIf="!editable" class="col-5 col-sm-3 col-xl-2"
+<div class="flexcontainer">
+  <md-input-container *ngIf="editable" style="flex: 1 1 50px">
+    <input mdInput [(ngModel)]="group.name" (keyup)="rename(group, $event.target.value)">
+  </md-input-container>
+  <div *ngIf="!editable" style="flex: 1 1 50px"
     (click)="select(group)">
       {{group.name}}
-  </span>
-  <span class="col-5 col-sm-7 col-xl-8">
-    <md-slider class="col-12"
-      (change)="brightness(group, $event.value)"
-      disabled="{{!group.action.on}}"
-      [min]="0" [max]="255" [step]="1" [value]="group.action.bri">
-    </md-slider>
-  </span>
-  <span class="col-2">
-    <md-slide-toggle
-      [checked]="group.action.on"
-      (click)="toggle(group)">
-    </md-slide-toggle>
-  </span>
-</span>
+  </div>
+  <md-slider style="flex: 5 1 100px"
+    (change)="brightness(group, $event.value)"
+    disabled="{{!group.action.on}}"
+    [min]="0" [max]="255" [step]="1" [value]="group.action.bri">
+  </md-slider>
+  <md-slide-toggle style="flex: 0 1 10px"
+    [checked]="group.action.on"
+    (click)="toggle(group)">
+  </md-slide-toggle>
+</div>

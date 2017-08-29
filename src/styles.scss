@@ -1,5 +1,3 @@
-@import "~bootstrap/dist/css/bootstrap-grid.min.css";
-
 html, body {
     margin: 0;
     width: 100%;
@@ -12,6 +10,22 @@ html {
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
+}
+
+.flexcontainer {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
 }
 
 button:focus, input:focus {

@@ -3,12 +3,18 @@
   <div *ngIf="!selectedSchedule">
     <md-card-title>
       Schedules
-      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+      <small>
+        <md-input-container>
+          <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+        </md-input-container>
+      </small>
     </md-card-title>
-    <huewi-schedule 
-      *ngFor="let schedule of schedules | orderBy:['+name'] | filter:searchText:'name'"
-      [schedule]="schedule">
-    </huewi-schedule>
+    <md-list>
+      <huewi-schedule md-list-item
+        *ngFor="let schedule of schedules | orderBy:['+name'] | filter:searchText:'name'"
+        [schedule]="schedule">
+      </huewi-schedule>
+    </md-list>
   </div>
 
   <div *ngIf="selectedSchedule">

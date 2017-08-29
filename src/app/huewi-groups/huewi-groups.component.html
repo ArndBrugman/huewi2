@@ -3,7 +3,11 @@
   <div *ngIf="!selectedGroup">
     <md-card-title>
       <span (click)="changeGroupsType()">{{groupsType}}</span>
-      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+      <small>
+        <md-input-container>
+          <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+        </md-input-container>
+      </small>
     </md-card-title>
     <huewi-group 
       *ngFor="let group of groups | HuewiGroupsFilter:groupsType | orderBy:['+type','+name'] | filter:searchText:'name'"

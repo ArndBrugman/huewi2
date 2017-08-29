@@ -1,21 +1,23 @@
-<span class="row">
-  <span class="col-8 col-md-6" (click)="select(sensor)">
+<div class="flexcontainer">
+  <div style="flex: 3 1 128px" (click)="select(sensor)">
     {{sensor.name}}
-    <small>- {{sensor.type}}</small>
-  </span>
-  <span class="col-2">
-    <span *ngIf="sensor.type=='ZLLPresence'">{{sensor.state.presence}}</span>
-    <span *ngIf="sensor.type=='ZLLLightLevel'">{{sensor.state.lightlevel}}</span>
-    <span *ngIf="sensor.type=='ZLLTemperature'">{{sensor.state.temperature}}</span>
-    <span *ngIf="sensor.type=='ZLLSwitch'">{{sensor.state.buttonevent}}</span>
-    <span *ngIf="sensor.type=='ZGPSwitch'">{{sensor.state.buttonevent}}</span>
-    <span *ngIf="sensor.type=='CLIPGenericStatus'">{{sensor.state.status}}</span>
-    <span *ngIf="sensor.type=='CLIPPresence'">{{sensor.state.presence}}</span>
-    <span *ngIf="sensor.type=='Geofence'">{{sensor.state.presence}}</span>
-    <span *ngIf="sensor.type=='Daylight'">{{sensor.state.daylight}}</span>
-  </span>
-  <span class="col-2">
+  </div>
+  <div style="flex: 2 1 128px" >
+    <small>{{sensor.type}}</small>
+  </div>
+  <div style="flex: 1 1 32px">
+    <div *ngIf="sensor.type=='ZLLPresence'">{{sensor.state.presence}}</div>
+    <div *ngIf="sensor.type=='ZLLLightLevel'">{{sensor.state.lightlevel}}</div>
+    <div *ngIf="sensor.type=='ZLLTemperature'">{{sensor.state.temperature}}</div>
+    <div *ngIf="sensor.type=='ZLLSwitch'">{{sensor.state.buttonevent}}</div>
+    <div *ngIf="sensor.type=='ZGPSwitch'">{{sensor.state.buttonevent}}</div>
+    <div *ngIf="sensor.type=='CLIPGenericStatus'">{{sensor.state.status}}</div>
+    <div *ngIf="sensor.type=='CLIPPresence'">{{sensor.state.presence}}</div>
+    <div *ngIf="sensor.type=='Geofence'">{{sensor.state.presence}}</div>
+    <div *ngIf="sensor.type=='Daylight'">{{sensor.state.daylight}}</div>
+  </div>
+  <div style="flex: 0 1 10px">
     <md-icon *ngIf="sensor.config.on">radio_button_checked</md-icon>
     <md-icon *ngIf="!sensor.config.on">radio_button_unchecked</md-icon>      
-  </span>
-</span>
+  </div>
+</div>

@@ -3,14 +3,18 @@
   <div *ngIf="!selectedRule">
     <md-card-title>
       Rules
-      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+      <small>
+        <md-input-container>
+          <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+        </md-input-container>
+      </small>
     </md-card-title>
-    <md-nav-list>
+    <md-list>
       <huewi-rule md-list-item 
         *ngFor="let rule of rules | orderBy:['+name'] | filter:searchText:'name'"
         [rule]="rule" >
       </huewi-rule>
-    </md-nav-list>
+    </md-list>
   </div>
 
   <div *ngIf="selectedRule">

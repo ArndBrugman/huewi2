@@ -22,12 +22,9 @@ export class HuewiGroupComponent implements OnInit {
   ngOnInit() {
   }
 
-  ngOnDestroy() {
-  }
-
   select(group) {
     this.huepiService.MyHue.GroupAlertSelect(group.__key);
-    this.router.navigate(['/groups', group.__key], {replaceUrl:true});
+    this.router.navigate(['/groups', group.__key], { replaceUrl: true });
   }
 
   rename(group, name) {

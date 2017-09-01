@@ -18,7 +18,7 @@ export class HuewiScheduleComponent implements OnInit {
   }
 
   select(schedule) {
-    this.router.navigate(['/schedules', schedule.__key], {replaceUrl:true});
+    this.router.navigate(['/schedules', schedule.__key], { replaceUrl: true });
   }
 
 }

@@ -32,7 +32,7 @@ export class HuewiConnectionstatusComponent implements OnInit {
   getStatus() {
     return this.huepiService.getStatus();
   }
-  
+
   getMessage() {
     return this.huepiService.getMessage();
   }

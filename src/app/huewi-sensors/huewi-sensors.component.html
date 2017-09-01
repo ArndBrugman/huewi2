@@ -3,12 +3,18 @@
   <div *ngIf="!selectedSensor">
     <md-card-title>
       Sensors
-      <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+      <small>
+        <md-input-container>
+          <input mdInput placeholder="Filter" [(ngModel)]="searchText">
+        </md-input-container>
+      </small>
     </md-card-title>
-    <huewi-sensor 
-      *ngFor="let sensor of sensors | orderBy:['+name'] | filter:searchText:'name'"
-      [sensor]="sensor">
-    </huewi-sensor>
+    <md-list>
+      <huewi-sensor md-list-item
+        *ngFor="let sensor of sensors | orderBy:['+name'] | filter:searchText:'name'"
+        [sensor]="sensor">
+      </huewi-sensor>
+    </md-list>
   </div>
 
   <div *ngIf="selectedSensor">

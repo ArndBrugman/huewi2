@@ -1,12 +1,12 @@
-<span class="row" (click)="select(bridge)">
-  <span class="col-6 col-md-3">
+<div class="flexcontainer" (click)="select(bridge)">
+  <div style="flex: 1 1 128px">
     {{bridge.id.toLowerCase()}}
     <md-icon *ngIf="bridge.id.toLowerCase() === config.bridgeid.toLowerCase()">link</md-icon>
-  </span>
-  <span class="col-6 col-md-3" *ngIf="bridge.name">
+  </div>
+  <div style="flex: 1 1 128px" *ngIf="bridge.name">
     Name: {{bridge.name}}
-  </span>
-  <span class="col-6 col-md-3">
+  </div>
+  <div style="flex: 1 1 128px">
     {{bridge.internalipaddress}}
-  </span>
-</span>
+  </div>
+</div>

@@ -2,10 +2,10 @@
 
   <md-progress-bar mode="indeterminate"></md-progress-bar>
   <md-toolbar [color]="warn" >
-    <span>{{getStatus()}}</span>
+    <div>{{getStatus()}}</div>
   </md-toolbar>
   <md-toolbar [color]="accent" *ngIf="getMessage() !== ''" [@StatusAnimations]>
-    <small><span>{{getMessage()}}</span></small>
+    <small><small><div>{{getMessage()}}</div></small></small>
   </md-toolbar>
 
 </md-card>

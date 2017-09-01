@@ -33,7 +33,7 @@ export class HuepiService implements OnInit, OnDestroy {
     Huepi.http = axios.create();
 window["MyHue"] = // DEBUGCODE
     this.MyHue = new Huepi();
-    
+
     this.MyHue['Groups'] = HUEPI_MOCK['groups'];
     this.MyHue['Lights'] = HUEPI_MOCK['lights'];
     this.MyHue['Schedules'] = HUEPI_MOCK['schedules'];
@@ -68,7 +68,7 @@ window["MyHue"] = // DEBUGCODE
   }
 
   statusChanged() {
-    if (this.status.value.search('Unable')>=0) {
+    if (this.status.value.search('Unable') >= 0) {
       setTimeout(() => { this.connect() }, 1250)
     }
   }
@@ -150,7 +150,7 @@ window["MyHue"] = // DEBUGCODE
   }
 
   private updateScanProgress() {
-    this.status.next('Scanning Network for Bridge: '+this.MyHue.ScanProgress+'% Progress');
+    this.status.next('Scanning Network for Bridge: ' + this.MyHue.ScanProgress + '% Progress');
     setTimeout(() => {
       if (this.isScanning()) {
         this.updateScanProgress();
@@ -198,8 +198,9 @@ window["MyHue"] = // DEBUGCODE
   }
 
   dataReceived() {
-    if (this.MyHue.Groups[0])
+    if (this.MyHue.Groups[0]) {
       this.MyHue.Groups[0].name = 'All available Lights';
+    }
     this.bridges.next(this.asArray(this.MyHue.LocalBridges));
     this.whitelist.next(this.asArray(this.MyHue.BridgeConfig.whitelist));
     this.groups.next(this.asArray(this.MyHue.Groups));

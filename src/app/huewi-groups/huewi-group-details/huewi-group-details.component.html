@@ -3,30 +3,31 @@
 
 <br>
 
-<div class="row">
-  <button md-raised-button class="col-6 col-md-3" (click)="relax(group)">Relax</button>
-  <button md-raised-button class="col-6 col-md-3" (click)="reading(group)">Reading</button>
-  <button md-raised-button class="col-6 col-md-3" (click)="concentrate(group)">Concentrate</button>
-  <button md-raised-button class="col-6 col-md-3" (click)="energize(group)">Energize</button>
-  <button md-raised-button class="col-6 col-md-3" (click)="bright(group)">Bright</button>
-  <button md-raised-button class="col-6 col-md-3" (click)="dimmed(group)">Dimmed</button>
-  <button md-raised-button class="col-6 col-md-3" (click)="nightLight(group)">Nightlight</button>
-  <button md-raised-button class="col-6 col-md-3" (click)="goldenHour(group)">Golden hour</button>
+<div class="flexcontainer wrap justify-center">
+  <button md-raised-button style="flex: 1 1 128px" (click)="relax(group)">Relax</button>
+  <button md-raised-button style="flex: 1 1 128px" (click)="reading(group)">Reading</button>
+  <button md-raised-button style="flex: 1 1 128px" (click)="concentrate(group)">Concentrate</button>
+  <button md-raised-button style="flex: 1 1 128px" (click)="energize(group)">Energize</button>
+  <button md-raised-button style="flex: 1 1 128px" (click)="bright(group)">Bright</button>
+  <button md-raised-button style="flex: 1 1 128px" (click)="dimmed(group)">Dimmed</button>
+  <button md-raised-button style="flex: 1 1 128px" (click)="nightLight(group)">Nightlight</button>
+  <button md-raised-button style="flex: 1 1 128px" (click)="goldenHour(group)">Golden hour</button>
 </div>
 
 <br>
 
-<div class="row" *ngIf="group.__key !== '0'">
-  <md-checkbox *ngFor="let light of lights | orderBy : '+name'" class="col-6 col-md-3 col-lg-2" 
+<div class="flexcontainer wrap justify-center" *ngIf="group.__key !== '0'">
+  <md-checkbox style="flex: 0 1 128px" *ngFor="let light of lights | orderBy : '+name'"
   [checked]="hasLight(light.__key)" (click)="toggleLight(light.__key)">
     {{light.name}}
   </md-checkbox>
 </div>
 
-<div class="right" *ngIf="group.__key !== '0'">
-  <br>
+<br>
+
+<div class="flexcontainer justify-end" *ngIf="group.__key !== '0'">
   <small>
-  <md-icon>info_outline</md-icon>
-  <i>Lights can be part of multple LightGroups but only one Room.</i>
+    <i>Lights can be part of multple LightGroups but only one Room.</i>
+    <md-icon>info_outline</md-icon>
   </small>
 </div>

@@ -7,7 +7,7 @@ import { HuepiService } from '../../shared/huepi.service';
   templateUrl: './huewi-group-details.component.html',
   styleUrls: ['./huewi-group-details.component.css']
 })
-export class HuewiGroupDetailsComponent implements OnInit {
+export class HuewiGroupDetailsComponent implements OnInit, OnDestroy {
   @Input() group = { __key : '0' };
   private lightsSubscription;
   lights;

@@ -2,14 +2,14 @@
 
 <md-sidenav-container fullscreen>
 
-  <md-toolbar color="primary">
+  <md-toolbar color="primary" *ngIf="!parameters.widget">
       <button md-icon-button (click)="sidenav.toggle()">
         <md-icon>menu</md-icon>
       </button>
       <div>{{title}}</div>
     </md-toolbar>
 
-  <nav md-tab-nav-bar #navbar>
+  <nav md-tab-nav-bar #navbar *ngIf="!parameters.widget">
     <a md-tab-link [routerLink]="['/home']" [replaceUrl]="true" routerLinkActive="active-link">Home</a>
     <a md-tab-link [routerLink]="['/groups']" [replaceUrl]="true" routerLinkActive="active-link">Groups</a>
     <a md-tab-link [routerLink]="['/lights']" [replaceUrl]="true" routerLinkActive="active-link">Lights</a>

@@ -9,9 +9,9 @@ export class FilterPipe implements PipeTransform {
         if (filter && Array.isArray(items)) {
             filter = filter.toLowerCase();
             if (field) {
-                return items.filter(item => { return item[field].toLowerCase().indexOf(filter)>=0 } );
+                return items.filter(item => item[field].toLowerCase().indexOf(filter) >= 0 );
             } else {
-                return items.filter(item => { return JSON.stringify(item).indexOf(filter)>=0 } );
+                return items.filter(item => JSON.stringify(item).indexOf(filter) >= 0 );
             }
         } else {
             return items;

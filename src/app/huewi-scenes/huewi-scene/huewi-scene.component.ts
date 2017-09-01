@@ -18,7 +18,7 @@ export class HuewiSceneComponent implements OnInit {
   }
 
   select(scene) {
-    this.router.navigate(['/scenes', scene.__key], {replaceUrl:true});
+    this.router.navigate(['/scenes', scene.__key], { replaceUrl: true });
   }
 
 }

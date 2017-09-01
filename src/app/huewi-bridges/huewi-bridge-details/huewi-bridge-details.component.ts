@@ -37,7 +37,7 @@ export class HuewiBridgeDetailsComponent implements OnInit, OnDestroy {
   }
 
   link(key) { // open in new tab
-    window.open(location.origin+"/#/bridges/"+this.huepiService.MyHue.BridgeConfig.bridgeid.toLowerCase()+":"+key);
+    window.open(location.origin + "/#/bridges/" + this.huepiService.MyHue.BridgeConfig.bridgeid.toLowerCase() + ":" + key);
   }
 
   delete(key) {

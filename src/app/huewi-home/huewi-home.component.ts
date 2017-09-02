@@ -16,21 +16,19 @@ export class HuewiHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    let parameters;
-
     this.parametersSubscription = this.activatedRoute.queryParams.subscribe(params => {
       this.customElements = [];
-      parameters = {...params.keys, ...params};
+      const parameters = {...params.keys, ...params};
       for (const key in parameters) {
         if ( (key === 'groups') || (key === 'lights') || (key === 'bridges') ||
          (key === 'rules') || (key === 'scenes') || (key === 'schedules') || (key === 'sensors') ) {
           if (parseInt(parameters[key], 10) === NaN) {
-            this.customElements.push('/#/' + key + '?widget=true');
+            this.customElements.push('#/' + key + '?widget=true');
           } else {
-            this.customElements.push('/#/' + key + '/' + parseInt(parameters[key], 10) + '?widget=true');
+            this.customElements.push('#/' + key + '/' + parseInt(parameters[key], 10) + '?widget=true');
           }
         } else if (key === 'about') {
-          this.customElements.push('/#/' + key + '?widget=true');
+          this.customElements.push('#/' + key + '?widget=true');
         }
       }
     });

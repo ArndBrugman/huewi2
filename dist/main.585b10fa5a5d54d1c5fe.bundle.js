@@ -7424,22 +7424,21 @@ var HuewiHomeComponent = (function () {
     }
     HuewiHomeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var parameters;
         this.parametersSubscription = this.activatedRoute.queryParams.subscribe(function (params) {
             _this.customElements = [];
-            parameters = huewi_home_component___assign({}, params.keys, params);
+            var parameters = huewi_home_component___assign({}, params.keys, params);
             for (var key in parameters) {
                 if ((key === 'groups') || (key === 'lights') || (key === 'bridges') ||
                     (key === 'rules') || (key === 'scenes') || (key === 'schedules') || (key === 'sensors')) {
                     if (parseInt(parameters[key], 10) === NaN) {
-                        _this.customElements.push('/#/' + key + '?widget=true');
+                        _this.customElements.push('#/' + key + '?widget=true');
                     }
                     else {
-                        _this.customElements.push('/#/' + key + '/' + parseInt(parameters[key], 10) + '?widget=true');
+                        _this.customElements.push('#/' + key + '/' + parseInt(parameters[key], 10) + '?widget=true');
                     }
                 }
                 else if (key === 'about') {
-                    _this.customElements.push('/#/' + key + '?widget=true');
+                    _this.customElements.push('#/' + key + '?widget=true');
                 }
             }
         });

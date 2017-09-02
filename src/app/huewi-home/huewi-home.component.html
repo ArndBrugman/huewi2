@@ -1,8 +1,16 @@
-<div>
-    <huewi-groups>
-    </huewi-groups>
+<div *ngIf="customElements.length === 0">
+    <div class="sized">
+        <huewi-groups>
+        </huewi-groups>
+    </div>
+    <div class="sized">
+        <huewi-lights>
+        </huewi-lights>
+    </div>
 </div>
-<div>
-    <huewi-lights>
-    </huewi-lights>
+
+<div *ngIf="customElements.length >= 1">
+    <div [class.sized]="customElements.length >= 2" *ngFor="let element of customElements">
+        <embed [src]="element | safe">
+    </div>
 </div>

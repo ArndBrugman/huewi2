@@ -1,12 +1,17 @@
 @media screen and (orientation:landscape) {
-  div {
+  div.sized {
     float: left;
     width: 50%;
   }
 }
 @media screen and (orientation:portrait) {
-  div {
+  div.sized {
     float: left;
     width: 100%;
   }
+}
+
+embed {
+  width: 100%;
+  min-height: 100vh;
 }

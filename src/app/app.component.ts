@@ -4,8 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 import { HuepiService } from './shared/huepi.service';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'huewi-app-root',
@@ -15,18 +13,20 @@ import 'rxjs/add/observable/of';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'hue Web Interface';
   theme = 'defaults-to-light';
+  parametersSubscription;
   parameters;
 
   constructor(private huepiService: HuepiService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.parametersSubscription = this.activatedRoute.queryParams.subscribe(params => {
       this.parameters = {...params.keys, ...params};
     });
   }
 
   ngOnDestroy() {
+    this.parametersSubscription.unsubscribe();
   }
 
   toggleTheme() {

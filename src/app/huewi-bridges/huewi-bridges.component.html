@@ -7,7 +7,7 @@
       <button md-raised-button style="flex: 0 1 128px" (click)="scan()" *ngIf="!isScanning()">Scan</button>
       <button md-raised-button style="flex: 0 1 128px" (click)="cancelScan()" color="accent" *ngIf="isScanning()">Cancel Scan</button>
       <button md-raised-button style="flex: 0 1 128px" [disabled]="true">Manual IP:</button>
-      <input style="flex: 0 1 128px" [(ngModel)]="manualIP">
+      <input style="flex: 0 1 128px" [(ngModel)]="manualIP" (keydown.enter)="connect()">
       <button md-raised-button style="flex: 0 1 128px" (click)="connect()">Connect</button>
       <button md-raised-button style="flex: 0 1 128px" (click)="reload()">Reload</button>
     </div>

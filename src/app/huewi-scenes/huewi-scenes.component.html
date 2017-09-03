@@ -19,7 +19,7 @@
 
   <div *ngIf="selectedScene">
     <md-card-title>
-      <a [routerLink]="['/scenes']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+      <a *ngIf="back" [routerLink]="['/scenes']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
       Scene Details
     </md-card-title>
     <huewi-scene-details

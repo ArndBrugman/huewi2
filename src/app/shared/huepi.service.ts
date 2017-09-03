@@ -7,10 +7,7 @@ import axios from 'axios';
 import { Huepi, HuepiLightstate } from './../../../../huepi/huepi.js';
 
 import { HUEPI_MOCK } from './huepi.mock'
-import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
 
 @Injectable()
 export class HuepiService implements OnInit, OnDestroy {
@@ -219,35 +216,35 @@ window["MyHue"] = // DEBUGCODE
     return this.message.getValue();
   }
 
-  getWhitelist(): Observable<Array<any>> {
+  getWhitelist() {
     return this.whitelist;
   }
 
-  getBridges(): Observable<Array<any>> {
+  getBridges() {
     return this.bridges;
   }
 
-  getGroups(): Observable<Array<any>> {
+  getGroups() {
     return this.groups;
   }
 
-  getLights(): Observable<Array<any>> {
+  getLights() {
     return this.lights;
   }
 
-  getRules(): Observable<Array<any>> {
+  getRules() {
     return this.rules;
   }
 
-  getScenes(): Observable<Array<any>> {
+  getScenes() {
     return this.scenes;
   }
 
-  getSchedules(): Observable<Array<any>> {
+  getSchedules() {
     return this.schedules;
   }
 
-  getSensors(): Observable<Array<any>> {
+  getSensors() {
     return this.sensors;
   }
 

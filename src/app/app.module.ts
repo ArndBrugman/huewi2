@@ -13,6 +13,7 @@ import 'hammerjs/hammer';
 import { PipesModule } from './pipes/pipes.module';
 
 import { HuepiService } from './shared/huepi.service';
+import { ParametersService } from './shared/parameters.service';
 
 import { AppComponent } from './app.component';
 import { HuewiHomeComponent } from './huewi-home/huewi-home.component';
@@ -50,7 +51,8 @@ import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-c
     HuewiConnectionstatusComponent
   ],
   providers: [
-    HuepiService
+    HuepiService,
+    ParametersService
   ],
   bootstrap: [AppComponent]
 })

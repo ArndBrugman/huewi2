@@ -19,7 +19,7 @@
 
   <div *ngIf="selectedSchedule">
     <md-card-title>
-      <a [routerLink]="['/schedules']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+      <a *ngIf="back" [routerLink]="['/schedules']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
       Schedules Details
     </md-card-title>
     <huewi-schedule-details

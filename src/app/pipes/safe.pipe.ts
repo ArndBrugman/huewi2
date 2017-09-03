@@ -1,6 +1,3 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 
@@ -11,11 +8,3 @@ export class SafePipe implements PipeTransform {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
-
-@NgModule({
-    imports: [CommonModule],
-    declarations: [SafePipe],
-    exports: [SafePipe],
-})
-
-export class SafeModule { }

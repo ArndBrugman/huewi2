@@ -2,8 +2,15 @@
   [schedule]="schedule">
 </huewi-schedule>
 
-<div>schedule {{schedule.__key}}</div>
-<small>
-  Localtime: {{schedule.localtime}} Time: {{schedule.time}} (Created: {{schedule.created}})<br>
-  {{schedule.command.method}} {{schedule.command.address}} {{schedule.command.body | json}}
-</small>
+<div>
+  <div>schedule {{schedule.__key}}</div>
+  <md-icon *ngIf="!expand" (click)="expand=true">expand_more</md-icon>
+  <div *ngIf="expand">
+    <small>
+      <md-icon (click)="expand=false">expand_less</md-icon>
+      <md-divider></md-divider>
+      Localtime: {{schedule.localtime}} Time: {{schedule.time}} (Created: {{schedule.created}})<br>
+      {{schedule.command.method}} {{schedule.command.address}} {{schedule.command.body | json}}
+    </small>
+  </div>
+</div>

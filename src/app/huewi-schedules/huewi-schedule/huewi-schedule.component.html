@@ -4,5 +4,7 @@
     {{schedule.name}}
   </div>
   <div style="flex: 0 1 10px">
+    <md-icon *ngIf="schedule.status === 'enabled'">radio_button_checked</md-icon>
+    <md-icon *ngIf="schedule.status === 'disabled'">radio_button_unchecked</md-icon>      
   </div>
 </div>

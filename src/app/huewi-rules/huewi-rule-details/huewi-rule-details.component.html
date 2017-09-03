@@ -2,18 +2,26 @@
   [rule]="rule">
 </huewi-rule>
 
-<div>rule {{rule.__key}}</div>
-<small>
-  <b>conditions :</b><br>
-  <span *ngFor='let condition of rule.conditions; let last = last'>
-    {{'{'}} {{condition.address}} {{condition.operator}}
-    <span *ngIf='condition.value!==""'>'{{condition.value}}'</span> {{'}'}}
-    <span *ngIf='!last'> & <br></span>
-  </span>
-  <br>
-  <b>actions :</b><br>
-  <span *ngFor='let action of rule.actions; let last = last'>
-    {{'{'}} {{action.method}} {{action.address}} {{action.body | json}} {{'}'}}
-    <span *ngIf='!last'> + <br></span>
-  </span>
-</small>
+<div>
+  <div>rule {{rule.__key}}</div>
+  <md-icon *ngIf="!expand" (click)="expand=true">expand_more</md-icon>
+  <div *ngIf="expand">
+    <small>
+      <md-icon (click)="expand=false">expand_less</md-icon>
+      <md-divider></md-divider>
+
+      <b>conditions :</b><br>
+      <span *ngFor='let condition of rule.conditions; let last = last'>
+        {{'{'}} {{condition.address}} {{condition.operator}}
+        <span *ngIf='condition.value!==""'>'{{condition.value}}'</span> {{'}'}}
+        <span *ngIf='!last'> & <br></span>
+      </span>
+      <br>
+      <b>actions :</b><br>
+      <span *ngFor='let action of rule.actions; let last = last'>
+        {{'{'}} {{action.method}} {{action.address}} {{action.body | json}} {{'}'}}
+        <span *ngIf='!last'> + <br></span>
+      </span>
+    </small>
+  </div>
+</div>

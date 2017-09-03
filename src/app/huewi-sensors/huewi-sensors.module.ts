@@ -4,8 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
-import { OrderByModule } from '../pipes/orderby.module';
-import { FilterModule } from '../pipes/filter.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 import { HuewiSensorsComponent } from './huewi-sensors.component';
 import { HuewiSensorComponent } from './huewi-sensor/huewi-sensor.component';
@@ -18,8 +17,7 @@ import { HuewiSensorsRoutingModule } from './huewi-sensors-routing.module';
     CommonModule,
     MaterialModule,
     FormsModule,
-    OrderByModule,
-    FilterModule,
+    PipesModule,
     HuewiSensorsRoutingModule
   ],
   declarations: [

@@ -1,6 +1,3 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'orderBy', pure: false })
@@ -105,12 +102,3 @@ export class OrderByPipe implements PipeTransform {
         }
     }
 }
-
-
-@NgModule({
-  imports: [ CommonModule ],
-  declarations: [ OrderByPipe ],
-  exports: [ OrderByPipe ],
-})
-
-export class OrderByModule { }

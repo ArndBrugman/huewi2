@@ -7,6 +7,8 @@ import { RoutingAnimations } from './../app-routing.animations';
 import { HUEWI_BRIDGES_MOCK } from './huewi-bridges.mock'
 
 import { HuepiService } from '../shared/huepi.service';
+import { ParametersService } from '../shared/parameters.service';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -19,15 +21,22 @@ import 'rxjs/add/observable/of';
 export class HuewiBridgesComponent implements OnInit, OnDestroy {
   @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() bridges = HUEWI_BRIDGES_MOCK;
-  manualIP = '192.168.0.2';
+  @Input() back = true;
+  @Input() manualIP = '192.168.0.2';
   private bridgesSubscription;
   private bridgeObserver: Observable<Array<any>> = Observable.of(this.bridges);
   selectedBridge = undefined;
 
-  constructor(private huepiService: HuepiService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private huepiService: HuepiService, private parametersService: ParametersService,
+    private activatedRoute: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
+    const parameters = this.parametersService.getParameters();
+    if (parameters['widget']) {
+      this.back = false;
+    }
+
     this.bridgeObserver = this.huepiService.getBridges();
     this.bridgesSubscription = this.bridgeObserver.subscribe(value => {
       this.bridges = value;

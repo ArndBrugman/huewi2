@@ -17,8 +17,8 @@
 
   <div *ngIf="selectedGroup">
     <md-card-title>
-      <a [routerLink]="['/groups']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
-      {{selectedGroup.type}} Details
+      <a *ngIf="back" [routerLink]="['/groups']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+      {{selectedGroup.name}} - Details
     </md-card-title>
     <huewi-group-details
       [group]="selectedGroup">

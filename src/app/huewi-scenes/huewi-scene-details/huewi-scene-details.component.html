@@ -2,9 +2,16 @@
   [scene]="scene">
 </huewi-scene>
 
-<div>scene {{scene.__key}}</div>
-<small>
-  Lights: {{scene.lights}}<br>
-  Lastupdated: {{scene.lastupdated}}<br>
-  owned by {{scene.owner}})<br>
-</small>
+<div>
+  <div>scene {{scene.__key}}</div>
+  <md-icon *ngIf="!expand" (click)="expand=true">expand_more</md-icon>
+  <div *ngIf="expand">
+    <small>
+      <md-icon (click)="expand=false">expand_less</md-icon>
+      <md-divider></md-divider>
+      Lights: {{scene.lights}}<br>
+      Lastupdated: {{scene.lastupdated}}<br>
+      owned by {{scene.owner}}<br>
+    </small>
+  </div>
+</div>

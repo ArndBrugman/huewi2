@@ -19,8 +19,8 @@
 
   <div *ngIf="selectedRule">
     <md-card-title>
-      <a [routerLink]="['/rules']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
-      Rules Details
+      <a *ngIf="back" [routerLink]="['/rules']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+      {{selectedRule.name}} - Details
     </md-card-title>
     <huewi-rule-details
       [rule]="selectedRule">

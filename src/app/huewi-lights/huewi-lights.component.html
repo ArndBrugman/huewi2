@@ -17,8 +17,8 @@
 
   <div *ngIf="selectedLight">
     <md-card-title>
-      <a [routerLink]="['/lights']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
-      Light Details
+      <a *ngIf="back" [routerLink]="['/lights']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+      {{selectedLight.name}} - Details
     </md-card-title>
     <huewi-light-details
       [light]="selectedLight">

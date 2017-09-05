@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.parametersSubscription = this.activatedRoute.queryParams.subscribe(params => {
       this.parameters = {...params.keys, ...params};
     });
+    // this.theme = 'dark-theme';
   }
 
   ngOnDestroy() {

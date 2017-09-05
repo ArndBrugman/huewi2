@@ -13,6 +13,6 @@
   </md-slider>
   <md-slide-toggle style="flex: 0 1 10px" disabled="{{!light.state.reachable}}"
     [checked]="light.state.on"
-    (click)="toggle(light)">
+    (change)="toggle(light)">
   </md-slide-toggle>
 </div>

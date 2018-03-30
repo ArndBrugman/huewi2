@@ -1,7 +1,7 @@
 <div class="flexcontainer">
-  <md-input-container *ngIf="editable" style="flex: 1 1 50px">
+  <mat-input-container *ngIf="editable" style="flex: 1 1 50px">
     <input matInput [(ngModel)]="light.name" (keyup)="rename(light, $event.target.value)">
-  </md-input-container>
+  </mat-input-container>
   <div *ngIf="!editable" style="flex: 1 1 50px"
     (click)="select(light)">
     {{light.name}}

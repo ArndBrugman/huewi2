@@ -3,6 +3,10 @@ import { Component, HostBinding, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { RoutingAnimations } from './../app-routing.animations';
 
+import { VERSION } from '@angular/core';
+
+import { HuepiService } from '../shared/huepi.service';
+
 @Component({
   selector: 'huewi-about',
   templateUrl: './huewi-about.component.html',
@@ -11,13 +15,18 @@ import { RoutingAnimations } from './../app-routing.animations';
 })
 export class HuewiAboutComponent implements OnInit {
   @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
+  huepiVersion = 'x.x.x';
+  angularVersion = 'x.x.x';
   @Input() touchSequence = ['swiperight', 'swipeleft', 'press'];
   touchPhase = 0;
   touchDiscovered = false;
 
-  constructor() { }
+  constructor(private huepiService: HuepiService) {
+  }
 
   ngOnInit() {
+    this.huepiVersion = this.huepiService.MyHue.version;
+    this.angularVersion = VERSION.full;
     this.touchDiscovered = false;
   }
 

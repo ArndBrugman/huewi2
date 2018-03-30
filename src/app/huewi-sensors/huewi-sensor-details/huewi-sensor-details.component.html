@@ -5,11 +5,11 @@
 <div>
   <div>sensor {{sensor.__key}}</div>
   {{sensor.type}} - {{sensor.modelid}}<br>
-  <md-icon *ngIf="!expand" (click)="expand=true">expand_more</md-icon>
+  <mat-icon *ngIf="!expand" (click)="expand=true">expand_more</mat-icon>
   <div *ngIf="expand">
     <small>
-      <md-icon (click)="expand=false">expand_less</md-icon>
-      <md-divider></md-divider>
+      <mat-icon (click)="expand=false">expand_less</mat-icon>
+      <mat-divider></mat-divider>
       <b>config: </b><br>
       {{sensor.config | json}}
       <br>

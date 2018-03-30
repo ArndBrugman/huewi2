@@ -1,30 +1,30 @@
-<md-card>
+<mat-card>
 
   <div *ngIf="!selectedScene">
-    <md-card-title>
+    <mat-card-title>
       Scenes
       <small>
-        <md-input-container>
-          <input mdInput placeholder="Filter" [(ngModel)]="searchText">
-        </md-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Filter" [(ngModel)]="searchText">
+        </mat-input-container>
       </small>
-    </md-card-title>
-    <md-list>
-      <huewi-scene md-list-item
+    </mat-card-title>
+    <mat-list>
+      <huewi-scene mat-list-item
         *ngFor="let scene of scenes | orderBy:['+name'] | filter:searchText:'name'"
         [scene]="scene">
       </huewi-scene>
-    </md-list>
+    </mat-list>
   </div>
 
   <div *ngIf="selectedScene">
-    <md-card-title>
-      <a *ngIf="back" [routerLink]="['/scenes']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+    <mat-card-title>
+      <a *ngIf="back" [routerLink]="['/scenes']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
       {{selectedScene.name}} - Details
-    </md-card-title>
+    </mat-card-title>
     <huewi-scene-details
       [scene]="selectedScene">
     </huewi-scene-details>
   </div>
 
-</md-card>
+</mat-card>

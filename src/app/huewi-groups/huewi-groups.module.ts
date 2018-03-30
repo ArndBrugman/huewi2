@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 import { PipesModule } from '../pipes/pipes.module';
+import { MaterialModule } from '../app-material.module';
 
 import { HuewiGroupsComponent } from './huewi-groups.component';
 import { HuewiGroupComponent } from './huewi-group/huewi-group.component';
@@ -17,9 +17,9 @@ import { HuewiGroupsRoutingModule } from './huewi-groups-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
     FormsModule,
     PipesModule,
+    MaterialModule,
     HuewiGroupsRoutingModule
   ],
   declarations: [

@@ -1,14 +1,14 @@
-<md-card [@RoutingAnimations]>
+<mat-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedLight">
-    <md-card-title>
+    <mat-card-title>
       Lights
       <small>
-        <md-input-container>
-          <input mdInput placeholder="Filter" [(ngModel)]="searchText">
-        </md-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Filter" [(ngModel)]="searchText">
+        </mat-input-container>
       </small>
-    </md-card-title>
+    </mat-card-title>
     <huewi-light 
       *ngFor="let light of lights | orderBy:['+name'] | filter:searchText:'name'"
       [light]="light">
@@ -16,13 +16,13 @@
   </div>
 
   <div *ngIf="selectedLight">
-    <md-card-title>
-      <a *ngIf="back" [routerLink]="['/lights']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+    <mat-card-title>
+      <a *ngIf="back" [routerLink]="['/lights']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
       {{selectedLight.name}} - Details
-    </md-card-title>
+    </mat-card-title>
     <huewi-light-details
       [light]="selectedLight">
     </huewi-light-details>
   </div>
 
-</md-card>
+</mat-card>

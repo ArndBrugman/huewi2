@@ -1,29 +1,29 @@
-<md-card [@RoutingAnimations]
+<mat-card [@RoutingAnimations]
 (swipeleft)="onTouch($event.type)"
 (swiperight)="onTouch($event.type)"
 (tap)="onTouch($event.type)"
 (press)="onTouch($event.type)">
 
-  <md-card-title>About</md-card-title>
+  <mat-card-title>About</mat-card-title>
 
-  <md-card-subtitle>hue Web Interface...</md-card-subtitle>
+  <mat-card-subtitle>hue Web Interface...</mat-card-subtitle>
 
-  <md-card>
+  <mat-card>
     Made with Angular 2+, Angular Material, Flexbox, HammerJS, huepi and a little focus with some patience.
-  </md-card>
-  <md-card>
+  </mat-card>
+  <mat-card>
     Designed as a sample application for <a url='https://github.com/ArndBrugman/huepi'>huepi</a>.
-  </md-card>
-  <md-card>
+  </mat-card>
+  <mat-card>
     This application can also  hide toolbar and navbar to run as a widget with parameter &widget=true.
     It is even possible to use a custom homescreen with embedded widgets by using parameters like 
     groups=0 for a detail view on all lights group and/or sensors=1 for the daylight sensor,
     give it a <a [routerLink]="['/home']" [queryParams]="{sensors: '1', groups: '0'}">try</a>.
-  </md-card>
-  <md-card *ngIf="touchDiscovered">
+  </mat-card>
+  <mat-card *ngIf="touchDiscovered">
     <i>
     Using HammerJS for touch-events and -sequences like you just discovered.
     </i>
-  </md-card>
+  </mat-card>
 
-</md-card>
+</mat-card>

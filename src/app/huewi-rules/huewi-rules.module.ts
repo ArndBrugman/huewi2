@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 import { PipesModule } from '../pipes/pipes.module';
+import { MaterialModule } from '../app-material.module';
 
 import { HuewiRulesComponent } from './huewi-rules.component';
 import { HuewiRuleComponent } from './huewi-rule/huewi-rule.component';
@@ -15,9 +15,9 @@ import { HuewiRulesRoutingModule } from './huewi-rules-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
     FormsModule,
     PipesModule,
+    MaterialModule,
     HuewiRulesRoutingModule
   ],
   declarations: [

@@ -1,11 +1,11 @@
-<md-card class="status" *ngIf="getStatus() !== 'Connected'" [@StatusAnimations]>
+<mat-card class="status" *ngIf="getStatus() !== 'Connected'" [@StatusAnimations]>
 
-  <md-progress-bar mode="indeterminate"></md-progress-bar>
-  <md-toolbar [color]="warn" >
+  <mat-progress-bar [color]="warn" mode="indeterminate"></mat-progress-bar>
+  <mat-toolbar  >
     <div>{{getStatus()}}</div>
-  </md-toolbar>
-  <md-toolbar [color]="accent" *ngIf="getMessage() !== ''" [@StatusAnimations]>
+  </mat-toolbar>
+  <mat-toolbar [color]="accent" *ngIf="getMessage() !== ''" [@StatusAnimations]>
     <small><small><div>{{getMessage()}}</div></small></small>
-  </md-toolbar>
+  </mat-toolbar>
 
-</md-card>
+</mat-card>

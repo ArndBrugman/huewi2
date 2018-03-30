@@ -1,5 +1,5 @@
-<md-card>
-  <md-card-subtitle>Details</md-card-subtitle>
+<mat-card>
+  <mat-card-subtitle>Details</mat-card-subtitle>
   <div class="flexcontainer wrap justify-center">
     <div style="flex: 0 1 256px">
       Id: {{config.bridgeid.toLowerCase()}}
@@ -26,12 +26,12 @@
       Datastore: {{config.datastoreversion}}
     </div>
   </div>
-</md-card>
+</mat-card>
 
 <br>
 
-<md-card>
-  <md-card-subtitle>Whitelist authorisations</md-card-subtitle>
+<mat-card>
+  <mat-card-subtitle>Whitelist authorisations</mat-card-subtitle>
   <div class="flexcontainer" *ngFor="let listed of whitelist | orderBy:['-last use date']">
     <div style="flex: 1 1 256px" (click)="link(listed.__key)">
       {{listed.name}}
@@ -44,11 +44,11 @@
           </small>
         </small>
       </small>    
-      <md-icon *ngIf="isCurrent(listed.__key)">link</md-icon> 
+      <mat-icon *ngIf="isCurrent(listed.__key)">link</mat-icon> 
     </div>
-    <button md-raised-button style="flex: 0 1 128px" [disabled]="isCurrent(listed.__key)" (click)="delete(listed.__key)">
-      <md-icon *ngIf="isCurrent(listed.__key)">link</md-icon>
+    <button mat-raised-button style="flex: 0 1 128px" [disabled]="isCurrent(listed.__key)" (click)="delete(listed.__key)">
+      <mat-icon *ngIf="isCurrent(listed.__key)">link</mat-icon>
       Delete
     </button>
   </div>
-</md-card>
+</mat-card>

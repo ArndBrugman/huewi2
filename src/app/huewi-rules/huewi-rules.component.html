@@ -1,30 +1,30 @@
-<md-card [@RoutingAnimations]>
+<mat-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedRule">
-    <md-card-title>
+    <mat-card-title>
       Rules
       <small>
-        <md-input-container>
-          <input mdInput placeholder="Filter" [(ngModel)]="searchText">
-        </md-input-container>
+        <mat-input-container>
+          <input matInput placeholder="Filter" [(ngModel)]="searchText">
+        </mat-input-container>
       </small>
-    </md-card-title>
-    <md-list>
-      <huewi-rule md-list-item 
+    </mat-card-title>
+    <mat-list>
+      <huewi-rule mat-list-item 
         *ngFor="let rule of rules | orderBy:['+name'] | filter:searchText:'name'"
         [rule]="rule" >
       </huewi-rule>
-    </md-list>
+    </mat-list>
   </div>
 
   <div *ngIf="selectedRule">
-    <md-card-title>
-      <a *ngIf="back" [routerLink]="['/rules']" [replaceUrl]="true"><md-icon>navigate_before</md-icon></a>
+    <mat-card-title>
+      <a *ngIf="back" [routerLink]="['/rules']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
       {{selectedRule.name}} - Details
-    </md-card-title>
+    </mat-card-title>
     <huewi-rule-details
       [rule]="selectedRule">
     </huewi-rule-details>
   </div>
 
-</md-card>
+</mat-card>

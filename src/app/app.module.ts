@@ -4,7 +4,7 @@ import { enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule } from './app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -31,9 +31,9 @@ import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-c
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
     FormsModule,
     // NgbModule.forRoot(),
+    MaterialModule,
     PipesModule,
     HuewiGroupsModule,
     HuewiLightsModule,

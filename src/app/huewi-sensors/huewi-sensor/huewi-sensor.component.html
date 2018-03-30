@@ -17,7 +17,7 @@
     <div *ngIf="sensor.type=='Daylight'">{{sensor.state.daylight}}</div>
   </div>
   <div style="flex: 0 1 10px">
-    <md-icon *ngIf="sensor.config.on">radio_button_checked</md-icon>
-    <md-icon *ngIf="!sensor.config.on">radio_button_unchecked</md-icon>      
+    <mat-icon *ngIf="sensor.config.on">radio_button_checked</mat-icon>
+    <mat-icon *ngIf="!sensor.config.on">radio_button_unchecked</mat-icon>      
   </div>
 </div>

@@ -4,23 +4,23 @@
 <br>
 
 <div class="flexcontainer wrap justify-center">
-  <button md-raised-button style="flex: 1 1 128px" (click)="relax(group)">Relax</button>
-  <button md-raised-button style="flex: 1 1 128px" (click)="reading(group)">Reading</button>
-  <button md-raised-button style="flex: 1 1 128px" (click)="concentrate(group)">Concentrate</button>
-  <button md-raised-button style="flex: 1 1 128px" (click)="energize(group)">Energize</button>
-  <button md-raised-button style="flex: 1 1 128px" (click)="bright(group)">Bright</button>
-  <button md-raised-button style="flex: 1 1 128px" (click)="dimmed(group)">Dimmed</button>
-  <button md-raised-button style="flex: 1 1 128px" (click)="nightLight(group)">Nightlight</button>
-  <button md-raised-button style="flex: 1 1 128px" (click)="goldenHour(group)">Golden hour</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="relax(group)">Relax</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="reading(group)">Reading</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="concentrate(group)">Concentrate</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="energize(group)">Energize</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="bright(group)">Bright</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="dimmed(group)">Dimmed</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="nightLight(group)">Nightlight</button>
+  <button mat-raised-button style="flex: 1 1 128px" (click)="goldenHour(group)">Golden hour</button>
 </div>
 
 <br>
 
 <div class="flexcontainer wrap justify-center" *ngIf="group.__key !== '0'">
-  <md-checkbox style="flex: 0 1 128px" *ngFor="let light of lights | orderBy : '+name'"
+  <mat-checkbox style="flex: 0 1 128px" *ngFor="let light of lights | orderBy : '+name'"
   [checked]="hasLight(light.__key)" (click)="toggleLight(light.__key)">
     {{light.name}}
-  </md-checkbox>
+  </mat-checkbox>
 </div>
 
 <br>
@@ -28,6 +28,6 @@
 <div class="flexcontainer justify-end" *ngIf="group.__key !== '0'">
   <small>
     <i>Lights can be part of multple LightGroups but only one Room.</i>
-    <md-icon>info_outline</md-icon>
+    <mat-icon>info_outline</mat-icon>
   </small>
 </div>

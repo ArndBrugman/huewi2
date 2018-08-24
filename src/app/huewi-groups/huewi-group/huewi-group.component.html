@@ -1,7 +1,7 @@
 <div class="flexcontainer">
-  <mat-input-container *ngIf="editable" style="flex: 1 1 50px">
+  <mat-form-field *ngIf="editable" style="flex: 1 1 50px">
     <input matInput [(ngModel)]="group.name" (keyup)="rename(group, $event.target.value)">
-  </mat-input-container>
+  </mat-form-field>
   <div *ngIf="!editable" style="flex: 1 1 50px"
     (click)="select(group)">
     {{group.name}}

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedScene">
     <mat-card-title>
@@ -19,7 +19,7 @@
 
   <div *ngIf="selectedScene">
     <mat-card-title>
-      <a *ngIf="back" [routerLink]="['/scenes']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
+      <a *ngIf="back" routerLink="/scenes" replaceUrl="true"><mat-icon>navigate_before</mat-icon></a>
       {{selectedScene.name}} - Details
     </mat-card-title>
     <huewi-scene-details

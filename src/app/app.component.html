@@ -10,26 +10,26 @@
       </mat-toolbar>
 
     <nav mat-tab-nav-bar #navbar *ngIf="!parameters.widget">
-      <a mat-tab-link [routerLink]="['/home']" [replaceUrl]="true" routerLinkActive="active-link">Home</a>
-      <a mat-tab-link [routerLink]="['/groups']" [replaceUrl]="true" routerLinkActive="active-link">Groups</a>
-      <a mat-tab-link [routerLink]="['/lights']" [replaceUrl]="true" routerLinkActive="active-link">Lights</a>
-      <!--a mat-tab-link [routerLink]="['/bridges']" [replaceUrl]="true" routerLinkActive="active-link">Bridges</a>
-      <a mat-tab-link [routerLink]="['/about']" [replaceUrl]="true" routerLinkActive="active-link">About</a-->
+      <a mat-tab-link routerLink="/home" replaceUrl="true" routerLinkActive="active-link">Home</a>
+      <a mat-tab-link routerLink="/groups" replaceUrl="true" routerLinkActive="active-link">Groups</a>
+      <a mat-tab-link routerLink="/lights" replaceUrl="true" routerLinkActive="active-link">Lights</a>
+  <!-- a mat-tab-link routerLink="/bridges" replaceUrl="true" routerLinkActive="active-link">Bridges</a>
+      <a mat-tab-link routerLink="/about" replaceUrl="true" routerLinkActive="active-link">About</a -->
     </nav>
 
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a mat-list-item [routerLink]="['/home']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>home</mat-icon>Home</a>
-        <a mat-list-item [routerLink]="['/groups']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>group_work</mat-icon>Groups</a>
-        <a mat-list-item [routerLink]="['/lights']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>lightbulb_outline</mat-icon>Lights</a>
+        <a mat-list-item routerLink="/home" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>home</mat-icon>Home</a>
+        <a mat-list-item routerLink="/groups" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>group_work</mat-icon>Groups</a>
+        <a mat-list-item routerLink="/lights" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>lightbulb_outline</mat-icon>Lights</a>
         <mat-divider></mat-divider>
-        <a mat-list-item [routerLink]="['/rules']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>assignment</mat-icon>Rules</a>
-        <a mat-list-item [routerLink]="['/scenes']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>assignment_ind</mat-icon>Scenes</a>
-        <a mat-list-item [routerLink]="['/schedules']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>alarm</mat-icon>Schedules</a>
-        <a mat-list-item [routerLink]="['/sensors']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>all_out</mat-icon>Sensors</a>
+        <a mat-list-item routerLink="/rules" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>assignment</mat-icon>Rules</a>
+        <a mat-list-item routerLink="/scenes" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>assignment_ind</mat-icon>Scenes</a>
+        <a mat-list-item routerLink="/schedules" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>alarm</mat-icon>Schedules</a>
+        <a mat-list-item routerLink="/sensors" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>all_out</mat-icon>Sensors</a>
         <mat-divider></mat-divider>
-        <a mat-list-item [routerLink]="['/bridges']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>device_hub</mat-icon>Bridges</a>
-        <a mat-list-item [routerLink]="['/about']" [replaceUrl]="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>info</mat-icon>About</a>
+        <a mat-list-item routerLink="/bridges" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>device_hub</mat-icon>Bridges</a>
+        <a mat-list-item routerLink="/about" replaceUrl="true" routerLinkActive="active-link" (click)="sidenav.toggle()"><mat-icon>info</mat-icon>About</a>
         <mat-divider></mat-divider>
         <a mat-list-item (click)="toggleTheme()"><mat-icon>invert_colors</mat-icon>Theme</a>
       </mat-nav-list>

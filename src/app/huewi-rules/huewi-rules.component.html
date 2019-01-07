@@ -19,7 +19,7 @@
 
   <div *ngIf="selectedRule">
     <mat-card-title>
-      <a *ngIf="back" [routerLink]="['/rules']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
+      <a *ngIf="back" routerLink="/rules" replaceUrl="true"><mat-icon>navigate_before</mat-icon></a>
       {{selectedRule.name}} - Details
     </mat-card-title>
     <huewi-rule-details

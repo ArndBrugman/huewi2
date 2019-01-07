@@ -11,10 +11,9 @@ import { HuepiService } from '../shared/huepi.service';
   selector: 'huewi-about',
   templateUrl: './huewi-about.component.html',
   styleUrls: ['./huewi-about.component.css'],
-  animations: [RoutingAnimations()]
+  animations: [RoutingAnimations]
 })
 export class HuewiAboutComponent implements OnInit {
-  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   huepiVersion = 'x.x.x';
   angularVersion = 'x.x.x';
   @Input() touchSequence = ['swiperight', 'swipeleft', 'press'];

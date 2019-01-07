@@ -9,21 +9,19 @@ import { HUEWI_SCENES_MOCK } from './huewi-scenes.mock'
 import { HuepiService } from '../shared/huepi.service';
 import { ParametersService } from '../shared/parameters.service';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Subscription, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'huewi-scenes',
   templateUrl: './huewi-scenes.component.html',
   styleUrls: ['./huewi-scenes.component.css'],
-  animations: [RoutingAnimations()]
+  animations: [RoutingAnimations]
 })
 export class HuewiScenesComponent implements OnInit, OnDestroy {
-  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() scenes = HUEWI_SCENES_MOCK;
   @Input() back = true;
-  private scenesSubscription;
-  private sceneObserver: Observable<Array<any>> = Observable.of(this.scenes);
+  private scenesSubscription: Subscription;
+  private sceneObserver: Observable<Array<any>> = of(this.scenes);
   selectedScene = undefined;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService,

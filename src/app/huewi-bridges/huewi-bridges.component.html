@@ -20,7 +20,7 @@
 
   <div *ngIf="selectedBridge">
     <mat-card-title>
-      <a *ngIf="back" [routerLink]="['/bridges']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
+      <a *ngIf="back" routerLink="/bridges" replaceUrl="true"><mat-icon>navigate_before</mat-icon></a>
       Bridge Details
     </mat-card-title>    
     <huewi-bridge-details [bridge]="selectedBridge">

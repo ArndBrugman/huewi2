@@ -9,21 +9,19 @@ import { HUEWI_SENSORS_MOCK} from './huewi-sensors.mock'
 import { HuepiService } from '../shared/huepi.service';
 import { ParametersService } from '../shared/parameters.service';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Subscription, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'huewi-sensors',
   templateUrl: './huewi-sensors.component.html',
   styleUrls: ['./huewi-sensors.component.css'],
-  animations: [RoutingAnimations()]
+  animations: [RoutingAnimations]
 })
 export class HuewiSensorsComponent implements OnInit, OnDestroy {
-  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() sensors = HUEWI_SENSORS_MOCK;
   @Input() back = true;
-  private sensorsSubscription;
-  private sensorObserver: Observable<Array<any>> = Observable.of(this.sensors);
+  private sensorsSubscription: Subscription;
+  private sensorObserver: Observable<Array<any>> = of(this.sensors);
   selectedSensor = undefined;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService,

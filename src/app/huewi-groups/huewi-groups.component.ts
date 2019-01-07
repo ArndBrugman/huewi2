@@ -9,22 +9,20 @@ import { HUEWI_GROUPS_MOCK } from './huewi-groups.mock';
 import { HuepiService } from '../shared/huepi.service';
 import { ParametersService } from '../shared/parameters.service';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Subscription, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'huewi-groups',
   templateUrl: './huewi-groups.component.html',
   styleUrls: ['./huewi-groups.component.css'],
-  animations: [RoutingAnimations()]
+  animations: [RoutingAnimations]
 })
 export class HuewiGroupsComponent implements OnInit, OnDestroy {
-  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   private groupsType = 'Rooms';
   @Input() groups = HUEWI_GROUPS_MOCK;
   @Input() back = true;
-  private groupsSubscription;
-  private groupObserver: Observable<Array<any>> = Observable.of(this.groups);
+  private groupsSubscription: Subscription;
+  private groupObserver: Observable<Array<any>> = of(this.groups);
   selectedGroup = undefined;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService,

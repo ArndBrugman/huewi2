@@ -19,7 +19,7 @@
 
   <div *ngIf="selectedSensor">
     <mat-card-title>
-      <a *ngIf="back" [routerLink]="['/sensors']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
+      <a *ngIf="back" routerLink="/sensors" replaceUrl="true"><mat-icon>navigate_before</mat-icon></a>
       {{selectedSensor.name}} - Details
     </mat-card-title>
     <huewi-sensor-details

@@ -9,21 +9,19 @@ import { HUEWI_RULES_MOCK } from './huewi-rules.mock'
 import { HuepiService } from '../shared/huepi.service';
 import { ParametersService } from '../shared/parameters.service';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Subscription, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'huewi-rules',
   templateUrl: './huewi-rules.component.html',
   styleUrls: ['./huewi-rules.component.css'],
-  animations: [RoutingAnimations()]
+  animations: [RoutingAnimations]
 })
 export class HuewiRulesComponent implements OnInit, OnDestroy {
-  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() rules = HUEWI_RULES_MOCK;
   @Input() back = true;
-  private rulesSubscription;
-  private ruleObserver: Observable<Array<any>> = Observable.of(this.rules);
+  private rulesSubscription: Subscription;
+  private ruleObserver: Observable<Array<any>> = of(this.rules);
   selectedRule = undefined;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService,

@@ -9,21 +9,19 @@ import { HUEWI_SCHEDULES_MOCK } from './huewi-schedules.mock'
 import { HuepiService } from '../shared/huepi.service';
 import { ParametersService } from '../shared/parameters.service';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Subscription, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'huewi-schedules',
   templateUrl: './huewi-schedules.component.html',
   styleUrls: ['./huewi-schedules.component.css'],
-  animations: [RoutingAnimations()]
+  animations: [RoutingAnimations]
 })
 export class HuewiSchedulesComponent implements OnInit, OnDestroy {
-  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() schedules = HUEWI_SCHEDULES_MOCK;
   @Input() back = true;
-  private schedulesSubscription;
-  private scheduleObserver: Observable<Array<any>> = Observable.of(this.schedules);
+  private schedulesSubscription: Subscription;
+  private scheduleObserver: Observable<Array<any>> = of(this.schedules);
   selectedSchedule = undefined;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService,

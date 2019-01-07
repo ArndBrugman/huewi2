@@ -17,7 +17,7 @@
 
   <div *ngIf="selectedLight">
     <mat-card-title>
-      <a *ngIf="back" [routerLink]="['/lights']" [replaceUrl]="true"><mat-icon>navigate_before</mat-icon></a>
+      <a *ngIf="back" routerLink="/lights" replaceUrl="true"><mat-icon>navigate_before</mat-icon></a>
       {{selectedLight.name}} - Details
     </mat-card-title>
     <huewi-light-details

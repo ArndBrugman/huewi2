@@ -9,22 +9,20 @@ import { HUEWI_BRIDGES_MOCK } from './huewi-bridges.mock'
 import { HuepiService } from '../shared/huepi.service';
 import { ParametersService } from '../shared/parameters.service';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Subscription, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'huewi-bridges',
   templateUrl: './huewi-bridges.component.html',
   styleUrls: ['./huewi-bridges.component.css'],
-  animations: [RoutingAnimations()]
+  animations: [RoutingAnimations]
 })
 export class HuewiBridgesComponent implements OnInit, OnDestroy {
-  @HostBinding('@RoutingAnimations') get RoutingAnimations() { return true };
   @Input() bridges = HUEWI_BRIDGES_MOCK;
   @Input() back = true;
   @Input() manualIP = '192.168.0.2';
-  private bridgesSubscription;
-  private bridgeObserver: Observable<Array<any>> = Observable.of(this.bridges);
+  private bridgesSubscription: Subscription;
+  private bridgeObserver: Observable<Array<any>> = of(this.bridges);
   selectedBridge = undefined;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService,

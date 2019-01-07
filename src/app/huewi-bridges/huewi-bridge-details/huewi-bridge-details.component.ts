@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { HuepiService } from '../../shared/huepi.service';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Subscription, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'huewi-bridge-details',
@@ -13,8 +12,8 @@ export class HuewiBridgeDetailsComponent implements OnInit, OnDestroy {
   @Input() bridge = { name: 'None' };
   config;
   whitelist;
-  private whitelistSubscription;
-  private whitelistObserver: Observable<Array<any>> = Observable.of(this.whitelist);
+  private whitelistSubscription : Subscription;
+  private whitelistObserver: Observable<Array<any>> = of(this.whitelist);
 
   constructor(private huepiService: HuepiService) {
     this.config = huepiService.MyHue.BridgeConfig;

@@ -129,8 +129,8 @@ window["MyHue"] = // DEBUGCODE
       this.status.next('Bridge Discovered');
       this.reConnect();
     }).catch(() => {
-      this.status.next('Unable to Discover Bridge via Portal');
-    });
+      this.status.next('No Bridge discovered via Portal');
+    }); 
   }
 
   scan() {

@@ -22,7 +22,7 @@
     This application can also  hide toolbar and navbar to run as a widget with parameter &widget=true.
     It is even possible to use a custom homescreen with embedded widgets by using parameters like 
     groups=0 for a detail view on all lights group and/or sensors=1 for the daylight sensor,
-    give it a <a [routerLink]="['/home']" [queryParams]="{sensors: '1', groups: '0'}">try</a>.
+    give it a <a [routerLink]="['/home']" [queryParams]="{sensors: '1', groups: '0', widget: true}">try</a>.
   </mat-card>
   <mat-card *ngIf="touchDiscovered">
     <i>

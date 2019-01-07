@@ -26,6 +26,8 @@ import { HuewiSensorsModule } from './huewi-sensors/huewi-sensors.module';
 import { HuewiBridgesModule } from './huewi-bridges/huewi-bridges.module';
 import { HuewiAboutComponent } from './huewi-about/huewi-about.component';
 import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-connectionstatus.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
@@ -42,7 +44,8 @@ import { HuewiConnectionstatusComponent } from './huewi-connectionstatus/huewi-c
     HuewiSchedulesModule,
     HuewiSensorsModule,
     HuewiBridgesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   declarations: [
     AppComponent,

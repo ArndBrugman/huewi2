@@ -1,14 +1,14 @@
 <mat-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedGroup">
-    <mat-card-title>
-      <span (click)="changeGroupsType()">{{groupsType}}</span>
-      <small>
-        <mat-form-field>
-          <input matInput placeholder="Filter" [(ngModel)]="searchText">
-        </mat-form-field>
-      </small>
-    </mat-card-title>
+    <div class="flexcontainer">
+      <mat-card-title style="flex: 3 1 128px">
+        <span (click)="changeGroupsType()">{{groupsType}}</span>
+      </mat-card-title>
+      <mat-form-field style="flex: 1 1 128px">
+        <input matInput placeholder="Filter" [(ngModel)]="searchText">
+      </mat-form-field>
+    </div>
     <huewi-group 
       *ngFor="let group of groups | HuewiGroupsFilter:groupsType | orderBy:['+type','+name'] | filter:searchText:'name'"
       [group]="group">

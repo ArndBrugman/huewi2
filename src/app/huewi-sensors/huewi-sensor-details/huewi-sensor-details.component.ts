@@ -11,7 +11,7 @@ import { ParametersService } from '../../shared/parameters.service';
 export class HuewiSensorDetailsComponent implements OnInit, OnDestroy {
   @Input() sensor;
   @Input() back = true;
-  @Input() expand = false;
+  @Input() expand = true;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService) {
   }

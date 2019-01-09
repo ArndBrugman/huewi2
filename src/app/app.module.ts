@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import 'hammerjs/hammer';
 
 import { PipesModule } from './pipes/pipes.module';

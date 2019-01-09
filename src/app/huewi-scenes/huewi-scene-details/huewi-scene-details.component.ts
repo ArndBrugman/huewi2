@@ -10,7 +10,7 @@ import { ParametersService } from '../../shared/parameters.service';
 })
 export class HuewiSceneDetailsComponent implements OnInit, OnDestroy {
   @Input() scene;
-  @Input() expand = false;
+  @Input() expand = true;
 
   constructor(private huepiService: HuepiService, private parametersService: ParametersService) {
   }

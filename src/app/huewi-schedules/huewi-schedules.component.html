@@ -1,14 +1,14 @@
 <mat-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedSchedule">
-    <mat-card-title>
-      Schedules
-      <small>
-        <mat-form-field>
-          <input matInput placeholder="Filter" [(ngModel)]="searchText">
-        </mat-form-field>
-      </small>
-    </mat-card-title>
+    <div class="flexcontainer">
+      <mat-card-title style="flex: 3 1 128px">
+        Schedules
+      </mat-card-title>
+      <mat-form-field style="flex: 1 1 128px">
+        <input matInput placeholder="Filter" [(ngModel)]="searchText">
+      </mat-form-field>
+    </div>
     <mat-list>
       <huewi-schedule mat-list-item
         *ngFor="let schedule of schedules | orderBy:['+name'] | filter:searchText:'name'"

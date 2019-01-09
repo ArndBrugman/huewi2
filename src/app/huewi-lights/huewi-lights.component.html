@@ -1,14 +1,14 @@
 <mat-card [@RoutingAnimations]>
 
   <div *ngIf="!selectedLight">
-    <mat-card-title>
-      Lights
-      <small>
-        <mat-form-field>
-          <input matInput placeholder="Filter" [(ngModel)]="searchText">
-        </mat-form-field>
-      </small>
-    </mat-card-title>
+    <div class="flexcontainer">
+      <mat-card-title style="flex: 3 1 128px">
+        Lights
+      </mat-card-title>
+      <mat-form-field  style="flex: 1 1 128px">
+        <input matInput placeholder="Filter" [(ngModel)]="searchText">
+      </mat-form-field>
+    </div>
     <huewi-light 
       *ngFor="let light of lights | orderBy:['+name'] | filter:searchText:'name'"
       [light]="light">

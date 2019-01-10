@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import { HuepiService } from '../../shared/huepi.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'huewi-group-details',
@@ -9,7 +10,7 @@ import { HuepiService } from '../../shared/huepi.service';
 })
 export class HuewiGroupDetailsComponent implements OnInit, OnDestroy {
   @Input() group = { __key : '0' };
-  private lightsSubscription;
+  private lightsSubscription: Subscription;
   lights;
 
   constructor(private huepiService: HuepiService) {

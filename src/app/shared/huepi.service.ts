@@ -1,20 +1,18 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
-import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
-import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Router } from '@angular/router';
 
 import axios from 'axios';
 import { Huepi, HuepiLightstate } from './../../../../huepi/huepi.js';
 
 import { HUEPI_MOCK } from './huepi.mock'
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable()
 export class HuepiService implements OnInit, OnDestroy {
   private heartbeat;
   public MyHue;
   private status: BehaviorSubject<String> = new BehaviorSubject('Connecting');
-  private statusSubscription;
+  private statusSubscription: Subscription;
   private message: BehaviorSubject<String> = new BehaviorSubject('');
 
   private bridges: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
@@ -130,7 +128,7 @@ window["MyHue"] = // DEBUGCODE
       this.reConnect();
     }).catch(() => {
       this.status.next('No Bridge discovered via Portal');
-    }); 
+    });
   }
 
   scan() {

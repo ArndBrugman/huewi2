@@ -12,7 +12,7 @@ export class HuewiBridgeDetailsComponent implements OnInit, OnDestroy {
   @Input() bridge = { name: 'None' };
   config;
   whitelist;
-  private whitelistSubscription : Subscription;
+  private whitelistSubscription: Subscription;
   private whitelistObserver: Observable<Array<any>> = of(this.whitelist);
 
   constructor(private huepiService: HuepiService) {

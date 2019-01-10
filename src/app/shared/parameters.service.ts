@@ -2,11 +2,11 @@ import { Injectable, OnInit, OnDestroy } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable()
 export class ParametersService implements OnInit, OnDestroy {
-  private parametersSubscription;
+  private parametersSubscription: Subscription;
   private parameters: BehaviorSubject<Array<any>> = new BehaviorSubject(Array([]));
 
   constructor(private activatedRoute: ActivatedRoute) {

@@ -4,16 +4,24 @@
 
 <div>
   <div>sensor {{sensor.__key}}</div>
-  {{sensor.type}} - {{sensor.modelid}}<br>
-  <mat-icon *ngIf="!expand" (click)="expand=true">expand_more</mat-icon><br>
+  <div>{{sensor.type}} - {{sensor.modelid}}</div>
+  <div *ngIf="!expand" (click)="expand=true">
+    <mat-icon>expand_more</mat-icon>
+    <br>
+  </div>
   <div *ngIf="expand">
-    <small>
-      <mat-icon (click)="expand=false">expand_less</mat-icon>
-      <mat-divider></mat-divider>
-      <b>config: </b><br>
-      {{sensor.config | json}}
+    <div (click)="expand=false"> 
+      <mat-icon>expand_less</mat-icon>
       <br>
-      <b>state: </b><br>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <br>
+    </div>
+    <small>
+      <div><b>Config: </b></div>
+      <div>{{sensor.config | json}}</div>
+      <div><b>State: </b></div>
       {{sensor.state | json}}
     </small>
   </div>

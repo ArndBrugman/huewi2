@@ -4,14 +4,23 @@
 
 <div>
   <div>scene {{scene.__key}}</div>
-  <mat-icon *ngIf="!expand" (click)="expand=true">expand_more</mat-icon><br>
+  <div *ngIf="!expand" (click)="expand=true">
+    <mat-icon>expand_more</mat-icon>
+    <br>
+  </div>
   <div *ngIf="expand">
+    <div (click)="expand=false"> 
+      <mat-icon>expand_less</mat-icon>
+      <br>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <br>
+    </div>
     <small>
-      <mat-icon (click)="expand=false">expand_less</mat-icon>
-      <mat-divider></mat-divider>
-      Lights: {{scene.lights}}<br>
-      Lastupdated: {{scene.lastupdated}}<br>
-      owned by {{scene.owner}}<br>
+      <div>Lights: {{scene.lights}}</div>
+      <div>Lastupdated: {{scene.lastupdated}}</div>
+      <div>Owned by {{scene.owner}}</div>
     </small>
   </div>
 </div>

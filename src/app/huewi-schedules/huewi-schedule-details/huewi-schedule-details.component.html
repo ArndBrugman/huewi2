@@ -4,11 +4,20 @@
 
 <div>
   <div>schedule {{schedule.__key}}</div>
-  <mat-icon *ngIf="!expand" (click)="expand=true">expand_more</mat-icon><br>
+  <div *ngIf="!expand" (click)="expand=true">
+    <mat-icon>expand_more</mat-icon>
+    <br>
+  </div>
   <div *ngIf="expand">
+    <div (click)="expand=false"> 
+      <mat-icon>expand_less</mat-icon>
+      <br>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <br>
+    </div>
     <small>
-      <mat-icon (click)="expand=false">expand_less</mat-icon>
-      <mat-divider></mat-divider>
       Localtime: {{schedule.localtime}} Time: {{schedule.time}} (Created: {{schedule.created}})<br>
       {{schedule.command.method}} {{schedule.command.address}} {{schedule.command.body | json}}
     </small>
